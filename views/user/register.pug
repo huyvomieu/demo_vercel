@@ -1,0 +1,62 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/css/signup.css')
+  title Login 
+// ****** header *****
+header
+  nav
+    img.logo_icon(src='../image/signup_image/login_logo.png' alt='')
+    ul.menu
+      li
+        a(href='/') Home
+      li
+        a(href='/') About
+      li
+        a(href='/') Contact
+      li
+        a(href='/') FAQ
+    .login_up
+      a.signup(href='/user/register') Sign up
+      a.login(href='/user/login') Log In
+form.signup(action='')
+  h1 Create an account
+  .already
+    span Already have one ? 
+    a(href='/user/login') Login
+  .check_role
+    input#individual(type='radio' name='role' value='individual')
+    label(for='individual') Individual
+    input#Business(type='radio' name='role' value='Business')
+    label(for='Business') Business
+  .name
+    input.firstname(type='text' required='' placeholder='First name')
+    input.lastname(type='text' required='' placeholder='Last name')
+  .username_container
+    input#username.custom_username(type='text' name='username' placeholder='Email address / Phone number' required='')
+  .password_container
+    input#password.custom_password(type='password' name='password' placeholder='Password' required='')
+  .confrim_password_container
+    input#password.custom_confirm_password(type='password' name='password' placeholder='Confrim Password' required='')
+  .agree
+    input.agree_checkbox(type='checkbox' required='')
+    span
+      | I agree to the 
+      a(href='') Term of Use
+      |  &amp;
+      a(href='') Privacy Policy
+  input.cre_account(type='button' value='Create account')
+footer
+  p.Copyright
+    | Copyright &copy; 2022 TicketBooker. All rights reserved.
+  .icon
+    a(href='')
+      img(src='../image/signup_image/ph_instagram-logo.svg' alt='insta')
+    a(href='')
+      img(src='../image/signup_image/ri_linkedin-box-fill.svg' alt='linkd')
+    a(href='')
+      img(src='../image/signup_image/mdi_twitter.svg' alt='twitter')
+  .pt
+    a(href='') Privacy Policy
+    a(href='') Term of Use

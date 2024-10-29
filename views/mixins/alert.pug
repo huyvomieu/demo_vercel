@@ -1,0 +1,32 @@
+mixin alert-success(time) 
+    - if (messages.success)
+                div(
+                    class = "alert alert-success"
+                    data-time = time,
+                    show-alert
+                )
+                    span= messages.success
+mixin alert-danger(time) 
+    - if (messages.danger)
+                div(
+                    class = "alert alert-danger"
+                    data-time = time,
+                    show-alert
+                )
+                    span= messages.danger
+mixin alert-warning(time) 
+    - if (messages.warning)
+                div(
+                    class = "alert alert-warning"
+                    data-time = time,
+                    show-alert
+                )
+                    span= messages.warning
+mixin alert-error(time) 
+    - if (messages.error)
+                div(
+                    class = "alert alert-error"
+                    data-time = time,
+                    show-alert
+                )
+                    span= messages.error

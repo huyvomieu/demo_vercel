@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: "Poppins";
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/poppins_light.otf") format("truetype");
+}
+a {
+    text-decoration: none;
+    color: #141212;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 16px;
+    z-index: 999;
+    background-color: #1c1c1c;
+}
+
+header > .iconNav {
+    width: 60px;
+    height: 80%;
+    border-radius: 12px;
+    text-align: center;
+}
+
+header > #iconNav:hover,
+header > #home:hover {
+    background-color: #cbc0c0;
+}
+
+#navChild {
+    width: 932px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f9ca50;
+    padding: 12px 12px;
+    border-radius: 32px;
+}
+
+#navChild > .search_container > input {
+    outline: none;
+}
+
+#navChild > .iconBtn {
+    text-align: center;
+    width: 80px;
+}
+
+#home > img {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+#home > p {
+    color: #fff;
+    text-align: center;
+}
+
+.search_container {
+    background-color: #1c1c1c;
+    width: 485px;
+    height: 48px;
+    display: flex;
+    border-radius: 32px;
+    padding: 12px 12px;
+}
+
+.search_container > input {
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1c;
+    color: white;
+    border: none;
+    padding-left: 12px;
+}
+
+.search_container > img {
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+.iconBtn:hover {
+    background-color: wheat;
+    border-radius: 24px;
+}
+
+.banner_container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    top: 126px;
+    width: 100%; /* Đảm bảo container chiếm toàn bộ màn hình */
+    height: 800px; /* Chiều cao toàn màn hình */
+}
+
+.banner {
+    flex: 0 0 100%; /* Mỗi banner chiếm 100% chiều rộng của container */
+    height: 100%; /* Chiều cao 100% của container */
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: none;
+    transition: 0.5s ease-in-out;
+    z-index: 5;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.banner.active {
+    display: block;
+    opacity: 1;
+}
+
+.banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh che toàn bộ banner */
+}
+
+.banner > .content {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    z-index: 2;
+    color: #fff;
+    width: 396px;
+    height: 467px;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner > .content > h1 {
+    text-align: center;
+    height: 82px;
+    font-size: 40px;
+    line-height: 62.5px;
+}
+.banner > .content > .intro {
+    text-align: right;
+    line-height: 31.25px;
+    font-size: 20px;
+}
+
+.content > .ct {
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+.content > .content_child > h2,
+.content > .content_child > p {
+    text-align: center;
+    margin: 8px 0;
+}
+.banner > .content > .content_child > .response {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.banner > .content > .content_child > button {
+    width: 100%;
+    border: none;
+    background-color: #fcc434;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 0;
+    margin: 20px 0;
+}
+
+.banner > .content > .content_child > button:hover {
+    background-color: white;
+    color: #fcc434;
+    transition: 0.4s ease-in-out;
+}
+.response > .rp {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.trans {
+    display: flex;
+    gap: 20px;
+    color: white;
+    width: 500px;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.trans > img {
+    background-color: #1e1e1e;
+    color: #fcc434;
+    border-radius: 50%;
+    padding: 12px 12px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.trans > ul {
+    display: flex;
+    gap: 20px;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: #fcc434;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    transition: box-shadow 0.3s ease; /* Hiệu ứng mượt khi hover */
+}
+
+/* Hiệu ứng khi hover vào dot */
+.dot:hover,
+.dot.active {
+    box-shadow: 0 0 10px 5px #df2144cc;
+    width: 20px;
+    height: 20px;
+}
+
+.trans > img:hover {
+    box-shadow: 0 0 10px 5px #fcc434;
+}
+
+.list_movie_playing,
+.list_movie_coming_soon {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex: 1;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    margin: 0 30px;
+    margin-top: 20px;
+}
+
+.playing {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.playing > .category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.movie_playing {
+    margin-top: 20px;
+    min-width: 100px;
+    flex: 0 0 23.5%;
+}
+
+.movie_playing > .poster {
+    width: 100%;
+    height: 450px;
+}
+
+.poster > img {
+    width: 100%;
+    height: 100%;
+}
+
+.movie_playing > .title {
+    color: #fcc434;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 12px 0;
+}
+.inf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inf > button {
+    background-color: #f9ca50;
+    color: white;
+    border-radius: 32px;
+    padding: 12px 12px;
+    width: 100px;
+}
+
+.inf-detail > p {
+    margin: 8px 0;
+}
+
+.inf-detail > p > i {
+    margin-right: 12px;
+}
+
+#see {
+    color: #fcc434;
+    font-size: 20px;
+}
+
+footer {
+    color: white;
+    background-color: #141212;
+}
+footer > .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    text-align: center;
+}
+
+.container > .ctn_left {
+    display: flex;
+    flex: 1;
+    padding-top: 30px;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.ctn_left > p {
+    position: absolute;
+    border-top-right-radius: 80px;
+    background-color: #f9ca50e8;
+    padding: 20px 30px;
+    width: 55%;
+    margin-top: 12px;
+    bottom: 0;
+}
+
+.footer-left {
+    padding-left: 30%;
+}
+
+.footer-left > hr,
+.footer-center > hr {
+    width: 90%;
+    margin: 12px auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul > li {
+    line-height: 32px;
+}
+
+.social-media a i {
+    margin: 0 10px;
+    color: #fff;
+}
+
+.footer-right > h2 {
+    background-color: #f9ca50e8;
+    padding: 30px 12px;
+    border-bottom-left-radius: 70px;
+}
+
+.footer-right > .contact {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+}
+
+.footer-right > p {
+    text-align: justify;
+    width: 80%;
+    margin: 12px auto;
+}
+
+.footer-right > .contact {
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: white;
+    color: #fcc434;
+    border: 1px solid #fcc434;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* slick icon */
+.slick-prev,
+.slick-next {
+    z-index: 10;
+    border: none;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: black;
+}
+
+.slick-prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.slick-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.slick-initialized .slick-slide {
+    margin: 0 10px;
+}

@@ -1,0 +1,28 @@
+/* show alert */
+[show-alert] {
+    position: fixed !important;
+    top: 70px;
+    right: 44px;
+    z-index: 9999;
+    background-color: rgb(206, 239, 74);
+    font-size: 30px;
+}
+
+[show-alert].alert-hidden {
+    animation-name: alert-hidden;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+    from {
+        right: 44px;
+    }
+
+    to {
+        right: -100%;
+        display: none;
+    }
+}
+
+/* end show alert */

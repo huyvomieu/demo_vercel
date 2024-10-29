@@ -1,0 +1,151 @@
+include ../mixins/alert.pug
+
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Home Page
+  link(rel='stylesheet' href='./css/homePage.css')
+  link(rel='stylesheet' href='./css/flash.css')
+  link(rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
+header
+  +alert-success(2000)
+  +alert-error(2)
+  #iconNav
+    img(src='./image/navbar.svg' alt='')
+  #home
+    img(src='./image/home.svg' alt='')
+    p Home
+  #navChild
+    .search_container
+      img(src='./image/search-normal.svg' alt='')
+      input.searchInput(type='text' placeholder='Search')
+    .iconBtn(onclick='hello')
+      img(src='./image/ticket.svg' alt='')
+      p Ticket
+    .iconBtn
+      img(src='./image/video.svg' alt='')
+      p Movie
+    a.iconBtn(href='/user/register')
+      img(src='./image/user.svg' alt='')
+      p Sign Up
+  img(src='./image/notification.svg' alt='')
+.banner_container
+  each banner in banners
+    .banner.fade
+      img(src=`/image/${banner.img}` alt='')
+      .content
+        h1 #{banner.title}
+        p.intro Gi&#x1EDB;i thi&#x1EC7;u phim
+        p.ct #{banner.details}
+        .content_child
+          h2 Th&#x1EC3; lo&#x1EA1;i
+          p #{banner.category}
+          .response
+            .rp
+              img(src='/image/cib_imdb.svg' alt='')
+              p #{banner.point}
+            .rp
+              img(src='/image/zondicons_time.svg' alt='')
+              p #{banner.duration}
+          button.details Chi ti&#x1EBF;t
+
+.trans
+  img.prev(src='./image/prev.svg' alt='prev')
+  ul
+    .dot
+    .dot
+    .dot
+    .dot
+    .dot
+    .dot
+  img.next(src='./image/next.svg' alt='next')
+.playing(style='color: white; margin-top: 200px')
+  .category
+    h1 NOW PLAYING
+    a#see(href='') See All &gt;&gt;
+  hr
+  .list_movie_playing
+    each movie in movies 
+      .movie_playing
+        .poster
+          img(src=movie.avatar alt='')
+        .title #{movie.name}
+        .inf
+          .inf-detail
+            p
+              i.fa-solid.fa-video
+              | #{movie.author}
+            p
+              i.fa-solid.fa-calendar
+              | #{movie.date}
+          button#book_ticket Đặt vé
+
+.playing(style='color: white; margin-top: 200px')
+  .category
+    h1 COMING SOON
+    a#see(href='') See All &gt;&gt;
+  hr
+  .list_movie_coming_soon
+    each movie in movies 
+      .movie_playing
+        .poster
+          img(src=movie.avatar alt='')
+        .title #{movie.name}
+        .inf
+          .inf-detail
+            p
+              i.fa-solid.fa-video
+              | #{movie.author}
+            p
+              i.fa-solid.fa-calendar
+              | #{movie.date}
+          button#book_ticket Đặt vé
+#mockup
+  img(src='./image/Mockup.svg' alt='')
+footer#ft
+  .container
+    .ctn_left
+      .footer-left
+        h3 Th&ocirc;ng tin
+        hr
+        ul
+          li Li&ecirc;n h&#x1EC7;
+          li Gi&#x1EDB;i thi&#x1EC7;u
+          li Khi&#x1EBF;u n&#x1EA1;i b&#x1EA3;n quy&#x1EC1;n
+          li Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t
+      .footer-center
+        h3 Ng&#x1B0;&#x1EDD;i th&#x1EF1;c hi&#x1EC7;n
+        hr
+        ul
+          li Nguy&#x1EC5;n C&ocirc;ng B&#x1EB1;ng
+          li Ho&agrave;ng Thu Th&#x1EA3;o
+          li Nguy&#x1EC5;n &Dstrok;&igrave;nh Linh
+          li Nguy&#x1EC5;n Qu&#x1ED1;c Huy
+          li L&ecirc; Tr&acirc;n Huy
+      p
+    .footer-right
+      h2 Build Your Dream
+      p
+        | Website b&aacute;n v&eacute; xem phim online gi&uacute;p ng&#x1B0;&#x1EDD;i d&ugrave;ng d&#x1EC5; d&agrave;ng
+        | ch&#x1ECD;n phim, so s&aacute;nh gi&aacute; v&agrave; &dstrok;&#x1EB7;t v&eacute; nhanh ch&oacute;ng. Kh&aacute;ch h&agrave;ng
+        | c&oacute; th&#x1EC3; xem l&#x1ECB;ch chi&#x1EBF;u, ch&#x1ECD;n gh&#x1EBF; v&agrave; thanh to&aacute;n tr&#x1EF1;c
+        | tuy&#x1EBF;n. H&#x1EC7; th&#x1ED1;ng cung c&#x1EA5;p tr&#x1EA3;i nghi&#x1EC7;m ti&#x1EC7;n l&#x1EE3;i, gi&#x1EA3;m
+        | thi&#x1EC1;u th&#x1EDD;i gian ch&#x1EDD; &dstrok;&#x1EE3;i t&#x1EA1;i r&#x1EA1;p. Giao di&#x1EC7;n &dstrok;&#x1A1;n gi&#x1EA3;n v&agrave;
+        | th&acirc;n thi&#x1EC7;n v&#x1EDB;i ng&#x1B0;&#x1EDD;i d&ugrave;ng.
+      .contact
+        p Hotline: 0********312
+        .social-media
+          a(href='#')
+            i.fab.fa-facebook-f
+          a(href='#')
+            i.fab.fa-twitter
+          a(href='#')
+            i.fab.fa-youtube
+          a(href='#')
+            i.fa-brands.fa-instagram
+script(type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.min.js')
+script(type='text/javascript' src='https://code.jquery.com/jquery-migrate-1.2.1.min.js')
+script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+script(type='module' src='/javascript/homePage.js')
+script(src="/javascript/showAlert.js")

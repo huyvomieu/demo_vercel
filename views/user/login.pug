@@ -1,0 +1,66 @@
+include ../mixins/alert.pug
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/css/login.css')
+  link(rel='stylesheet' href='/css/flash.css')
+  title Login Movie Booking tikets
+// ****** header *****
+header
+  
+  nav
+    img.logo_icon(src='/image/login_image/login_logo.png' alt='')
+    ul.menu
+      li
+        a(href='/') Home
+      li
+        a(href='') About
+      li
+        a(href='') Contact
+      li
+        a(href='') FAQ
+    .login_up
+      a.signup(href='/user/register') Sign up
+      a.login(href='/user/login') Log In
+// ****** form login *****
++alert-error(2000)
+.form_login
+  form(method = "post" action='/user/login' formLogin)
+    h1 WELCOME BACK!
+    .signup
+      span Don&apos;t have an account?
+      a(href='/user/register') Sign up
+    .username_container
+      input#username.custom_username(type='text' name='email' placeholder='Email address / Phone number' required='')
+    .password_container
+      input#password.custom_password(type='password' name='password' placeholder='Password' required='')
+    .remember
+      input.remember_checkbox(type='checkbox')
+      span Remember me
+    input.login_btn(type='button' value='Login' inputSumbit )
+// footer
+footer
+  p.Copyright
+    | Copyright &copy; 2022 TicketBooker. All rights reserved.
+  .icon
+    a(href='')
+      img(src='/image/login_image/ph_instagram-logo.svg' alt='insta')
+    a(href='')
+      img(src='/image/login_image/ri_linkedin-box-fill.svg' alt='linkd')
+    a(href='')
+      img(src='/image/login_image/mdi_twitter.svg' alt='twitter')
+  .pt
+    a(href='') Privacy Policy
+    a(href='') Term of Use
+
+script.
+  var inputSumbit = document.querySelector("[inputSumbit]");
+  if(inputSumbit) {
+    console.log("ok")
+    inputSumbit.addEventListener("click", (e)  => {
+      var formLogin = document.querySelector("[formLogin]");
+      formLogin.submit()
+    })
+  }
+script(src="/javascript/showAlert.js")
