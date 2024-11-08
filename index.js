@@ -4,8 +4,10 @@ const path = require('path')
 const flash = require('express-flash')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const methodOverride = require('method-override')
 const routeAPI = require('./routes/api/index.route')
 const routeViews = require("./routes/views/index.route")
+const routeAdmin = require("./routes/admin/index.admin.route")
 
 require("dotenv").config()
 
@@ -19,6 +21,8 @@ database.connectDB();
 // views engine
 app.set('view engine', 'pug')
 app.set('views', `${__dirname}/views`)
+
+app.use(methodOverride("_method"));
 
 // data public
 app.use(express.static(path.join(__dirname, 'public')))
@@ -39,6 +43,7 @@ app.use(flash());
 
 // routes
 routeViews(app)
+routeAdmin(app)
 routeAPI(app)
 
 // listening PORT 3000

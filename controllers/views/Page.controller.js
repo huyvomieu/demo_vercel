@@ -6,14 +6,12 @@ class PageController {
     async homePage(req, res, err) {
         const banners = await Banner.find({});
         const movies = await Movie.find({});
-        // res.json(banners)
-        res.render("pages/homePage",
+        res.render("client/pages/homePage",
             {
                 banners: banners,
                 movies: movies,
             }
         );
     }
-
 }
 module.exports = new PageController

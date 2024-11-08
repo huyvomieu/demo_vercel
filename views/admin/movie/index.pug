@@ -1,0 +1,39 @@
+extends ../layouts/main.pug
+block content
+    div(class= "text-right mt-3")
+        a(href="/admin/movie/create" class= "btn btn-primary") Create new movie
+    table(class= "table table-striped mt-3")
+        thead.table-dark
+            tr
+                th No
+                th Thumnail
+                th Title
+                th Author
+                th Start date
+                th 
+        tbody
+            - var count = 1
+            each movie in movies
+                tr
+                    td #{count++}
+                    td 
+                        img(src= movie.avatar  width="30px" )
+                    td #{movie.name}
+                    td #{movie.author}
+                    td #{movie.date}
+                    th
+                        a(href= `/admin/movie/edit/${movie.id}` class= "btn btn-primary") Edit
+                        button(type="button" class= "btn btn-danger" data-id=movie.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-movie) Delete
+    form(action=``, method="post" id= "form-delete") 
+    .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Xác nhận Xóa
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    p Bạn có chắc chắn xóa phim này?
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Hủy
+                    button.btn.btn-primary(type='button' id= 'btn-modal-delete') OK

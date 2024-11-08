@@ -3,7 +3,7 @@ const md5 = require("md5")
 class UserController {
     // [GET] user/login
     async login(req, res, err) {
-        res.render("user/login");
+        res.render("client/user/login");
     }
     // [POST] user/loginPost
     async loginPost(req, res, err) {
@@ -28,7 +28,7 @@ class UserController {
     }
     // [GET] user/register
     async register(req, res, err) {
-        res.render("user/register");
+        res.render("client/user/register");
     }
     // [POST] user/registerPOST
     async registerPost(req, res, err) {
@@ -51,7 +51,7 @@ class UserController {
         try {
             req.body.password = md5(req.body.password)
             const user = new User(req.body);
-            console.log(req.body)
+
             await user.save();
             res.json({
                 code: 200,

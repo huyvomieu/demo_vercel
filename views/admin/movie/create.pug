@@ -1,0 +1,23 @@
+extends ../layouts/main.pug
+block content
+    .form.my-3
+        form(class= "form" action="/admin/movie/createPost", method="post")
+            .form-group
+                label() Title
+                input.form-control(type="text", placeholder="", id="name", name="name")
+            .form-group
+                label() Description
+                input.form-control(type="text", placeholder="", id="name", name="name")
+            .form-group
+                label() Author
+                input.form-control(type="text", placeholder="", id="name", name="name")
+            .form-group
+                label() Performer
+                input.form-control(type="text", placeholder="", id="performer", name="performer")
+            .form-group
+                label() Duration
+                input.form-control(type="text", placeholder="", id="duration", name="duration")
+            .form-group
+                label() Image
+                input.form-control(type="text", placeholder="Link Image" id="duration", name="duration")
+            button(type="submit" class="btn btn-primary") Create
