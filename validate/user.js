@@ -28,8 +28,8 @@ module.exports.validateRegister = (req, res, next) => {
         res.redirect("back")
         return;
     }
-    if (!password) {
-        req.flash("error", "Vui lòng nhập mật khẩu!");
+    if (!password || password.length > 20) {
+        req.flash("error", "Vui lòng nhập mật khẩu hoặc mật khẩu quá dài!");
         res.redirect("back")
         return;
     }

@@ -26,7 +26,8 @@ head
     }
   // Custom styles for this template
   link(href='/admin/css/dashboard.css' rel='stylesheet')
-
+include ../../mixins/alert.pug
++alert-success(2000)
 input.d-none(value = title activeNavbar)
 
 nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
