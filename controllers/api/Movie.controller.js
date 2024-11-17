@@ -3,7 +3,13 @@ const Movie = require("../../models/Movie.model")
 class MovieController {
     // [GET] /api/v1/movie/index
     async index(req, res, err) {
-        const movies = await Movie.find({});
+        // if (req.query.q) {
+        //     var valueSearch = new RegExp(valueSearch, "i")
+        // }
+        let find = {
+            name: new RegExp(req.query.q, "i")
+        }
+        const movies = await Movie.find(find).limit(5)
         res.json(movies);
     }
     // [GET] /api/v1/movie/detail/:id

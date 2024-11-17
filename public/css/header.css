@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  width: 1440px;
+  height: 924px;
+  background: var(--Background---Dark, #000);
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+ul {
+  list-style: none;
+}
+/* ********************* header ************** */
+header {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  z-index: 1000;
+  background: var(--Background---Dark, #000);
+}
+header nav {
+  width: 1280px;
+  height: 100%;
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+header nav ul.menu {
+  display: flex;
+  gap: 60px;
+}
+header nav img.logo_icon {
+  height: 32px;
+  width: 30px;
+}
+header nav .login_up {
+  display: flex;
+  height: 100%;
+  width: 200px;
+  align-items: center;
+  justify-content: space-around;
+}
+header nav .login_up a {
+  color: white;
+}
+header nav .login_up a.login {
+  display: inline-flex;
+  padding: 10px 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+header nav a:hover {
+  color: #fcc434;
+  text-shadow: 5px 5px 10px white;
+}
+header nav .login_up a.login:hover {
+  background: #fcc434;
+  box-shadow: 5px 5px 10px white;
+  cursor: pointer;
+  color: white;
+  border: none;
+}

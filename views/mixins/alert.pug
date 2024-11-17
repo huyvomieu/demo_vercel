@@ -6,7 +6,6 @@ mixin alert-success(time)
                     show-alert
                 )
                     span= messages.success
-
 mixin alert-danger(time) 
     - if (messages.danger)
                 div(
@@ -23,11 +22,14 @@ mixin alert-warning(time)
                     show-alert
                 )
                     span= messages.warning
-mixin alert-error(time) 
-    - if (messages.error)
+mixin alert-success-fixed(time) 
+    - if (messages.successFixed)
                 div(
-                    class = "alert alert-danger"
+                    class = "alert alert-success"
                     data-time = time,
-                    show-alert
                 )
-                    span= messages.error
+                    span= messages.successFixed
+mixin alert-empty(count)
+    - if (count < 1)
+        h1 Danh sách rỗng!
+         

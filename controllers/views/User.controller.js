@@ -5,6 +5,15 @@ class UserController {
     async login(req, res, err) {
         res.render("client/user/login");
     }
+    // [GET] user/logout
+    async logout(req, res, err) {
+        let tokenUser = req.cookies.tokenUser;
+        if (tokenUser) {
+            res.clearCookie("tokenUser");
+            req.flash("success", "Đăng xuất thành công!")
+        }
+        res.redirect("back")
+    }
     // [POST] user/loginPost
     async loginPost(req, res, err) {
         const email = req.body.email;
@@ -19,11 +28,12 @@ class UserController {
         }
         if (emailExist.password != md5(password)) {
             req.flash("error", "Mật khẩu không khớp!")
+            console.log("OK")
             res.redirect("back")
             return;
         }
         req.flash("success", "Đăng nhập thành công!")
-        res.cookie("token", emailExist.tokenUser);
+        res.cookie("tokenUser", emailExist.tokenUser);
         res.redirect("/")
     }
     // [GET] user/register
@@ -33,36 +43,24 @@ class UserController {
     // [POST] user/registerPOST
     async registerPost(req, res, err) {
         const email = req.body.email;
-        const username = req.body.username;
+        req.body.fullname = req.body.firstname + " " + req.body.lastname;
         const emailExist = await User.findOne({ email: email })
-        const usernameExist = await User.findOne({ username: username })
         if (emailExist) {
-            res.json({
-                message: "Email đã tồn tại trong hệ thống",
-            })
-            return;
-        }
-        if (usernameExist) {
-            res.json({
-                message: "Tên đăng nhập đã tồn tại trong hệ thống",
-            })
+            req.flash("error", "Email đã tồn tại trong hệ thống!");
+            res.redirect("back")
+            console.log("ok")
             return;
         }
         try {
             req.body.password = md5(req.body.password)
             const user = new User(req.body);
-
             await user.save();
-            res.json({
-                code: 200,
-                message: "Thêm Tài khoản thành công!",
-
-            })
+            req.flash("success", "Tạo tài khoản thành công!");
+            res.cookie("tokenUser", user.tokenUser);
+            res.redirect("/")
         } catch (err) {
-            res.json({
-                code: 400,
-                message: "Lỗi!" + err,
-            })
+            req.flash("error", "Có lỗi xảy ra!");
+            res.redirect("back")
         }
     }
 }

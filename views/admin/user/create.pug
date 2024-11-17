@@ -1,21 +1,16 @@
 extends ../layouts/main.pug
-include ../../mixins/alert.pug
 block content
-    
     .form.my-3
-        form(class= "form" action="/admin/movie/create", method="post")
+        form(class= "form" action="/admin/movie/createPost", method="post")
             .form-group
                 label() Title
                 input.form-control(type="text", placeholder="", id="name", name="name")
             .form-group
-                label() Price
-                input.form-control(type="text", placeholder="", id="price", name="price")
-            .form-group
                 label() Description
-                input.form-control(type="text", placeholder="", id="description", name="description")
+                input.form-control(type="text", placeholder="", id="name", name="name")
             .form-group
                 label() Author
-                input.form-control(type="text", placeholder="", id="author", name="author")
+                input.form-control(type="text", placeholder="", id="name", name="name")
             .form-group
                 label() Performer
                 input.form-control(type="text", placeholder="", id="performer", name="performer")
@@ -23,9 +18,6 @@ block content
                 label() Duration
                 input.form-control(type="text", placeholder="", id="duration", name="duration")
             .form-group
-                label() Start date
-                input.form-control(type="text", placeholder="", id="date", name="date")
-            .form-group
                 label() Image
-                input.form-control(type="text", placeholder="Link Image" id="avatar", name="avatar")
+                input.form-control(type="text", placeholder="Link Image" id="duration", name="duration")
             button(type="submit" class="btn btn-primary") Create

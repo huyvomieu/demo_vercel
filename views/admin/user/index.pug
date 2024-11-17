@@ -1,0 +1,39 @@
+extends ../layouts/main.pug
+block content
+    div(class= "text-right mt-3")
+        //- a(href="/admin/movie/create" class= "btn btn-primary") Create new movie
+    table(class= "table table-striped mt-3")
+        thead.table-dark
+            tr
+                th No
+                th Fullname
+                th Email
+                th createAt
+                th Orders
+                td
+        tbody
+            - var count = 1
+            each user in users
+                tr
+                    td #{count++}
+                    td #{user.fullname}
+                    td #{user.email}
+                    td #{user.createdAt}
+                    td
+                    td
+                        a(href= `/admin/user/edit/${user.id}` class= "btn btn-primary") Edit
+                        a(href= `/admin/user/reset/${user.id}` class= "btn btn-warning") Reset Pass
+                        button(type="button" class= "btn btn-danger" data-id=user.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-user) Delete
+    form(action=``, method="post" id= "form-delete") 
+    .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Xác nhận Xóa
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    p Bạn có chắc chắn xóa tài khoản này?
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Hủy
+                    button.btn.btn-primary(type='button' id= 'btn-modal-delete') OK

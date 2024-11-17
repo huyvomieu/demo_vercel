@@ -1,0 +1,42 @@
+extends ../layouts/default.pug
+block content
+    main
+    // Nội dung chính của trang
+    .np_cs_btn
+        button.nowplaying_btn Now Playing
+        button.commingsoon_btn Comming Soon
+    each movieArr in movies
+        .box_list_movie
+            each movie in movieArr
+                .box
+                    img(src= movie.avatar alt='')
+                    .MN
+                        a.movie_name(href='#') #{movie.name}
+                    .detail
+                        .dl
+                            .dlt
+                                img(src='/image/nowplaying_img/camera.svg' alt='')
+                                p Adventure, Sci-fi Adventure, Sci-fi
+                            .dlt
+                                img(src='/image/nowplaying_img/calendar.svg' alt='')
+                                span #{movie.date}
+                        button.book_ticket Buy ticket
+    .pagination
+        a.prev(href='#') &lt;&lt;
+        a.active(href='#') 1
+        a(href='#') 2
+        a(href='#') 3
+        a(href='#') 4
+        a(href='#') 5
+        a(href='#') 6
+        a(href='#') 7
+        a(href='#') 8
+        span.dots ...
+        a(href='#') 11
+        a.next(href='#') &gt;&gt;
+
+    script.
+        var commingsoon_btn = document.querySelector(".commingsoon_btn");
+        commingsoon_btn.addEventListener("click", (e) => {
+            window.location.href = "/movie/comingsoon"
+        })

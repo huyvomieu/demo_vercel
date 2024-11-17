@@ -1,5 +1,4 @@
 // home.js
-import { bannersData, movieData } from "./fakeData.js";
 
 // Sử dụng dữ liệu trong `bannersData` và `movieData`
 const bannerContainer = document.querySelector(".banner_container");

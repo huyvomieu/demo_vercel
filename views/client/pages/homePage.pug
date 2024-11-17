@@ -10,7 +10,9 @@ head
   link(rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
 header
   +alert-success(2000)
-  +alert-error(2)
+  +alert-danger(2000)
+  if(messages.danger) 
+    span #{messages.danger}
   #iconNav
     img(src='./image/navbar.svg' alt='')
   #home
@@ -19,16 +21,24 @@ header
   #navChild
     .search_container
       img(src='./image/search-normal.svg' alt='')
-      input.searchInput(type='text' placeholder='Search')
+      input.searchInput(type='text' placeholder='Search' id= "search-input")
+      .search-results(style="display: none")
+        
     .iconBtn(onclick='hello')
       img(src='./image/ticket.svg' alt='')
       p Ticket
-    .iconBtn
-      img(src='./image/video.svg' alt='')
-      p Movie
-    a.iconBtn(href='/user/register')
-      img(src='./image/user.svg' alt='')
-      p Sign Up
+    a(href= "/movie")
+      .iconBtn
+        img(src='./image/video.svg' alt='')
+        p Movie
+    if(tokenExist)
+      a.iconBtn(href='/user/logout')
+        img(width="40px" style="border-radius: 20px;" src='https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgE_26Rc&_nc_zt=24&_nc_ht=scontent.fhan14-2.fna&_nc_gid=ABnIzfPPGc_jyBce0-QHpkx&oh=00_AYCEKA7OWxp7dFTBE4vSopw8nIXYO0N5lGi2AGOpy12PLQ&oe=673EACB1' alt='')
+        p logout
+    else 
+      a.iconBtn(href='/user/login')
+        img(src='./image/user.svg' alt='')
+        p Sign Up
   img(src='./image/notification.svg' alt='')
 .banner_container
   each banner in banners
@@ -36,7 +46,7 @@ header
       img(src=`/image/${banner.img}` alt='')
       .content
         h1 #{banner.title}
-        p.intro Gi&#x1EDB;i thi&#x1EC7;u phim
+        p.intro Giới thiệu phim
         p.ct #{banner.details}
         .content_child
           h2 Th&#x1EC3; lo&#x1EA1;i
@@ -63,7 +73,7 @@ header
 .playing(style='color: white; margin-top: 200px')
   .category
     h1 NOW PLAYING
-    a#see(href='') See All &gt;&gt;
+    a#see(href='/movie') See All &gt;&gt;
   hr
   .list_movie_playing
     each movie in movies 
@@ -84,7 +94,7 @@ header
 .playing(style='color: white; margin-top: 200px')
   .category
     h1 COMING SOON
-    a#see(href='') See All &gt;&gt;
+    a#see(href='/movie/comingsoon') See All &gt;&gt;
   hr
   .list_movie_coming_soon
     each movie in movies 
@@ -107,32 +117,29 @@ footer#ft
   .container
     .ctn_left
       .footer-left
-        h3 Th&ocirc;ng tin
+        h3 Thông tin
         hr
         ul
-          li Li&ecirc;n h&#x1EC7;
-          li Gi&#x1EDB;i thi&#x1EC7;u
-          li Khi&#x1EBF;u n&#x1EA1;i b&#x1EA3;n quy&#x1EC1;n
-          li Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t
+          li Liên hệ
+          li Giới thiệu
+          li Khiếu nại bản quyền
+          li Chính sách bảo mật
       .footer-center
-        h3 Ng&#x1B0;&#x1EDD;i th&#x1EF1;c hi&#x1EC7;n
+        h3 Người thực hiện
         hr
         ul
-          li Nguy&#x1EC5;n C&ocirc;ng B&#x1EB1;ng
-          li Ho&agrave;ng Thu Th&#x1EA3;o
-          li Nguy&#x1EC5;n &Dstrok;&igrave;nh Linh
-          li Nguy&#x1EC5;n Qu&#x1ED1;c Huy
-          li L&ecirc; Tr&acirc;n Huy
+          li Nguyễn Công Bằng
+          li Hoàng Thu Thảo
+          li Nguyễn Dình Linh
+          li Nguyễn Quốc Huy
+          li Lê Trần Huy
       p
     .footer-right
       h2 Build Your Dream
       p
-        | Website b&aacute;n v&eacute; xem phim online gi&uacute;p ng&#x1B0;&#x1EDD;i d&ugrave;ng d&#x1EC5; d&agrave;ng
-        | ch&#x1ECD;n phim, so s&aacute;nh gi&aacute; v&agrave; &dstrok;&#x1EB7;t v&eacute; nhanh ch&oacute;ng. Kh&aacute;ch h&agrave;ng
-        | c&oacute; th&#x1EC3; xem l&#x1ECB;ch chi&#x1EBF;u, ch&#x1ECD;n gh&#x1EBF; v&agrave; thanh to&aacute;n tr&#x1EF1;c
-        | tuy&#x1EBF;n. H&#x1EC7; th&#x1ED1;ng cung c&#x1EA5;p tr&#x1EA3;i nghi&#x1EC7;m ti&#x1EC7;n l&#x1EE3;i, gi&#x1EA3;m
-        | thi&#x1EC1;u th&#x1EDD;i gian ch&#x1EDD; &dstrok;&#x1EE3;i t&#x1EA1;i r&#x1EA1;p. Giao di&#x1EC7;n &dstrok;&#x1A1;n gi&#x1EA3;n v&agrave;
-        | th&acirc;n thi&#x1EC7;n v&#x1EDB;i ng&#x1B0;&#x1EDD;i d&ugrave;ng.
+        | Website bán vé xem phim online giúp người dùng dễ dàng chọn phim, so sánh giá và đặt vé nhanh chóng.
+        | Khách hàng có thể xem lịch chiếu, chọn ghế và thanh toán trực tuyến. Hệ thống cung cấp trải nghiệm tiện lợi,
+        | giảm thiều thời gian chờ đợi tại rạp. Giao diện đơn giản và thân thiện với người dùng.
       .contact
         p Hotline: 0********312
         .social-media
@@ -149,3 +156,4 @@ script(type='text/javascript' src='https://code.jquery.com/jquery-migrate-1.2.1.
 script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
 script(type='module' src='/javascript/homePage.js')
 script(src="/javascript/showAlert.js")
+script(src="/javascript/main.js")

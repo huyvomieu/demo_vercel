@@ -5,7 +5,6 @@ const generateStringRandom = require("../helper/generateStringRandom")
 const User = new mongoose.Schema(
     {
         fullname: String,
-        username: String,
         email: String,
         password: String,
         tokenUser: {
