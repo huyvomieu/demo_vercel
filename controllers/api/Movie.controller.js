@@ -3,9 +3,7 @@ const Movie = require("../../models/Movie.model")
 class MovieController {
     // [GET] /api/v1/movie/index
     async index(req, res, err) {
-        // if (req.query.q) {
-        //     var valueSearch = new RegExp(valueSearch, "i")
-        // }
+        console.log(req.query.q)
         let find = {
             name: new RegExp(req.query.q, "i")
         }
