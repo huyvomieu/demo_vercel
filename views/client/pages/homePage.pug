@@ -5,16 +5,54 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Home Page
-  link(rel='stylesheet' href='./css/homePage.css')
-  link(rel='stylesheet' href='./css/flash.css')
+  link(rel='stylesheet' href='/css/homePage.css')
+  link(rel='stylesheet' href='/css/flash.css')
   link(rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
 header
   +alert-success(2000)
   +alert-danger(2000)
   if(messages.danger) 
     span #{messages.danger}
-  #iconNav
-    img(src='./image/navbar.svg' alt='')
+  .container
+    #iconNav(onclick='toggleProfile()')
+      img(src='./image/profile/Group.svg' alt='Icon')
+    #profile.profile
+      img.profile-pic(src='https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgE_26Rc&_nc_zt=24&_nc_ht=scontent.fhan14-2.fna&_nc_gid=ABnIzfPPGc_jyBce0-QHpkx&oh=00_AYCEKA7OWxp7dFTBE4vSopw8nIXYO0N5lGi2AGOpy12PLQ&oe=673EACB1' alt='Profile Picture')
+      h3 Hoàng Thu Thảo
+      .divider
+      .contact-info
+        div
+          img(src='./image/profile/call.svg' alt='Call Icon')
+          span 012345678
+        div
+          img(src='./image/profile/sms.svg' alt='Email Icon')
+          span abc@example.com
+        .divider2
+        div
+          img(src='./image/profile/ticket-2.svg' alt='Ticket Icon')
+          span My Tickets
+          a(href='https://www.example.com')
+            img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
+        div
+          img(src='./image/profile/shopping-cart.svg' alt='Shopping Cart Icon')
+          span Payment History
+          a(href='https://www.example.com')
+            img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
+        div
+          img(src='./image/profile/translate.svg' alt='Translate Icon')
+          span Change Language
+          a(href='https://www.example.com')
+            img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
+        div
+          img(src='./image/profile/lock.svg' alt='Lock Icon')
+          span Change Password
+          a(href='https://www.example.com')
+            img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
+        div
+          img(src='./image/profile/user.svg' alt='User Icon')
+          span Log Out
+          a(href='https://www.example.com')
+            img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
   #home
     img(src='./image/home.svg' alt='')
     p Home
@@ -32,9 +70,16 @@ header
         img(src='./image/video.svg' alt='')
         p Movie
     if(tokenExist)
-      a.iconBtn(href='/user/logout')
-        img(width="40px" style="border-radius: 20px;" src='https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgE_26Rc&_nc_zt=24&_nc_ht=scontent.fhan14-2.fna&_nc_gid=ABnIzfPPGc_jyBce0-QHpkx&oh=00_AYCEKA7OWxp7dFTBE4vSopw8nIXYO0N5lGi2AGOpy12PLQ&oe=673EACB1' alt='')
-        p logout
+      .iconBtn.avataruser()
+        img(onclick = "check()" width="40px" style="border-radius: 20px;" src='https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgE_26Rc&_nc_zt=24&_nc_ht=scontent.fhan14-2.fna&_nc_gid=ABnIzfPPGc_jyBce0-QHpkx&oh=00_AYCEKA7OWxp7dFTBE4vSopw8nIXYO0N5lGi2AGOpy12PLQ&oe=673EACB1' alt='')
+        p Hi #{UserInfor.fullname}!
+        div.detail()
+          ul
+            li
+              a(href = "/user/logout") Logout 
+              br
+            li
+              a(href = "/") Profile
     else 
       a.iconBtn(href='/user/login')
         img(src='./image/user.svg' alt='')
@@ -157,3 +202,24 @@ script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/slick-carousel@1
 script(type='module' src='/javascript/homePage.js')
 script(src="/javascript/showAlert.js")
 script(src="/javascript/main.js")
+script.
+  function check() {
+    var detail = document.querySelector(".detail");
+    let display = detail.style.display;
+    if(display == "block") {
+      detail.style.display = "none"
+    }
+    else {
+      detail.style.display = "block"
+    }
+  }
+script.
+  function toggleProfile() {
+  const profile = document.getElementById("profile");
+  if (profile.style.display === "none" || profile.style.display === "") {
+  profile.style.display = "flex";
+  } else {
+  profile.style.display = "none";
+  }
+  }
+
