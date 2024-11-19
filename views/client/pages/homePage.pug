@@ -58,20 +58,20 @@ header
           a(href='https://www.example.com')
             img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
   #home
-    img(src='./image/home.svg' alt='')
+    img(src='./image/homepage_img/home.svg' alt='')
     p Home
   #navChild
     .search_container
-      img(src='./image/search-normal.svg' alt='')
+      img(src='./image/homepage_img/search-normal.svg' alt='')
       input.searchInput(type='text' placeholder='Search' id= "search-input")
       .search-results(style="display: none")
         
     .iconBtn(onclick='hello')
-      img(src='./image/ticket.svg' alt='')
+      img(src='./image/homepage_img/ticket.svg' alt='')
       p Ticket
-    a(href= "/movie")
-      .iconBtn
-        img(src='./image/video.svg' alt='')
+    .iconBtn
+      a(href= "/movie")
+        img(src='./image/homepage_img/video.svg' alt='')
         p Movie
     if(tokenExist)
       .iconBtn.avataruser()
@@ -86,9 +86,10 @@ header
               a(href = "/") Profile
     else 
       a.iconBtn(href='/user/login')
-        img(src='./image/user.svg' alt='')
+        img(src='./image/homepage_img/user.svg' alt='')
         p Sign Up
-  img(src='./image/notification.svg' alt='')
+  #notification
+    img(src='./image/homepage_img/notification.svg' alt='')
 .banner_container
   each banner in banners
     .banner.fade
@@ -102,15 +103,14 @@ header
           p #{banner.category}
           .response
             .rp
-              img(src='/image/cib_imdb.svg' alt='')
+              img(src='/image/homepage_img/cib_imdb.svg' alt='')
               p #{banner.point}
             .rp
-              img(src='/image/zondicons_time.svg' alt='')
+              img(src='/image/homepage_img/zondicons_time.svg' alt='')
               p #{banner.duration}
           button.details Chi ti&#x1EBF;t
-
 .trans
-  img.prev(src='./image/prev.svg' alt='prev')
+  img.prev(src='./image/homepage_img/prev.svg' alt='prev')
   ul
     .dot
     .dot
@@ -118,7 +118,7 @@ header
     .dot
     .dot
     .dot
-  img.next(src='./image/next.svg' alt='next')
+  img.next(src='./image/homepage_img/next.svg' alt='next')
 .playing(style='color: white; margin-top: 200px')
   .category
     h1 NOW PLAYING
@@ -160,8 +160,32 @@ header
               i.fa-solid.fa-calendar
               | #{movie.date}
           button#book_ticket Đặt vé
-#mockup
-  img(src='./image/Mockup.svg' alt='')
+div.playing(style="color: white; margin-top: 200px")
+    div.category
+        h1 Khuyến mãi
+        a#see(href="") See All >>
+    hr
+    div.list_sale
+        div.sale_img
+            img(src="./image/homePage_img/discount.svg", alt="")
+        div.sale_img
+            img(src="./image/homePage_img/discount.svg", alt="")
+        div.sale_img
+            img(src="./image/homePage_img/discount.svg", alt="")
+
+div#mockup
+    div.content
+        h1 Watch Everywhere
+        p
+            | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id
+            | sit obcaecati distinctio. Sint consectetur vel numquam, nam
+            | laborum itaque ea voluptate possimus. Ipsum suscipit quas
+            | omnis. Asperiores tempora dolores totam! Totam fugiat
+            | similique dolorem corrupti minus ipsum vero ea pariatur
+            | facilis, asperiores sint optio.
+        button(type="button") Let's start
+    img(src="./image/homePage_img/Mockup.svg", alt="")
+
 footer#ft
   .container
     .ctn_left

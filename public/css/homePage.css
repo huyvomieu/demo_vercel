@@ -32,16 +32,20 @@ header {
     background-color: #1c1c1c;
 }
 
-header>.iconNav {
-    width: 60px;
-    height: 80%;
+.container > #iconNav,
+header > #home,
+header > #notification {
     border-radius: 12px;
     text-align: center;
+    padding: 4px 12px;
 }
 
-header>#iconNav:hover,
-header>#home:hover {
-    background-color: #cbc0c0;
+.container > #iconNav:hover,
+header > #home:hover,
+header > #notification:hover {
+    background-color: rgb(234, 228, 228, 0.4);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 #navChild {
@@ -54,22 +58,27 @@ header>#home:hover {
     border-radius: 32px;
 }
 
-#navChild>.search_container>input {
+#navChild > .search_container > input {
     outline: none;
 }
 
-#navChild>.iconBtn {
+#navChild > .iconBtn {
     text-align: center;
     width: 80px;
+    border-radius: 24px;
 }
 
-#home>img {
+#navChild > .iconBtn {
+    flex: 1;
+}
+
+#home > img {
     width: 40px;
     height: 40px;
     color: white;
 }
 
-#home>p {
+#home > p {
     color: #fff;
     text-align: center;
 }
@@ -109,7 +118,7 @@ header>#home:hover {
     color: red;
 }
 
-.search_container>input {
+.search_container > input {
     width: 100%;
     height: 100%;
     background-color: #1c1c1c;
@@ -118,24 +127,25 @@ header>#home:hover {
     padding-left: 12px;
 }
 
-.search_container>img {
+.search_container > img {
     background-color: #1c1c1c;
     color: #fff;
 }
 
 .iconBtn:hover {
     background-color: wheat;
-    border-radius: 24px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .banner_container {
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     top: 126px;
     width: 100%;
     /* Đảm bảo container chiếm toàn bộ màn hình */
-    height: 800px;
+    height: 80vh;
     /* Chiều cao toàn màn hình */
 }
 
@@ -173,14 +183,14 @@ header>#home:hover {
     opacity: 1;
 }
 
-.banner>img {
+.banner > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* Đảm bảo ảnh che toàn bộ banner */
 }
 
-.banner>.content {
+.banner > .content {
     position: absolute;
     top: 60px;
     right: 100px;
@@ -197,44 +207,46 @@ header>#home:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
     pointer-events: none;
     z-index: 1;
 }
 
-.banner>.content>h1 {
+.banner > .content > h1 {
     text-align: center;
     height: 82px;
     font-size: 40px;
     line-height: 62.5px;
 }
 
-.banner>.content>.intro {
+.banner > .content > .intro {
     text-align: right;
     line-height: 31.25px;
     font-size: 20px;
 }
 
-.content>.ct {
+.content > .ct {
     text-align: justify;
     letter-spacing: 1px;
 }
 
-.content>.content_child>h2,
-.content>.content_child>p {
+.content > .content_child > h2,
+.content > .content_child > p {
     text-align: center;
     margin: 8px 0;
 }
 
-.banner>.content>.content_child>.response {
+.banner > .content > .content_child > .response {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.banner>.content>.content_child>button {
+.banner > .content > .content_child > button {
     width: 100%;
     border: none;
     background-color: #fcc434;
@@ -246,13 +258,13 @@ header>#home:hover {
     margin: 20px 0;
 }
 
-.banner>.content>.content_child>button:hover {
+.banner > .content > .content_child > button:hover {
     background-color: white;
     color: #fcc434;
     transition: 0.4s ease-in-out;
 }
 
-.response>.rp {
+.response > .rp {
     display: flex;
     gap: 8px;
     align-items: center;
@@ -265,13 +277,13 @@ header>#home:hover {
     width: 500px;
     justify-content: space-between;
     position: absolute;
-    bottom: 40px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 10;
 }
 
-.trans>img {
+.trans > img {
     background-color: #1e1e1e;
     color: #fcc434;
     border-radius: 50%;
@@ -279,7 +291,7 @@ header>#home:hover {
     transition: box-shadow 0.3s ease-in-out;
 }
 
-.trans>ul {
+.trans > ul {
     display: flex;
     gap: 20px;
     width: 400px;
@@ -306,7 +318,7 @@ header>#home:hover {
     height: 20px;
 }
 
-.trans>img:hover {
+.trans > img:hover {
     box-shadow: 0 0 10px 5px #fcc434;
 }
 
@@ -327,7 +339,7 @@ header>#home:hover {
     margin: 0 auto;
 }
 
-.playing>.category {
+.playing > .category {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -340,17 +352,17 @@ header>#home:hover {
     flex: 0 0 23.5%;
 }
 
-.movie_playing>.poster {
+.movie_playing > .poster {
     width: 100%;
     height: 450px;
 }
 
-.poster>img {
+.poster > img {
     width: 100%;
     height: 100%;
 }
 
-.movie_playing>.title {
+.movie_playing > .title {
     color: #fcc434;
     font-size: 24px;
     font-weight: 400;
@@ -363,7 +375,7 @@ header>#home:hover {
     align-items: center;
 }
 
-.inf>button {
+.inf > button {
     background-color: #f9ca50;
     color: white;
     border-radius: 32px;
@@ -371,11 +383,11 @@ header>#home:hover {
     width: 100px;
 }
 
-.inf-detail>p {
+.inf-detail > p {
     margin: 8px 0;
 }
 
-.inf-detail>p>i {
+.inf-detail > p > i {
     margin-right: 12px;
 }
 
@@ -389,7 +401,7 @@ footer {
     background-color: #141212;
 }
 
-footer>.container {
+footer > .container {
     display: flex;
     justify-content: space-between;
 }
@@ -401,7 +413,7 @@ footer>.container {
     text-align: center;
 }
 
-.container>.ctn_left {
+.container > .ctn_left {
     display: flex;
     flex: 1;
     padding-top: 30px;
@@ -409,7 +421,7 @@ footer>.container {
     padding-bottom: 40px;
 }
 
-.ctn_left>p {
+.ctn_left > p {
     position: absolute;
     border-top-right-radius: 80px;
     background-color: #f9ca50e8;
@@ -423,8 +435,8 @@ footer>.container {
     padding-left: 30%;
 }
 
-.footer-left>hr,
-.footer-center>hr {
+.footer-left > hr,
+.footer-center > hr {
     width: 90%;
     margin: 12px auto;
 }
@@ -434,7 +446,7 @@ ul {
     padding: 0;
 }
 
-ul>li {
+ul > li {
     line-height: 32px;
 }
 
@@ -443,25 +455,25 @@ ul>li {
     color: #fff;
 }
 
-.footer-right>h2 {
+.footer-right > h2 {
     background-color: #f9ca50e8;
     padding: 30px 12px;
     border-bottom-left-radius: 70px;
 }
 
-.footer-right>.contact {
+.footer-right > .contact {
     display: flex;
     gap: 28px;
     justify-content: center;
 }
 
-.footer-right>p {
+.footer-right > p {
     text-align: justify;
     width: 80%;
     margin: 12px auto;
 }
 
-.footer-right>.contact {
+.footer-right > .contact {
     font-size: 20px;
 }
 
@@ -505,7 +517,7 @@ button:hover {
 
 .detail {
     position: absolute;
-    background-color: #FFF;
+    background-color: #fff;
     left: -3px;
     top: 80px;
     width: 120%;
@@ -516,14 +528,54 @@ button:hover {
 }
 
 .detail ul li a {
-    color: #FFF;
+    color: #fff;
     border: 1px solid salmon;
     padding: 8px;
     border-radius: 10px;
 }
+.list_sale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.list_sale > .sale_img {
+    width: 31%;
+}
+
+.sale_img > img {
+    width: 100%;
+}
+
+#mockup {
+    display: flex;
+    padding: 20px 60px;
+    margin: 20px 0;
+    background: linear-gradient(180deg, rgba(5, 59, 163, 0) 40%, #fcc434 100%);
+}
+
+#mockup > .content {
+    color: white;
+}
+
+#mockup > .content {
+    line-height: 2em;
+}
+
+#mockup > .content > h1 {
+    padding: 12px 0;
+}
+
+#mockup > .content > button {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 40px;
+}
 
 .detail ul li a:hover {
-    color: #FCC434;
+    color: #fcc434;
 }
 
 .detail ul li {
