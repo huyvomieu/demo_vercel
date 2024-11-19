@@ -64,8 +64,8 @@ movieData.forEach((movie) => {
         </div>
     `;
 });
-moviePlayingComingSoon.innerHTML = str_movie_playing;
-moviePlaying.innerHTML = str_movie_playing;
+// moviePlayingComingSoon.innerHTML = str_movie_playing;
+// moviePlaying.innerHTML = str_movie_playing;
 
 let slideIndex = 1;
 showBanners(slideIndex);
