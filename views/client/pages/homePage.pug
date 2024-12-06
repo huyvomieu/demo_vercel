@@ -55,7 +55,7 @@ header
         div
           img(src='./image/profile/user.svg' alt='User Icon')
           span Log Out
-          a(href='https://www.example.com')
+          a(href='/user/logout')
             img(src='./image/profile/arrow-right.svg' alt='Arrow Right')
   #home
     img(src='./image/homepage_img/home.svg' alt='')
@@ -80,7 +80,7 @@ header
         div.detail()
           ul
             li
-              a(href = "/user/logout") Logout 
+              a(href = "/user/logout" id="logout") Logout 
               br
             li
               a(href = "/") Profile
@@ -249,4 +249,14 @@ script.
   } else {
   profile.style.display = "none";
   }
+  }
+  var logout = document.querySelector("a[id='logout']")
+  if(logout) {
+    logout.addEventListener("click", (e) => {
+      e.preventDefault()
+      var checkedOK = confirm("Bạn chắc chắn muốn đăng xuất?")
+      if(checkedOK) {
+        window.location.href = "/user/logout"
+      }
+    })
   }

@@ -35,22 +35,23 @@ form.signup(action='/user/register' method="post" id= "formSubmit")
     input#Business(type='radio' name='role' value='Business')
     label(for='Business') Business
   .name
-    input.firstname(type='text' required='' placeholder='First name' name="firstname")
-    input.lastname(type='text' required='' placeholder='Last name' name="lastname")
+    input.firstname(type='text' required placeholder='First name' name="firstname")
+    input.lastname(type='text' required placeholder='Last name' name="lastname")
   .username_container
-    input#username.custom_username(type='text' name='email' placeholder='Email address' required)
+    input#username.custom_username(type='email' name='email' placeholder='Email address' oninvalid="setCustomMessage(this)"
+      oninput="clearCustomMessage(this)"  required)
   .password_container
     input#password.custom_password(type='password' name='password' placeholder='Password' required)
   .confrim_password_container
-    input#password.custom_confirm_password(type='password' name='confirmpassword' placeholder='Confrim Password' required)
+    input#password.custom_confirm_password(type='password' name='confirmpassword' placeholder='Confirm Password' required)
   .agree
-    input.agree_checkbox(type='checkbox' required='')
+    input.agree_checkbox(type='checkbox' required)
     span
       | I agree to the 
       a(href='') Term of Use
       |  &amp;
       a(href='') Privacy Policy
-  input.cre_account(type='button' value='Create account' id="inputSubmit")
+  input.cre_account(type='submit' value='Create account' id="inputSubmit")
   
 footer
   p.Copyright
@@ -72,7 +73,20 @@ script.
   if(inputSubmit) {
     inputSubmit.onclick = function() {
       var formSubmit = document.getElementById("formSubmit")
-      formSubmit.submit()
+      //- formSubmit.submit()
     }
+  }
+  function setCustomMessage(input) {
+    if (input.validity.valueMissing) {
+      input.setCustomValidity("Vui lòng nhập địa chỉ email.");
+    } else if (input.validity.typeMismatch) {
+      input.setCustomValidity("Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại.");
+    } else {
+      input.setCustomValidity("");
+    }
+  }
+
+  function clearCustomMessage(input) {
+    input.setCustomValidity("");
   }
 

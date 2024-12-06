@@ -31,6 +31,17 @@ class MovieController {
             }
         )
     }
+    // [GET] /movie/:id
+    async detail(req, res, err) {
+        const id = req.params.id;
+        const record = await Movie.findOne({_id: id});
+        res.render("client/movie/detail",
+            {
+                title: record.name,
+                movie: record
+            }
+        )
+    }
 }
 
 module.exports = new MovieController

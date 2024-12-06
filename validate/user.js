@@ -33,5 +33,10 @@ module.exports.validateRegister = (req, res, next) => {
         res.redirect("back")
         return;
     }
+    if (password != req.body.confirmpassword) {
+        req.flash("error", "Mật khẩu và xác nhận mật khẩu không khớp!");
+        res.redirect("back")
+        return;
+    }
     next();
 }
