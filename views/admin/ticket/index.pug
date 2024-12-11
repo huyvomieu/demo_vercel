@@ -1,0 +1,42 @@
+extends ../layouts/main.pug
+block content
+    div(class= "text-right mt-3")
+        a(href="/admin/ticket/create" class= "btn btn-primary") Create new ticket
+    table(class= "table table-striped mt-3")
+        thead.table-dark
+            tr
+                th Stt
+                th Tên phim
+                th Số lượng vé
+                th Giá vé
+                th Ngày giờ chiếu
+                th Phòng chiếu phim
+                th Ghế đã đặt
+                th
+        tbody
+            - var count = 1
+            each ticket in tickets
+                tr
+                    td #{count++}
+                    td #{ticket.id_movie}
+                    td #{ticket.quantity}
+                    td #{ticket.price}VND
+                    td #{ticket.timestart}-#{ticket.datestart}
+                    td #{ticket.place}
+                    td 
+                    td
+                        a(href= `/admin/ticket/edit/${ticket.id}` class= "btn btn-primary") Edit
+                        button(type="button" class= "btn btn-danger" data-id=ticket.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-ticket) Delete
+    form(action=``, method="post" id= "form-delete") 
+    .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Xác nhận Xóa
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    p Bạn có chắc chắn xóa vé này?
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Hủy
+                    button.btn.btn-primary(type='button' id= 'btn-modal-delete') OK

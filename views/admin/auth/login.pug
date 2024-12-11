@@ -1,0 +1,38 @@
+include ../../mixins/alert.pug
+
+doctype html
+head
+  link(href='/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='/css/flash.css' rel='stylesheet')
+body
+    //- +alert-danger(1500)
+    .row.justify-content-center
+        .col-8
+            form(action= "/admin/login" method= "post")
+                .form-group(class= "text-center")
+                    h2 TRANG ĐĂNG NHẬP ADMIN
+                .text-center
+                    #alert.alert.alert-danger #{messages.danger}
+                .form-group
+                    label() Tên đăng nhập
+                    input.form-control(type="text", placeholder="Tên đăng nhập",id="username", name="username" required)
+                .form-group
+                    label() Mật khẩu
+                    input.form-control(type="password", placeholder="Mật khẩu", id="password", name="password" required)
+                .form-group(class= "text-center")
+                    button(class= "btn btn-primary justify-content-center" type= "sumbit") Đăng nhập
+script(src= "/javascript/showAlert.js")
+script.
+    var text = document.getElementById('alert')
+    if(text){
+        console.log(text.textContent)
+        if(!text.textContent) {
+            text.style.display = 'none'
+        }
+        else {
+            text.style.display = 'block'
+        }
+    }
+
+
+    

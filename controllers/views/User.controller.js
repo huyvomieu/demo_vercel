@@ -43,7 +43,6 @@ class UserController {
     // [POST] user/registerPOST
     async registerPost(req, res, err) {
         const email = req.body.email;
-        req.body.fullname = req.body.firstname + " " + req.body.lastname;
         const emailExist = await User.findOne({ email: email })
         if (emailExist) {
             req.flash("error", "Email đã tồn tại trong hệ thống!");
@@ -61,6 +60,24 @@ class UserController {
         } catch (err) {
             req.flash("error", "Có lỗi xảy ra!");
             res.redirect("back")
+        }
+    }
+    // [GET] user/profile
+    async profile(req, res, err) {
+        res.render("client/user/profile");
+    }
+
+    // [PATCH] user/profile/update
+    async updateProfile(req, res, err) {
+        // Lấy id người dùng từ middleware
+
+        var id = res.locals.UserInfor.id
+        try {
+            await User.findOneAndUpdate({_id: id}, req.body)
+            req.flash("success", "Cập nhật thông tin thành công!")
+            res.redirect("back")
+        } catch (error) {
+            
         }
     }
 }

@@ -12,7 +12,7 @@ class UserController {
                 users: users,
 
             }
-        );
+        ); 
     }
     // [GET] /admin/movie/create
     async create(req, res, err) {

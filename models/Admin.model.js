@@ -2,16 +2,13 @@ const mongoose = require('mongoose')
 
 const generateStringRandom = require("../helper/generateStringRandom")
 
-const User = new mongoose.Schema(
+const Admin = new mongoose.Schema(
     {
-        firstname: String,
-        lastname: String,
         email: String,
         username: String,
-        phone: String,
         password: String,
         avatar: String,
-        tokenUser: {
+        tokenAdmin: {
             type: String,
             default: generateStringRandom.generateStringToken(30),
         },
@@ -21,4 +18,4 @@ const User = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model("User", User)
+module.exports = mongoose.model("Admin", Admin)

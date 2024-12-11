@@ -7,7 +7,6 @@ const moviePlaying = document.querySelector(".list_movie_playing");
 const moviePlayingComingSoon = document.querySelector(
     ".list_movie_coming_soon"
 );
-console.log(moviePlayingComingSoon);
 
 // Tạo danh sách banner
 let str = "";

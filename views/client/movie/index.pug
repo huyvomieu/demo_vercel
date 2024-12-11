@@ -11,7 +11,7 @@ block content
                 .box
                     img(src= movie.avatar alt='')
                     .MN
-                        a.movie_name(href='#') #{movie.name}
+                        a.movie_name(href=`/movie/${movie._id}`) #{movie.name}
                     .detail
                         .dl
                             .dlt
@@ -20,7 +20,8 @@ block content
                             .dlt
                                 img(src='/image/nowplaying_img/calendar.svg' alt='')
                                 span #{movie.date}
-                        button.book_ticket Buy ticket
+                        a(href=`/movie/${movie._id}`)
+                            button.book_ticket Buy ticket
     .pagination
         a.prev(href='#') &lt;&lt;
         a.active(href='#') 1

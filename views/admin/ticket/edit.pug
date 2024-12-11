@@ -1,0 +1,32 @@
+extends ../layouts/main.pug
+include ../../mixins/alert.pug
+block content
+    +alert-success(2000)
+    +alert-danger(2000)
+    .form.my-3
+        form(class= "form" action=`/admin/movie/edit/${record._id}?_method=PATCH`, method="post")
+            .form-group
+                label() Title
+                input.form-control(type="text", placeholder="", id="name", name="name" value=record.name)
+            .form-group
+                label() Price
+                input.form-control(type="text", placeholder="", id="price", name="price" value= record.price)
+            .form-group
+                label() Description
+                input.form-control(type="text", placeholder="", id="description", name="description" value=record.description)
+            .form-group
+                label() Author
+                input.form-control(type="text", placeholder="", id="author", name="author" value=record.author)
+            .form-group
+                label() Performer
+                input.form-control(type="text", placeholder="", id="performer", name="performer" value=record.performer)
+            .form-group
+                label() Duration
+                input.form-control(type="text", placeholder="", id="duration", name="duration" value=record.duration)
+            .form-group
+                label() Start date
+                input.form-control(type="text", placeholder="", id="date", name="date" value=record.date)
+            .form-group
+                label() Image
+                input.form-control(type="text", placeholder="Link Image" id="avatar", name="avatar" value=record.avatar)
+            button(type="submit" class="btn btn-primary") Update

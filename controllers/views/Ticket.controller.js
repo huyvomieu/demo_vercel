@@ -1,5 +1,4 @@
 const Movie = require("../../models/Movie.model")
-const Ticket = require("../../models/Ticket.model")
 
 class MovieController {
     // [GET] /movie/
@@ -39,7 +38,7 @@ class MovieController {
         res.render("client/movie/detail",
             {
                 title: record.name,
-                movie: record,
+                movie: record 
             }
         )
     }

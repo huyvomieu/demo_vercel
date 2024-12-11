@@ -3,13 +3,13 @@ block content
  main
   .detail_of_film
     .power_left
-      img.poster(src='../image/detail_imgae/avatar.png' alt='')
+      img.poster(src= movie.avatar alt='')
       .name_review
-        p#namefilm Avengers: Infinity 
+        p#namefilm #{movie.name}
         .TL_NPH
-          p#thoiluong 2h59m
+          p#thoiluong #{movie.duration}
           p  &bull; 
-          p#ngayphathanh 12.12.2022
+          p#ngayphathanh #{movie.date}
         .review
           p Review
           img(src='../image/detail_imgae/Star 7.png' alt='star')
@@ -17,15 +17,15 @@ block content
           p.numberOfreview (1.222)
         .review_bottom
           .rating
-            input#star5(type='radio' name='rating_input' value='5')
+            input#star5(type='radio' value='5')
             label(for='star5') &starf;
-            input#star4(type='radio' name='rating_input' value='4')
+            input#star4(type='radio' value='4')
             label(for='star4') &starf;
-            input#star3(type='radio' name='rating_input' value='3')
+            input#star3(type='radio' value='3')
             label(for='star3') &starf;
-            input#star2(type='radio' name='rating_input' value='2')
+            input#star2(type='radio' value='2')
             label(for='star2') &starf;
-            input#star1(type='radio' name='rating_input' value='1')
+            input#star1(type='radio' value='1')
             label(for='star1') &starf;
           button.readnews(type='button')
             img(src='../image/detail_imgae/readnewa poligon.png' alt='')
@@ -34,7 +34,7 @@ block content
       .mcl
         span.details
           | Movie Genre   :     
-          p.movie_genre  Action, adventure, sci-fi
+          p.movie_genre  #{movie.category}
         br
         span.details
           | Censorship      :     
@@ -48,12 +48,7 @@ block content
         p Storyline
         .line
         .st
-          p.desc
-            | As the Advenger and their allies have to continue to protect the world from threats
-            | to large for any one hero to handle, a new danger has emerged from the cosmic
-            | shadow : Thanos and nosone hero to handle, a new danger has emerged from the cosmic
-            | shadow : Thanos and nosone hero to handle, a new danger has emerged from the cosmic
-            | shadow : Thanos and nos
+          p.desc #{movie.description}
           span.see-more(onclick='toggleText()') ...See more
       .dicrector
         p Director
@@ -100,11 +95,12 @@ block content
               span.unlike_count 1.2k
               | )
         .booking_trailer
-          button.booking(type='button') Booking
+          button.booking(type='button')
+            a(href='#seattime-top') Booking
           button.trailer(type='button')
             img(src='../image/detail_imgae/trailer poligon.png' alt='')
             |  Trailer
-  .thanhngang
+  #seattime-top.thanhngang
   .seat_time
     .st_left
       p Select Seats
@@ -126,35 +122,18 @@ block content
             p Occupied
             .chobanchon
             p Selected
-      button#submit-seats.submit_seats Submit Seats
+      button#submit-seats.submit_seats(onclick='submit_seats()') Submit Seats
     .st_right
       p Select Date &amp; Time
       form#dateTimeForm
-        label(for='year') Year:
-        input#year(type='text' readonly='')
-        label(for='month') Month:
-        select#month(onchange='updateDays()')
-          option(value='1') January
-          option(value='2') February
-          option(value='3') March
-          option(value='4') April
-          option(value='5') May
-          option(value='6') June
-          option(value='7') July
-          option(value='8') August
-          option(value='9') September
-          option(value='10') October
-          option(value='11') November
-          option(value='12') December
-        label(for='day') Day:
-        select#day
-          // Days sẽ được thêm bằng JavaScript
-        label(for='partOfDay') Part of Day:
-        select#partOfDay
-          option(value='morning') Morning
-          option(value='afternoon') Afternoon
-          option(value='evening') Evening
-        button.subtime(type='button') Submit Time
+        label(for="date") Ngày chiếu
+        input#dateInput(type="date")
+        label(for="partOfDay") Giờ chiếu
+        select#timeofTicket
+          option(value= '' disabled selected) --Chọn thời gian chiếu--
+        // Thẻ input ấn lưu giá khi chọn thời gian chiếu
+        input(type="hidden" value= movie._id id='idmovie')
+        button.subtime(type='button' onclick='submittime()') Submit Time
   .thanhngang
   .pay
     h1 Payment Method
@@ -187,4 +166,74 @@ block content
               span International payments
             .right &gt;
       .pr
-    script(src="/javascript/detail.js") 
+        .line
+          span Order ID
+          p#orderID XXXXXXXXX
+        .line
+          span Seats
+          p#seats_buy XX
+        .line
+          span Date&amp;Time
+          p#datetimeticket XX/XX/XXXX
+        .line
+          span Price
+          p#price
+            | XXXXXXXXXX 
+            span VND
+        .line
+          input#discount(type='text' placeholder='Discount code')
+          button.apply-dis(type='button' onclick='applyDiscount()') APPLY
+        .line.thanh
+        .line.total
+          span Total
+          p#totalPrice.totalprice
+            | XXXXXXXX 
+            span  VND
+        .line.buytick
+          if(UserInfor)
+            button#showMessageButton.buyticket(type='button' onclick=`buyticket()`) Buy Ticket
+          else 
+            a(href="/user/login")
+              button.buyticket(type='button') Login for continue
+
+    form(action="/order/checkout", method="post" id='formSubmit') 
+      #customMessage.hidden
+        img.qr(src='/image/detail_imgae/qr thanh toan.png' alt='qr thanh toan')
+        if(UserInfor)
+          input(type="hidden" id='user_id' name="user_id" value= UserInfor._id)
+        input(type="hidden" id='order_id' name="order_id" )
+        input(type="hidden" id='movie_id' name="movie_id" value= movie._id)
+        input(type="hidden" id='seats' name="seats")
+        input(type="hidden" id='time' name="time")
+        input(type="hidden" id='price' name="price")
+        input(type="hidden" id='total' name="total")
+        .thanhngang
+        .list_tt
+          p Order ID
+          p#orderIDtb XXXXXXXX
+        .list_tt
+          p Seats
+          p#seats_buytb XXXXXXXX
+        .list_tt
+          p Date&amp;Time
+          p#datetimetickettb XXXXXXXX
+        .list_tt
+          p Price
+          p#pricetb XXXXXXXX
+        .list_tt
+          p Discount
+          p#discounttb XXXXXXXX
+        .list_tt
+          p Total
+          p#totalPricetb
+            | XXXXXXXX 
+            span  VND
+        .list_tt
+          button#closeMessageButton Close
+          button#acceptMessageButton(type= 'submit') Accept
+  script(src="/javascript/detail.js") 
+  script.
+    // Lấy ngày hiện tại
+    const today = new Date().toISOString().split('T')[0];
+    // Đặt giá trị min cho input
+    document.getElementById('dateInput').setAttribute('min', today);

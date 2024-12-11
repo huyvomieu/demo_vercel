@@ -1,0 +1,21 @@
+extends ../layouts/default.pug
+block content
+    .pr(style='text-li')
+        .line
+          span Order ID
+          p#orderID #{order.order_id}
+        .line
+          span Seats
+          p#seats_buy #{order.seats}
+        .line
+          span Date&amp;Time
+          p#datetimeticket #{order.time}
+        .line
+          span Price
+          p#price
+            | #{order.price} VND
+        .line.thanh
+        .line.total
+          span Total
+          p#totalPrice.totalprice #{order.total} VND
+        .line.buytick

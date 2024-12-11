@@ -1,6 +1,6 @@
 header
   nav
-    img.logo_icon(src='../image/login_image/login_logo.png' alt='')
+    img.logo_icon(src='/image/login_image/login_logo.png' alt='')
     ul.menu
       li
         a(href='/') Home
@@ -13,8 +13,8 @@ header
     .login_up
       if(tokenExist)
         a.iconBtn(href='/user/logout')
-          img(width="40px" style="border-radius: 20px;" src='https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-1/462944189_1303984334294883_3370856959138856334_n.jpg?stp=dst-jpg_s200x200&_nc_cat=111&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEWkBozC8dp5F9IoM5A3fCglu7GlxmHnySW7saXGYefJM78SGEafiw-fNBQBQVHvRibAuLgiOMPdwfImd6mnQUK&_nc_ohc=6H4m8bWosfwQ7kNvgE_26Rc&_nc_zt=24&_nc_ht=scontent.fhan14-2.fna&_nc_gid=ABnIzfPPGc_jyBce0-QHpkx&oh=00_AYCEKA7OWxp7dFTBE4vSopw8nIXYO0N5lGi2AGOpy12PLQ&oe=673EACB1' alt='')
-          p logout
+          img(width="40px" style="border-radius: 20px;" src= UserInfor.avatar  alt='')
+          p Logout
       else 
         a.signup(href='/user/register') Sign up
         a.login(href='/user/login') Log In

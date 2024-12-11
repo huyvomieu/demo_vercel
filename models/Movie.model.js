@@ -5,7 +5,6 @@ const Movie = new mongoose.Schema(
         name: String,
         description: String,
         category: String,
-        price: Number,
         avatar: String,
         duration: String,
         author: String,

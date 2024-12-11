@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    font-family: "Popponis";
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/poppins_light.otf") format("truetype");
+}
+
+body #header-placeholder {
+    height: 100px;
+    width: 100%;
+}
+body #footer-placeholder {
+    height: 80px;
+    width: 100%;
+}
+
+main {
+    height: calc(68% - 180px);
+    width: 80%;
+    margin: 150px auto;
+}
+h1 {
+    color: white;
+}
+
+.edit_prf {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#edit_inf {
+    flex: 2;
+}
+
+#edit_avt {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit_avt > table {
+    flex: 1;
+}
+
+.line {
+    margin-right: 100px;
+}
+
+td > label {
+    width: 200px;
+}
+td > input {
+    width: 300px;
+    height: 40px;
+    margin: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    padding-left: 8px;
+    background-color: #333333;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.line {
+    width: 3px;
+    height: 292px;
+    background-color: white;
+    border-radius: 1px;
+}
+.btnsave {
+    display: flex;
+    justify-content: center;
+}
+
+#btnSave {
+    padding: 12px 100px;
+    border: none;
+    border-radius: 8px;
+    width: 40%;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    background-color: #fcc434;
+}
+
+#btnUpload {
+    background-color: #fcc434;
+    color: white;
+    padding: 8px 0;
+    width: 80%;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.image > img {
+    width: 100%;
+    height: 100%;
+}
+
+#btnSave:hover,
+#btnUpload:hover {
+    background-color: white;
+    color: #fcc434;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}

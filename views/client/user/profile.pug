@@ -1,0 +1,61 @@
+extends ../layouts/default.pug
+block content
+ link(rel="stylesheet", href="/css/profile.css")
+ main
+  form(action="/user/profile/update?_method=PATCH", method="post" enctype="multipart/form-data") 
+    h1 PROFILE
+    .edit_prf
+      #edit_inf
+        table
+          tr
+            td
+              label(for='firstName') FirstName:
+            td
+              input#firstName(type='text' name= "firstname" value = UserInfor.firstname)
+          tr
+            td
+              label(for='lastName') LastName:
+            td
+              input#lastName(type='text' name= "lastname" value = UserInfor.lastname)
+          tr
+            td
+              label(for='username') Username:
+            td
+              input#username(type='text' name = "username" value = UserInfor.username)
+          tr
+            td
+              label(for='phoneNumber') Phone number:
+            td
+              input#phoneNumber(type='text' name="phone" value = UserInfor.phone)
+          tr
+            td
+              label(for='email') Email:
+            td
+              input#email(type='text' name="email" value = UserInfor.email)
+      .line
+      #edit_avt
+        table
+          tr
+            td
+              label(for='avt') Avatar:
+            td
+              .image
+                input.form-control-file(type="file" name="avatar" accept= "image/*" upload-image-input)
+                img#avt(src= UserInfor.avatar name="avatar" alt='' upload-image-preview style= "border-radius: 100px; margin: 8px")
+              button#btnUpload(type='button' style= "margin-top: 30px;")
+                | Upload
+    .btnsave
+      button#btnSave(type='submit') Update Profile
+  script.
+    // show image
+        const fileImage = document.querySelector('[upload-image-input]')
+        const showImg = document.querySelector('[upload-image-preview]' )
+        fileImage.onchange = event => {
+            // const [file] = fileImage.files
+            const file = event.target.files[0];
+            if (file) {
+                showImg.setAttribute('width', '50px')
+                showImg.setAttribute('height', '50px')
+                showImg.src = URL.createObjectURL(file)
+            }
+        }
