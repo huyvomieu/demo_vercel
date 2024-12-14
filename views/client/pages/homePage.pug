@@ -79,7 +79,8 @@ header
         p Movie
     if(tokenExist)
       .iconBtn.avataruser()
-        img(onclick = "check()" width="40px" style="border-radius: 20px;" src= UserInfor.avatar alt='')
+        .image 
+          img(onclick = "check()" width="40px" style="border-radius: 20px;" src= UserInfor.avatar alt='')
         p Hi #{UserInfor.lastname}!
         div.detail()
           ul
