@@ -367,6 +367,13 @@ header > #notification:hover {
     font-size: 24px;
     font-weight: 400;
     margin: 12px 0;
+    /* Thêm các thuộc tính dưới đây */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Hiển thị dấu "..." nếu vượt quá */
+    height: 80px;
 }
 
 .inf {
