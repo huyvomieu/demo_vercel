@@ -70,8 +70,9 @@ header
       .search-results(style="display: none")
         
     .iconBtn(onclick='hello')
-      img(src='./image/homepage_img/ticket.svg' alt='')
-      p Ticket
+      a(href= "/ticket/")
+        img(src='./image/homepage_img/ticket.svg' alt='')
+        p Ticket
     .iconBtn
       a(href= "/movie")
         img(src='./image/homepage_img/video.svg' alt='')
@@ -132,7 +133,8 @@ header
       .movie_playing
         .poster
           img(src=movie.avatar alt='')
-        .title #{movie.name}
+        .title
+          a(href= `/movie/${movie._id}` style= "color: #fcc434") #{movie.name} 
         .inf
           .inf-detail
             p

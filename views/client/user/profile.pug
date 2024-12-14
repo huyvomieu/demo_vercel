@@ -11,27 +11,27 @@ block content
             td
               label(for='firstName') FirstName:
             td
-              input#firstName(type='text' name= "firstname" value = UserInfor.firstname)
+              input#firstName(type='text' name= "firstname" value = UserInfor.firstname required)
           tr
             td
               label(for='lastName') LastName:
             td
-              input#lastName(type='text' name= "lastname" value = UserInfor.lastname)
+              input#lastName(type='text' name= "lastname" value = UserInfor.lastname required)
           tr
             td
               label(for='username') Username:
             td
-              input#username(type='text' name = "username" value = UserInfor.username)
+              input#username(type='text' name = "username" value = UserInfor.username disabled readonly)
           tr
             td
               label(for='phoneNumber') Phone number:
             td
-              input#phoneNumber(type='text' name="phone" value = UserInfor.phone)
+              input#phoneNumber(type='text' name="phone" value = UserInfor.phone required)
           tr
             td
               label(for='email') Email:
             td
-              input#email(type='text' name="email" value = UserInfor.email)
+              input#email(type='text' name="email" value = UserInfor.email disabled readonly)
       .line
       #edit_avt
         table
@@ -46,12 +46,12 @@ block content
                 | Upload
     .btnsave
       button#btnSave(type='submit') Update Profile
+  script(src="/javascript/profile.js") 
   script.
     // show image
         const fileImage = document.querySelector('[upload-image-input]')
         const showImg = document.querySelector('[upload-image-preview]' )
         fileImage.onchange = event => {
-            // const [file] = fileImage.files
             const file = event.target.files[0];
             if (file) {
                 showImg.setAttribute('width', '50px')

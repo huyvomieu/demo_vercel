@@ -1,10 +1,22 @@
 const User = require("../../models/User.model")
 
+const fomatDate = require('../../helper/formatDate')
+
 const md5 = require("md5")
 class UserController {
     // [GET] /admin/movie
     async index(req, res, err) {
         const users = await User.find({});
+
+        
+        // format ngày tạo
+        users.map(user => {
+            console.log(fomatDate(user.createdAt))
+            user.createdAt = fomatDate(user.createdAt)
+            user.createdFormat = fomatDate(user.createdAt)
+            console.log(user)
+        })
+
         res.render("admin/user/index",
             {
                 title: "Customer",
@@ -16,7 +28,7 @@ class UserController {
     }
     // [GET] /admin/movie/create
     async create(req, res, err) {
-        res.render("admin/movie/create",
+        res.render("admin/user/create",
             {
                 title: "Customer",
                 TitlePage: "Customer",
@@ -24,10 +36,13 @@ class UserController {
             }
         );
     }
-    // [GET] /admin/movie/edit/:id
+    // [GET] /admin/user/edit/:id
     async edit(req, res, err) {
         let id = req.params.id;
         const record = await User.findOne({ _id: id })
+
+        // format lại ngày tạo
+        record.createdAt = fomatDate(record.createdAt)
         res.render("admin/user/edit",
             {
                 title: "Customer",
@@ -36,7 +51,7 @@ class UserController {
             }
         );
     }
-    // [PATCH] /admin/movie/edit/:id
+    // [PATCH] /admin/user/edit/:id
     async editPatch(req, res, err) {
         let id = req.params.id;
         await User.findOneAndUpdate({ _id: id }, req.body)
@@ -49,7 +64,7 @@ class UserController {
             }
         );
     }
-    // [GET] /admin/movie/reset/:id
+    // [GET] /admin/user/reset/:id
     async resetPass(req, res, err) {
         let id = req.params.id;
         let password = md5("00000000")

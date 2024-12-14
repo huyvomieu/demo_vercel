@@ -40,3 +40,15 @@ module.exports.validateRegister = (req, res, next) => {
     }
     next();
 }
+
+module.exports.validatePpdateProfile = (req, res, next) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    if (!req.body.firstname || !req.body.lastname) {
+        req.flash("error", "Vui lòng nhập Họ tên!");
+        res.redirect("back")
+        return;
+    }
+
+    next();
+}
