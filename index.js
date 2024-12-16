@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // parse application/json
 app.use(bodyParser.json());
 app.use(
-    express.urlencoded({
-        extended: true,
-    })
+  express.urlencoded({
+    extended: true,
+  })
 );
 
 app.use(cookieParser("keyboard cat"));
@@ -47,5 +47,5 @@ routeAPI(app);
 
 // listening PORT 3000
 app.listen(process.env.PORT, () => {
-    console.log(`app listening ${process.env.PORT}`);
+  console.log(`app listening ${process.env.PORT}`);
 });
