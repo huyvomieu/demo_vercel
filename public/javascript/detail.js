@@ -277,3 +277,5 @@ document.addEventListener("DOMContentLoaded", () => {
     customMessage.classList.add("hidden");
   });
 });
+
+// fix lỗi làm mờ button khi không có chỗ và time
