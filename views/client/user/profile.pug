@@ -38,11 +38,11 @@ block content
           tr
             td
               label(for='avt') Avatar:
-            td
-              .image
+            td.avt 
+              .image2
                 input.form-control-file(type="file" name="avatar" accept= "image/*" upload-image-input)
-                img#avt(src= UserInfor.avatar name="avatar" alt='' upload-image-preview style= "border-radius: 100px; margin: 8px")
-              button#btnUpload(type='button' style= "margin-top: 30px;")
+                img#avt(src= UserInfor.avatar name="avatar" alt='' upload-image-preview style= "margin:20px 20px;border-radius: 50%; width:80px; height:80px; border-radius:50%")
+              button#btnUpload(type='button')
                 | Upload
     .btnsave
       button#btnSave(type='submit') Update Profile
