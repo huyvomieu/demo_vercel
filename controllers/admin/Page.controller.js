@@ -19,19 +19,13 @@ class PageController {
             {
                 title: "Login",
                 TitlePage: "Login",
-
             }
         );
     }
     // [GET] /admin/logout
     async logout(req, res, err) {
         res.clearCookie('tokenAdmin')
-        res.render("admin/auth/login",
-            {
-                title: "Login",
-                TitlePage: "Login",
-            }
-        );
+        res.redirect('/admin/login')
     }
     // [POST] /admin/login
     async loginPost(req, res, err) {

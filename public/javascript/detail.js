@@ -20,14 +20,14 @@ document.getElementById('dateInput').addEventListener('change', e=> {
     })
 })
 
-document.getElementById('acceptMessageButton').addEventListener('click', e => {
+document.getElementById('showMessageButton').addEventListener('click', e => {
   e.preventDefault();
   var orderID = document.getElementById('orderIDtb').textContent;
   var seats = document.getElementById('seats_buytb').textContent;
   var datetime = document.getElementById('datetimetickettb').textContent;
   var price = document.getElementById('pricetb').textContent;
   var total = document.getElementById('totalPricetb').textContent;
-  if(!seats) {
+  if(!seats || seats.includes('X')) {
     alert("Vui lòng chọn ghế ngồi");
     return;
   }
@@ -273,4 +273,47 @@ document.addEventListener('DOMContentLoaded', () => {
     customMessage.classList.remove('show');
     customMessage.classList.add('hidden');
   });
+});
+
+
+/////////// fix lỗi làm mờ khi chưa chọn chỗ 
+document.addEventListener("DOMContentLoaded", function() {
+  const buyTicketButton = document.getElementById("showMessageButton");
+  const submitSeatsButton = document.getElementById("submit-seats");
+  const submitTimeButton = document.querySelector(".subtime");
+
+  // Mặc định nút Buy Ticket bị vô hiệu hóa
+  buyTicketButton.disabled = true;
+
+  // Kiểm tra điều kiện khi chọn ghế
+  submitSeatsButton.addEventListener("click", function() {
+      const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
+      checkButtonStatus(seatSelected);
+  });
+
+  // Kiểm tra điều kiện khi chọn thời gian
+  submitTimeButton.addEventListener("click", function() {
+      const timeSelected = document.getElementById('year').value !== "" && 
+                           document.getElementById('month').value !== "" && 
+                           document.getElementById('day').value !== "" && 
+                           document.getElementById('partOfDay').value !== "";
+      checkButtonStatus(true, timeSelected);  // Cả hai điều kiện đều phải được kiểm tra
+  });
+
+  // Hàm kiểm tra trạng thái nút Buy Ticket
+  function checkButtonStatus(seatSelected = false, timeSelected = false) {
+      if (seatSelected && timeSelected) {
+          buyTicketButton.disabled = false; // Kích hoạt nút khi cả hai điều kiện được chọn
+      } else {
+          buyTicketButton.disabled = true;  // Giữ nút mờ đi nếu chưa chọn đủ
+      }
+  }
+
+  // Cập nhật lại trạng thái nút khi load trang nếu ghế và thời gian đã được chọn từ trước
+  const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
+  const timeSelected = document.getElementById('year').value !== "" && 
+                       document.getElementById('month').value !== "" && 
+                       document.getElementById('day').value !== "" && 
+                       document.getElementById('partOfDay').value !== "";
+  checkButtonStatus(seatSelected, timeSelected);
 });

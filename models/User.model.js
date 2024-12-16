@@ -10,7 +10,10 @@ const User = new mongoose.Schema(
         username: String,
         phone: String,
         password: String,
-        avatar: String,
+        avatar: {
+            type: String,
+            default: "/image/homepage_img/user.png"
+        },
         tokenUser: {
             type: String,
             default: generateStringRandom.generateStringToken(30),

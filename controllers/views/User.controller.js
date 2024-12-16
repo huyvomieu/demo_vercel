@@ -12,7 +12,7 @@ class UserController {
             res.clearCookie("tokenUser");
             req.flash("success", "Đăng xuất thành công!")
         }
-        res.redirect("back")
+        res.redirect("/user/login")
     }
     // [POST] user/loginPost
     async loginPost(req, res, err) {

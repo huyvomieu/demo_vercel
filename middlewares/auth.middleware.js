@@ -4,6 +4,7 @@ module.exports = async (req, res, next) => {
     let tokenAdmin = req.cookies.tokenAdmin;
     if (!tokenAdmin) {
         res.redirect("/admin/login")
+        return;
     }
     const tokenExist = await Admin.findOne({ tokenAdmin: tokenAdmin }).select("-password")
     if (tokenExist) {
@@ -12,5 +13,6 @@ module.exports = async (req, res, next) => {
     }
     else {
         res.redirect("/admin/login")
+        return
     }
-} 
+}

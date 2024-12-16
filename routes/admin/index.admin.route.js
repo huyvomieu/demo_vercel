@@ -10,5 +10,5 @@ module.exports = (app) => {
     app.use("/admin/ticket", authMiddleware, ticket)
     app.use("/admin/movie",authMiddleware, movie)
     app.use("/admin/user",authMiddleware, user)
-    app.use("/admin", page)
+    app.use("/admin/", page)
 }
