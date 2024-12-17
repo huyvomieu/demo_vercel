@@ -14,6 +14,10 @@ document.getElementById("dateInput").addEventListener("change", (e) => {
       tickets.forEach((ticket) => {
         html += `<option value= '${ticket.timestart}' price= '${ticket.price}'>${ticket.timestart}  </option>`;
       });
+      if(!html) {
+        html += `<option disabled selected> Không có khung giờ chiếu nào trong ngày!</option>`;
+      }
+
       document.getElementById("timeofTicket").innerHTML = html;
     })
     .catch(() => {
@@ -42,7 +46,7 @@ document.getElementById("showMessageButton").addEventListener("click", (e) => {
   form.querySelector("#time").value = datetime;
   form.querySelector("#price").value = price;
   form.querySelector("#total").value = total.slice(0, total.length - 3);
-  form.submit();
+  // form.submit();
 });
 
 document.getElementById("closeMessageButton").addEventListener("click", (e) => {
@@ -54,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Kiểm tra chiều cao của phần tử văn bản
   const desc = document.querySelector(".desc");
   const seeMore = document.querySelector(".see-more");
+  const buyTicketButton = document.getElementById("showMessageButton");
 
   // Kiểm tra nếu chiều cao của đoạn văn bản lớn hơn 3 dòng
   if (desc.scrollHeight > desc.clientHeight) {
@@ -102,7 +107,7 @@ function isLeapYear(year) {
 }
 
 // Gọi hàm khởi tạo khi tải trang
-window.onload = () => {};
+window.onload = () => { };
 
 // Lắng nghe sự kiện click vào tất cả các phần tử có class "toggle-element"
 document.querySelectorAll(".toggle-element").forEach(function (element) {
@@ -178,6 +183,42 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hiển thị Order ID khi trang tải hiển thị qua <p id="orderID">XXXXXXXXX</p>
   const orderIDElement = document.getElementById("orderID");
   orderIDElement.textContent = generateOrderID();
+  /////////// fix lỗi làm mờ khi chưa chọn chỗ 
+    const buyTicketButton = document.getElementById("showMessageButton");
+    const submitSeatsButton = document.getElementById("submit-seats");
+    const submitTimeButton = document.querySelector(".subtime");
+
+    // Mặc định nút Buy Ticket bị vô hiệu hóa
+    buyTicketButton.disabled = true;
+
+    // Kiểm tra điều kiện khi chọn ghế
+    submitSeatsButton.addEventListener("click", function () {
+      const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
+      checkButtonStatus(seatSelected);
+    });
+
+    // Kiểm tra điều kiện khi chọn thời gian
+    submitTimeButton.addEventListener("click", function () {
+      const timeSelected = document.getElementById('dateInput').value !== "" &&
+        document.getElementById('timeofTicket').value !== ""
+      checkButtonStatus(true, timeSelected);  // Cả hai điều kiện đều phải được kiểm tra
+    });
+
+    // Hàm kiểm tra trạng thái nút Buy Ticket
+    function checkButtonStatus(seatSelected = false, timeSelected = false) {
+      if (seatSelected && timeSelected) {
+        buyTicketButton.disabled = false; // Kích hoạt nút khi cả hai điều kiện được chọn
+      } else {
+        buyTicketButton.disabled = true;  // Giữ nút mờ đi nếu chưa chọn đủ
+      }
+    }
+
+    // Cập nhật lại trạng thái nút khi load trang nếu ghế và thời gian đã được chọn từ trước
+    const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
+    const timeSelected = document.getElementById('dateInput').value !== "" &&
+      document.getElementById('timeofTicket').value !== "";
+    checkButtonStatus(seatSelected, timeSelected);
+
 });
 
 // Một số mã giảm giá giả
@@ -277,49 +318,5 @@ document.addEventListener("DOMContentLoaded", () => {
     customMessage.classList.add("hidden");
   });
 });
-<<<<<<< HEAD
 
 
-/////////// fix lỗi làm mờ khi chưa chọn chỗ 
-document.addEventListener("DOMContentLoaded", function() {
-  const buyTicketButton = document.getElementById("showMessageButton");
-  const submitSeatsButton = document.getElementById("submit-seats");
-  const submitTimeButton = document.querySelector(".subtime");
-
-  // Mặc định nút Buy Ticket bị vô hiệu hóa
-  buyTicketButton.disabled = true;
-
-  // Kiểm tra điều kiện khi chọn ghế
-  submitSeatsButton.addEventListener("click", function() {
-      const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
-      checkButtonStatus(seatSelected);
-  });
-
-  // Kiểm tra điều kiện khi chọn thời gian
-  submitTimeButton.addEventListener("click", function() {
-      const timeSelected = document.getElementById('year').value !== "" && 
-                           document.getElementById('month').value !== "" && 
-                           document.getElementById('day').value !== "" && 
-                           document.getElementById('partOfDay').value !== "";
-      checkButtonStatus(true, timeSelected);  // Cả hai điều kiện đều phải được kiểm tra
-  });
-
-  // Hàm kiểm tra trạng thái nút Buy Ticket
-  function checkButtonStatus(seatSelected = false, timeSelected = false) {
-      if (seatSelected && timeSelected) {
-          buyTicketButton.disabled = false; // Kích hoạt nút khi cả hai điều kiện được chọn
-      } else {
-          buyTicketButton.disabled = true;  // Giữ nút mờ đi nếu chưa chọn đủ
-      }
-  }
-
-  // Cập nhật lại trạng thái nút khi load trang nếu ghế và thời gian đã được chọn từ trước
-  const seatSelected = document.querySelectorAll('.seat.selected').length > 0;
-  const timeSelected = document.getElementById('year').value !== "" && 
-                       document.getElementById('month').value !== "" && 
-                       document.getElementById('day').value !== "" && 
-                       document.getElementById('partOfDay').value !== "";
-  checkButtonStatus(seatSelected, timeSelected);
-});
-=======
->>>>>>> 610ea6dd85f1bba69f6f560b5ed1d50d25c882ee

@@ -9,7 +9,9 @@ head
   link(rel='canonical' href='https://getbootstrap.com/docs/4.6/examples/dashboard/')
   // Bootstrap core CSS
   link(href='/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='/assets/themify-icons/themify-icons.css' rel='stylesheet')
   link(href='/css/flash.css' rel='stylesheet')
+  link(href='/admin/css/main.css' rel='stylesheet')
   style.
     .bd-placeholder-img {
     font-size: 1.125rem;
@@ -51,7 +53,7 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
               |               Dashboard 
               span.sr-only (current)
           li.nav-item
-            a.nav-link(href='#' Order)
+            a.nav-link(href='/admin/order' Order)
               span(data-feather='file' )
               |               Orders
           li.nav-item
@@ -67,7 +69,7 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
               span(data-feather='users')
               |               Customers
           li.nav-item
-            a.nav-link(href='#' Report)
+            a.nav-link(href='/admin/report' Report)
               span(data-feather='bar-chart-2')
               |               Reports
         h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted

@@ -3,29 +3,43 @@ include ../../mixins/alert.pug
 block content
     
     .form.my-3
-        form(class= "form" action="/admin/movie/create", method="post")
+        form(class= "form" action="/admin/movie/create", method="post" enctype="multipart/form-data")
             .form-group
                 label() Title
-                input.form-control(type="text", placeholder="", id="name", name="name" required)
-            .form-group
-                label() Price
-                input.form-control(type="text", placeholder="", id="price", name="price" required)
+                input.form-control(type="text", placeholder="Ex; Đào phở và piano", id="name", name="name" required)
             .form-group
                 label() Description
-                input.form-control(type="text", placeholder="", id="description", name="description" required)
-            .form-group
-                label() Author
-                input.form-control(type="text", placeholder="", id="author", name="author" required)
+                textarea.form-control(type="text" rows="5" placeholder="Ex:Lấy bối cảnh trận chiến đông xuân kéo dài 60 ngày đêm từ cuối năm 1946 đến đầu năm 1947 ở Hà Nội, câu chuyện theo chân chàng dân quân Văn Dân và chuyện tình với nàng tiểu thư đam mê dương cầm Thục Hương. Khi những người khác đã di tản lên chiến khu, họ quyết định cố thủ lại mảnh đất thủ đô đã tan hoang vì bom đạn,...."
+                    id="description" name="description" required)
+            .row
+                .form-group.col-3
+                    label() Author
+                    input.form-control(type="text", placeholder="Ex:Trấn Thành", id="author", name="author" required)
+                .form-group.col-3
+                    label() Duration
+                    input.form-control(type="text", placeholder="Ex: 100 phút", id="duration", name="duration" required)
+                .form-group.col-3
+                    label() Start date
+                    input.form-control(type="date", placeholder="Ex:12/12/2024", id="date", name="date" required)
             .form-group
                 label() Performer
-                input.form-control(type="text", placeholder="", id="performer", name="performer" required)
+                input.form-control(type="text", placeholder="Ex: Nguyễn Quốc Huy, Hoàng Thu Thảo", id="performer", name="performer" required)
+            //- .form-group
+            //-     label() Image
+            //-     input.form-control(type="text", placeholder="Ex: https://motchillhan.net/wp-content/uploads/2024/10/dao-pho-va-piano-13149-1.jpg" id="avatar", name="avatar" required)
             .form-group
-                label() Duration
-                input.form-control(type="text", placeholder="", id="duration", name="duration" required)
-            .form-group
-                label() Start date
-                input.form-control(type="date", placeholder="", id="date", name="date" required)
-            .form-group
-                label() Image
-                input.form-control(type="text", placeholder="Link Image" id="avatar", name="avatar" required)
+                label() choose img 
+                input.form-control(type="file" name="avatar" upload-image-input)
+                img#avt(src= "" alt='' upload-image-preview style= "margin: 8px")
             button(type="submit" class="btn btn-primary") Create
+    script.
+        const fileImage = document.querySelector('[upload-image-input]')
+        const showImg = document.querySelector('[upload-image-preview]' )
+        fileImage.onchange = event => {
+            const file = event.target.files[0];
+            if (file) {
+                showImg.setAttribute('width', '50px')
+                showImg.setAttribute('height', '50px')
+                showImg.src = URL.createObjectURL(file)
+            }
+        }

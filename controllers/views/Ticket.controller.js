@@ -1,47 +1,26 @@
 const Movie = require("../../models/Movie.model")
+const Order = require("../../models/Order.model")
 
-class MovieController {
-    // [GET] /movie/
+class TicketController {
+    // [GET] /ticket/
     async index(req, res, err) {
-        const records = await Movie.find({}).limit(16);
-        const arrMovies = [];
-        for (let i = 0; i < records.length; i += 4) {
-            arrMovies.push(records.slice(i, i + 4));
+        const UserInfo = res.locals.UserInfor;
+        if(!UserInfo) {
+            res.redirect('/user/login');
+            return;
         }
-        // res.json(arrMovies)
-        res.render("client/movie/index",
-            {
-                title: "List Movie",
-                movies: arrMovies
-            }
-        )
-    }
-    // [GET] /movie/comingsoon
-    async comingsoon(req, res, err) {
-        const records = await Movie.find({}).limit(16);
-        const arrMovies = [];
-        for (let i = 0; i < records.length; i += 4) {
-            arrMovies.push(records.slice(i, i + 4));
+        const records = await Order.find({user_id:UserInfo.id });
+        for await (const record of records) {
+            record.MovieInfo = await Movie.findOne({_id: record.movie_id})
         }
-        // res.json(arrMovies)
-        res.render("client/movie/comingsoon",
+
+        res.render("client/ticket/detail",
             {
-                title: "List ComingSoon Movie",
-                movies: arrMovies
-            }
-        )
+                title: "My ticket",
+                records: records
+            })
     }
-    // [GET] /movie/:id
-    async detail(req, res, err) {
-        const id = req.params.id;
-        const record = await Movie.findOne({_id: id});
-        res.render("client/movie/detail",
-            {
-                title: record.name,
-                movie: record 
-            }
-        )
-    }
+
 }
 
-module.exports = new MovieController
+module.exports = new TicketController

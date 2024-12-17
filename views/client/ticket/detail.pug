@@ -1,21 +1,66 @@
 extends ../layouts/default.pug
 block content
-    .pr(style='text-li')
+ main
+  .pay
+    .head-list-detail
+      h1 LIST OF TICKET
+      h1 DETAIL OF TICKET
+    .payment
+      .pl
+        ul.menu
+          each ticket in records
+            li#toggleElement.toggle-element(onclick='showTicketDetail(0)')
+              .left
+                img(src= ticket.MovieInfo.avatar alt='')
+              .middle
+                p.namefilm #{ticket.MovieInfo.name}
+                .time
+                  p.date Date : #{ticket.time}
+                  p.hour Time : 10:00 AM
+                p.mseat Seats : #{ticket.seats}
+              .right &gt;
+      .pr
         .line
-          span Order ID
-          p#orderID #{order.order_id}
+          p Order ID
+          p#orderID XXXXXXXXX
         .line
           span Seats
-          p#seats_buy #{order.seats}
+          p#seats_buy XX
         .line
-          span Date&amp;Time
-          p#datetimeticket #{order.time}
+          span Date
+          p#datetimeticket XX/XX/XXXX
+        .line
+          span Time
+          p#time XX:XX am
+        .line
+          span Room
+          p#Room XXXXXXXXXX
         .line
           span Price
           p#price
-            | #{order.price} VND
+            | XXXXXXXXXX 
+            span VND
+        .line
+          span Discount
+          p#discount XX%
         .line.thanh
         .line.total
-          span Total
-          p#totalPrice.totalprice #{order.total} VND
+          span Total Price
+          p#totalPrice.totalprice
+            | XXXXXXXX 
+            span  VND
         .line.buytick
+          button#showMessageButton.buyticket(type='button' onclick='resetDetail()')
+            | CloseClose
+    // // thông báo
+    //
+      <div id="customMessage" class="hidden">
+      <div class="list_tt">
+      <p>You want to cancel movie ticket?</p>
+      </div>
+      <div class="list_tt">
+      <button id="closeMessageButton">Close</button>
+      <button id="acceptMessageButton">Accept</button>
+      </div>
+      </div>
+  section.detailOfticket

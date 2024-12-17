@@ -4,29 +4,40 @@ block content
     +alert-success(2000)
     +alert-danger(2000)
     .form.my-3
-        form(class= "form" action=`/admin/movie/edit/${record._id}?_method=PATCH`, method="post")
+        form(class= "form" action=`/admin/movie/edit/${record._id}?_method=PATCH`, method="post" enctype="multipart/form-data")
             .form-group
                 label() Title
-                input.form-control(type="text", placeholder="", id="name", name="name" value=record.name)
-            .form-group
-                label() Price
-                input.form-control(type="text", placeholder="", id="price", name="price" value= record.price)
+                input.form-control(type="text", placeholder="Ex; Đào phở và piano", id="name", name="name" value= record.name required)
             .form-group
                 label() Description
-                input.form-control(type="text", placeholder="", id="description", name="description" value=record.description)
-            .form-group
-                label() Author
-                input.form-control(type="text", placeholder="", id="author", name="author" value=record.author)
+                textarea.form-control(type="text" rows="5"
+                    id="description" name="description" required) #{record.description}
+            .row
+                .form-group.col-3
+                    label() Author
+                    input.form-control(type="text", placeholder="Ex:Trấn Thành", id="author", name="author" value= record.author required)
+                .form-group.col-3
+                    label() Duration
+                    input.form-control(type="text", placeholder="Ex: 100 phút", id="duration", name="duration" value= record.duration required)
+                .form-group.col-3
+                    label() Start date
+                    input.form-control(type="date", placeholder="Ex:12/12/2024", id="date", name="date" value= record.date required)
             .form-group
                 label() Performer
-                input.form-control(type="text", placeholder="", id="performer", name="performer" value=record.performer)
+                input.form-control(type="text", placeholder="Ex: Nguyễn Quốc Huy, Hoàng Thu Thảo", id="performer", name="performer" value= record.performer required)
             .form-group
-                label() Duration
-                input.form-control(type="text", placeholder="", id="duration", name="duration" value=record.duration)
-            .form-group
-                label() Start date
-                input.form-control(type="text", placeholder="", id="date", name="date" value=record.date)
-            .form-group
-                label() Image
-                input.form-control(type="text", placeholder="Link Image" id="avatar", name="avatar" value=record.avatar)
+                label() Choose img 
+                input.form-control(type="file" name="avatar" upload-image-input)
+                img#avt(src= record.avatar alt='' upload-image-preview style= "margin: 8px" width="50px")
             button(type="submit" class="btn btn-primary") Update
+    script.
+        const fileImage = document.querySelector('[upload-image-input]')
+        const showImg = document.querySelector('[upload-image-preview]' )
+        fileImage.onchange = event => {
+            const file = event.target.files[0];
+            if (file) {
+                showImg.setAttribute('width', '50px')
+                showImg.setAttribute('height', '50px')
+                showImg.src = URL.createObjectURL(file)
+            }
+        }

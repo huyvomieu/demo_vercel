@@ -128,7 +128,7 @@ block content
       form#dateTimeForm
         label(for="date") Ngày chiếu
         input#dateInput(type="date")
-        label(for="partOfDay") Giờ chiếu
+        label(for="timeofTicket") Giờ chiếu
         select#timeofTicket
           option(value= '' disabled selected) --Chọn thời gian chiếu--
         // Thẻ input ấn lưu giá khi chọn thời gian chiếu
@@ -165,7 +165,7 @@ block content
               img(src='../image/detail_imgae/visa.png' alt='')
               span International payments
             .right &gt;
-      .pr
+      .pr(style="display: flex;")
         .line
           span Order ID
           p#orderID XXXXXXXXX
@@ -202,6 +202,7 @@ block content
         if(UserInfor)
           input(type="hidden" id='user_id' name="user_id" value= UserInfor._id)
         input(type="hidden" id='order_id' name="order_id" )
+        input(type="hidden" id='ticket_id' name="ticket_id" )
         input(type="hidden" id='movie_id' name="movie_id" value= movie._id)
         input(type="hidden" id='seats' name="seats")
         input(type="hidden" id='time' name="time")

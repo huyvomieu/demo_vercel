@@ -1048,3 +1048,7 @@ main .seat_time .st_right button.subtime:active {
     opacity: 1; /* Mờ dần vào */
     transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi xuất hiện */
 }
+#showMessageButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

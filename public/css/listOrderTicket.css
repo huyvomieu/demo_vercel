@@ -1,0 +1,314 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    width: 1440px;
+    height: 1047px;
+    background: var(--Background---Dark, #000);
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  span,
+  p {
+    color: #fff;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  ul {
+    list-style: none;
+  }
+  body #header-placeholder {
+    height: 100px;
+    width: 100%;
+  }
+  body #footer-placeholder {
+    height: 80px;
+    width: 100%;
+  }
+  /* main */
+  main {
+    margin-top: 44px;
+    margin-left: 80px;
+    margin-right: 80px;
+    width: 1280px;
+    display: flex;
+    flex-direction: column; /* Các phần tử con sắp xếp từ trên xuống dưới */
+    /* border: 1px solid #fff; */
+    /* như này thì main  sẽ tự động điều chỉnh chiều cao cho phù hợp với các phần tử con  */
+  }
+  /* **************** payment ********** */
+  .pay {
+    margin-top: 20px;
+  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pay .head-list-detail {
+    display: flex;
+    width: 100%;
+  }
+  .pay .head-list-detail h1 {
+    color: #fff;
+    padding-left: 77px;
+    margin-right: 303px;
+  }
+  .pay .payment {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+  }
+  .pl {
+    margin-top: 10px;
+    width: 639px;
+    border-right: 2px solid #595959;
+    padding-left: 78px;
+    height: 480px;
+  }
+  .pl > ul {
+    width: 500px;
+    height: 480px;
+  }
+  .pl > ul li {
+    width: 100%;
+    height: 80px;
+    border-radius: 12px;
+    background: var(--Neutral-N700, #1c1c1c);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .pl > ul li .left {
+    margin-left: 16px;
+    display: flex;
+    width: 100px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pl > ul li .middle {
+    width: 340px;
+    height: 64px;
+  }
+  .pl > ul li .middle .time {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .pl > ul li .middle .time > p {
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .pl > ul li .middle p.namefilm {
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .pl > ul li .middle p.mseat {
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .pl > ul li .left img {
+    width: 86px;
+    height: 67px;
+  }
+  .pl > ul li .middle p {
+    width: 100%;
+    font-size: 1.6rem;
+    /* Thêm các thuộc tính dưới đây */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Giới hạn tối đa 1 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Hiển thị dấu "..." nếu vượt quá */
+  }
+  .pl > ul li.toggle-element.active {
+    border-radius: 12px;
+    border: 1px solid var(--Primary, #fcc434);
+    background: var(--Secondary, #261d08);
+  }
+  .pl > ul li .right {
+    color: white;
+    margin-right: 10px;
+    font-size: 2.4rem;
+  }
+  .pr {
+    width: 639px;
+    border-left: 2px solid #595959;
+    padding-top: 20px;
+    background: rgba(24, 23, 23, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    display: none;
+  }
+  .pr.active {
+    display: block;
+  }
+  
+  .pr .line {
+    width: 550px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-right: 30px;
+  }
+  .pr .line span {
+    color: #fff;
+    font-size: 24px;
+  }
+  .pr .line p {
+    color: #fff;
+    font-size: 24px;
+  }
+  .pr .line input {
+    outline: none;
+    background: rgba(24, 23, 23, 0.8);
+    width: 406px;
+    height: 32px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 20px;
+    border-radius: 8px 0 0 8px;
+  }
+  .pr .line input:placeholder-shown {
+    color: #fff;
+  }
+  .pr .line button.apply-dis {
+    height: 36px;
+    width: 124px;
+    border-radius: 0 8px 8px 0;
+    background: var(--Primary, #fcc434);
+    display: flex;
+    width: 119px;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .pr .line button.apply-dis:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+  }
+  .pr .line + .thanh {
+    margin-top: 20px;
+    background-color: #fff;
+    width: 520px;
+    height: 1px;
+  }
+  .pr .line p.totalprice span,
+  .pr .line p.totalprice {
+    color: #fcc434;
+    font-size: 24px;
+  }
+  .pr .line + .buytick {
+    margin-top: 30px;
+    height: 56px;
+  }
+  .pr .line + .buytick button.buyticket {
+    height: 56px;
+    width: 191px;
+    border-radius: 60px;
+    background: var(--Primary, #fcc434);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 172px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .pr .line + .buytick button.buyticket:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+  }
+  /* //////////////// thong bao .......... */
+  /* styles.css */
+  
+  #customMessage {
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  
+    justify-content: center;
+    align-items: center;
+    background: #353022ff;
+    padding-top: 10px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+    position: fixed; /* Đặt phần tử cố định trên màn hình */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
+    opacity: 0; /* Ban đầu ẩn đi */
+    z-index: 1000; /* Đảm bảo phần tử nổi lên trên tất cả */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
+  }
+  #customMessage .thanhngang {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+  }
+  #customMessage img.qr {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  #customMessage p {
+    color: #fff;
+    font-size: 16px;
+  }
+  #customMessage .list_tt {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #customMessage .list_tt:last-of-type {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  #customMessage .list_tt button {
+    width: 90px;
+    height: 30px;
+    background-color: #fcc434;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  #customMessage .list_tt button:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+  }
+  #customMessage.hidden {
+    display: none; /* Ẩn hoàn toàn phần tử */
+  }
+  
+  #customMessage.show {
+    display: flex; /* Hiển thị lại phần tử */
+    opacity: 1; /* Mờ dần vào */
+    transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi xuất hiện */
+  }

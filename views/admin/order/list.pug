@@ -1,0 +1,62 @@
+extends ../layouts/main.pug
+block content
+    div(class= "text-left mt-3")
+    table(class= "table mt-3")
+        thead.table-dark
+            tr
+                th No
+                th Khách hàng
+                th Tên phim
+                th Chỗ ngồi 
+                th Thời gian
+                th Giá
+                th Số lượng vé
+                th Tổng tiền
+                th Trạng thái
+
+        tbody
+            - var count = 1
+            each record in records
+                tr
+                    td #{count++}
+                    td #{record.user_name}
+                    td #{record.movie_name}
+                    td #{record.seats}
+                    td #{record.time}
+                    td #{record.price}VND
+                    td #{record.quantity}
+                    td
+                        b #{record.total}VND
+
+                    td(style="cursor: pointer;" title="Cập nhật trạng thái")
+                        if(record.status == 1)
+                            span(class="ti-check px-2 text-success")
+                            span Đã thanh toán 
+                        else
+                            span(class="ti-check-box px-2 text-danger" data-id = record._id id="changeStatus")    Đang xử lý
+    form(action=``, method="post" id= "form-delete") 
+    .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Xác nhận Xóa
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    p Bạn có chắc chắn xóa phim này?
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Hủy
+                    button.btn.btn-primary(type='button' id= 'btn-modal-delete') OK
+    script.
+        document.querySelectorAll("#changeStatus").forEach(item => {
+            item.addEventListener("click", (e) => {
+                if(!confirm("Xác nhận đơn hàng đã thanh toán?")) {
+                    return
+                }
+                let id = e.target.getAttribute('data-id')
+                var formSubmit = document.getElementById('form-delete')
+                formSubmit.action = `/admin/order/changeStatus/${id}?_method=PATCH`
+                formSubmit.submit();
+        })
+        })
+        

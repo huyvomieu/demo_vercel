@@ -1,4 +1,5 @@
 const Order = require("../../models/Order.model")
+const Ticket = require("../../models/Ticket.model")
 
 class OrderController {
     // [POST] /order/checkout

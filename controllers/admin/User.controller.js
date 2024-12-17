@@ -4,17 +4,13 @@ const fomatDate = require('../../helper/formatDate')
 
 const md5 = require("md5")
 class UserController {
-    // [GET] /admin/movie
+    // [GET] /admin/user
     async index(req, res, err) {
         const users = await User.find({});
-
-        
         // format ngày tạo
         users.map(user => {
-            console.log(fomatDate(user.createdAt))
             user.createdAt = fomatDate(user.createdAt)
             user.createdFormat = fomatDate(user.createdAt)
-            console.log(user)
         })
 
         res.render("admin/user/index",
