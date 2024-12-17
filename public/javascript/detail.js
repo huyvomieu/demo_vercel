@@ -1,74 +1,75 @@
 // Huy code thêm
-var idMovie = document.getElementById('idmovie').value
+var idMovie = document.getElementById("idmovie").value;
 var quantityTicket = 1;
 
-
-document.getElementById('dateInput').addEventListener('change', e=> {
-  var date = e.target.value
-  fetch(`${window.location.origin}/api/v1/ticket?id_movie=${idMovie}&date=${date}`)
-    .then(response => response.json())
-    .then(data => {
-        let tickets = [...data];
-        var html = ""
-        tickets.forEach(ticket => {
-          html += `<option value= '${ticket.timestart}' price= '${ticket.price}'>${ticket.timestart}  </option>`
-        })
-        document.getElementById('timeofTicket').innerHTML = html;
+document.getElementById("dateInput").addEventListener("change", (e) => {
+  var date = e.target.value;
+  fetch(
+    `${window.location.origin}/api/v1/ticket?id_movie=${idMovie}&date=${date}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      let tickets = [...data];
+      var html = "";
+      tickets.forEach((ticket) => {
+        html += `<option value= '${ticket.timestart}' price= '${ticket.price}'>${ticket.timestart}  </option>`;
+      });
+      document.getElementById("timeofTicket").innerHTML = html;
     })
     .catch(() => {
-        console.log("error")
-    })
-})
+      console.log("error");
+    });
+});
 
-document.getElementById('showMessageButton').addEventListener('click', e => {
+document.getElementById("showMessageButton").addEventListener("click", (e) => {
   e.preventDefault();
-  var orderID = document.getElementById('orderIDtb').textContent;
-  var seats = document.getElementById('seats_buytb').textContent;
-  var datetime = document.getElementById('datetimetickettb').textContent;
-  var price = document.getElementById('pricetb').textContent;
-  var total = document.getElementById('totalPricetb').textContent;
-  if(!seats || seats.includes('X')) {
+  var orderID = document.getElementById("orderID").textContent;
+  var seats = document.getElementById("seats_buy").textContent;
+  var datetime = document.getElementById("datetimeticket").textContent;
+  var price = document.getElementById("price").textContent;
+  var total = document.getElementById("totalPrice").textContent;
+  if (!seats || seats.includes("X")) {
     alert("Vui lòng chọn ghế ngồi");
     return;
   }
-  if(!datetime) {
+  if (!datetime || datetime.includes("X")) {
     alert("Vui lòng chọn thời gian!");
     return;
   }
-  const form = document.getElementById('formSubmit')
-  form.querySelector('#order_id').value = orderID
-  form.querySelector('#seats').value = seats
-  form.querySelector('#time').value = datetime
-  form.querySelector('#price').value = price
-  form.querySelector('#total').value = total.slice(0, total.length-3)
+  const form = document.getElementById("formSubmit");
+  form.querySelector("#order_id").value = orderID;
+  form.querySelector("#seats").value = seats;
+  form.querySelector("#time").value = datetime;
+  form.querySelector("#price").value = price;
+  form.querySelector("#total").value = total.slice(0, total.length - 3);
   form.submit();
-})
+});
 
-document.getElementById('closeMessageButton').addEventListener('click', e => {
+document.getElementById("closeMessageButton").addEventListener("click", (e) => {
   e.preventDefault();
-})
+});
 // end Huy code thêm
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Kiểm tra chiều cao của phần tử văn bản
-  const desc = document.querySelector('.desc');
-  const seeMore = document.querySelector('.see-more');
-  
+  const desc = document.querySelector(".desc");
+  const seeMore = document.querySelector(".see-more");
+
   // Kiểm tra nếu chiều cao của đoạn văn bản lớn hơn 3 dòng
   if (desc.scrollHeight > desc.clientHeight) {
-      seeMore.style.display = 'inline-block'; // Hiển thị "See more"
+    seeMore.style.display = "inline-block"; // Hiển thị "See more"
   } else {
-      seeMore.style.display = 'none'; // Ẩn "See more" nếu văn bản không vượt quá 3 dòng
+    seeMore.style.display = "none"; // Ẩn "See more" nếu văn bản không vượt quá 3 dòng
   }
 });
- 
-function toggleText() {
-  const storyline = document.querySelector('.st');
-  const seeMore = document.querySelector('.see-more');
-  storyline.classList.toggle('open'); // Thêm hoặc bỏ lớp 'open'
 
-  if (storyline.classList.contains('open')) {
-      seeMore.style.display = 'none'; // Ẩn nút "See more" khi nội dung đã mở rộng
+function toggleText() {
+  const storyline = document.querySelector(".st");
+  const seeMore = document.querySelector(".see-more");
+  storyline.classList.toggle("open"); // Thêm hoặc bỏ lớp 'open'
+
+  if (storyline.classList.contains("open")) {
+    seeMore.style.display = "none"; // Ẩn nút "See more" khi nội dung đã mở rộng
   }
 }
 
@@ -94,126 +95,129 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-////////////////////////// dung de sinh time 
+////////////////////////// dung de sinh time
 // Hàm kiểm tra năm nhuận
 function isLeapYear(year) {
-return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
-
-
 // Gọi hàm khởi tạo khi tải trang
-window.onload = () => {
-};
+window.onload = () => {};
 
 // Lắng nghe sự kiện click vào tất cả các phần tử có class "toggle-element"
-document.querySelectorAll('.toggle-element').forEach(function(element) {
-  element.addEventListener('click', function() {
-      // Tự động loại bỏ class "active" khỏi tất cả các phần tử
-      document.querySelectorAll('.toggle-element').forEach(function(el) {
-          el.classList.remove('active');
-      });
+document.querySelectorAll(".toggle-element").forEach(function (element) {
+  element.addEventListener("click", function () {
+    // Tự động loại bỏ class "active" khỏi tất cả các phần tử
+    document.querySelectorAll(".toggle-element").forEach(function (el) {
+      el.classList.remove("active");
+    });
 
-      // Thêm class "active" vào phần tử hiện tại
-      this.classList.add('active');
+    // Thêm class "active" vào phần tử hiện tại
+    this.classList.add("active");
   });
 });
 
 // xuwr lys su kien
 function submit_seats() {
-// Lấy tất cả các ghế đã được chọn
-const selectedSeats = document.querySelectorAll(".seat.selected");
+  // Lấy tất cả các ghế đã được chọn
+  const selectedSeats = document.querySelectorAll(".seat.selected");
 
-// Lấy thông tin (nội dung) của các ghế đã chọn
-const selectedSeatNumbers = Array.from(selectedSeats).map(seat => seat.innerText);
+  // Lấy thông tin (nội dung) của các ghế đã chọn
+  const selectedSeatNumbers = Array.from(selectedSeats).map(
+    (seat) => seat.innerText
+  );
 
-// Hiển thị danh sách ghế đã chọn trong thẻ <p> có id="seats_buy"
-const seatsBuyElement = document.getElementById("seats_buy");
-if (selectedSeatNumbers.length > 0) {
-  // Cập nhật danh sách ghế đã chọn vào phần tử với id="seats_buy"
-  seatsBuyElement.textContent = `${selectedSeatNumbers.join(", ")}`;
+  // Hiển thị danh sách ghế đã chọn trong thẻ <p> có id="seats_buy"
+  const seatsBuyElement = document.getElementById("seats_buy");
+  if (selectedSeatNumbers.length > 0) {
+    // Cập nhật danh sách ghế đã chọn vào phần tử với id="seats_buy"
+    seatsBuyElement.textContent = `${selectedSeatNumbers.join(", ")}`;
 
-  // Tính tổng số ghế đã chọn và hiển thị
-  quantityTicket  = selectedSeatNumbers.length;
-
-} else {
-  // Nếu không có ghế nào được chọn
-  alert("Bạn chưa chọn ghế nào cả !!!!!!");
-  seatsBuyElement.textContent = "XXXX";
-  priceElement.innerHTML = "XXXX <span>VND</span>";
-  totalPriceElement.innerHTML = "XXXX <span>VND</span>";
-}
+    // Tính tổng số ghế đã chọn và hiển thị
+    quantityTicket = selectedSeatNumbers.length;
+  } else {
+    // Nếu không có ghế nào được chọn
+    alert("Bạn chưa chọn ghế nào cả !!!!!!");
+    seatsBuyElement.textContent = "XXXX";
+    priceElement.innerHTML = "XXXX <span>VND</span>";
+    totalPriceElement.innerHTML = "XXXX <span>VND</span>";
+  }
 }
 
 function submittime() {
-// Lấy giá trị từ các trường trong form
+  // Lấy giá trị từ các trường trong form
 
-const dateInput = document.getElementById('dateInput').value;
-const timeofTicket = document.getElementById('timeofTicket').value;
-const selectedTime = document.getElementById('timeofTicket');
-const price = selectedTime.options[selectedTime.selectedIndex].getAttribute('price')
+  const dateInput = document.getElementById("dateInput").value;
+  const timeofTicket = document.getElementById("timeofTicket").value;
+  const selectedTime = document.getElementById("timeofTicket");
+  const price =
+    selectedTime.options[selectedTime.selectedIndex].getAttribute("price");
 
-console.log(price)
-// Tạo chuỗi thời gian đã chọn
-const timedachon = `${timeofTicket}, ${dateInput}`;
+  console.log(price);
+  // Tạo chuỗi thời gian đã chọn
+  const timedachon = `${timeofTicket}, ${dateInput}`;
 
-// Hiển thị thời gian đã chọn trong thẻ <p> có id="datetimeticket"
-const dateTimeTicketElement = document.getElementById('datetimeticket');
-dateTimeTicketElement.textContent = timedachon;
+  // Hiển thị thời gian đã chọn trong thẻ <p> có id="datetimeticket"
+  const dateTimeTicketElement = document.getElementById("datetimeticket");
+  dateTimeTicketElement.textContent = timedachon;
 
-document.getElementById("price").textContent = price
-document.getElementById('totalPrice').textContent = price*quantityTicket + "VND"
+  document.getElementById("price").textContent = price;
+  document.getElementById("totalPrice").textContent =
+    price * quantityTicket + "VND";
 
-// Log thông tin ra console (tuỳ chọn)
-console.log(timedachon);
+  // Log thông tin ra console (tuỳ chọn)
+  console.log(timedachon);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-// Tạo Order ID ngẫu nhiên
-function generateOrderID() {
-  return Math.floor(100000000 + Math.random() * 900000000); // Tạo số ngẫu nhiên 9 chữ số
-}
+  // Tạo Order ID ngẫu nhiên
+  function generateOrderID() {
+    return Math.floor(100000000 + Math.random() * 900000000); // Tạo số ngẫu nhiên 9 chữ số
+  }
 
-// Hiển thị Order ID khi trang tải hiển thị qua <p id="orderID">XXXXXXXXX</p>
-const orderIDElement = document.getElementById("orderID");
-orderIDElement.textContent = generateOrderID();
+  // Hiển thị Order ID khi trang tải hiển thị qua <p id="orderID">XXXXXXXXX</p>
+  const orderIDElement = document.getElementById("orderID");
+  orderIDElement.textContent = generateOrderID();
 });
 
 // Một số mã giảm giá giả
 const discountCodes = {
-  'GIAM30': 0.30, // 30% giảm
-  'GIAM50': 0.50, // 50% giảm
-  'GIAM10': 0.10,  // 10% giảm
-  'GIAM70': 0.70,
-  'GIAM20': 0.20,
-  'GIAM40': 0.40,
-  'GIAM60': 0.60,
-  'GIAM80': 0.80,
-  'GIAM90': 0.90,
-  'GIAM100': 0.0
+  GIAM30: 0.3, // 30% giảm
+  GIAM50: 0.5, // 50% giảm
+  GIAM10: 0.1, // 10% giảm
+  GIAM70: 0.7,
+  GIAM20: 0.2,
+  GIAM40: 0.4,
+  GIAM60: 0.6,
+  GIAM80: 0.8,
+  GIAM90: 0.9,
+  GIAM100: 0.0,
 };
 
 function applyDiscount() {
   // Lấy giá trị mã giảm giá từ input
-  const discountCode = document.getElementById('discount').value.trim().toUpperCase();
-  const priceElement = document.getElementById('price');
-  const totalPriceElement = document.getElementById('totalPrice');
-  
+  const discountCode = document
+    .getElementById("discount")
+    .value.trim()
+    .toUpperCase();
+  const priceElement = document.getElementById("price");
+  const totalPriceElement = document.getElementById("totalPrice");
+
   // Lấy giá gốc từ phần tử price
-  let price = parseInt(priceElement.textContent.replace(' VND', '').trim(), 10);
+  let price = parseInt(priceElement.textContent.replace(" VND", "").trim(), 10);
 
   // Kiểm tra mã giảm giá có hợp lệ không
   if (discountCodes[discountCode]) {
-      const discount = discountCodes[discountCode]; // Lấy phần trăm giảm
-      const discountedPrice = price - (price * discount); // Tính giá sau giảm
+    const discount = discountCodes[discountCode]; // Lấy phần trăm giảm
+    const discountedPrice = price - price * discount; // Tính giá sau giảm
 
-      // Cập nhật giá sau khi giảm
-      totalPriceElement.textContent = `${discountedPrice} VND`;
-  } else if(discountCode==""){
-      totalPriceElement.textContent = `${price} VND`;
-  } else{
-      // Nếu mã giảm giá không hợp lệ, thông báo lỗi
-      alert("Mã giảm giá không hợp lệ.");
+    // Cập nhật giá sau khi giảm
+    totalPriceElement.textContent = `${discountedPrice} VND`;
+  } else if (discountCode == "") {
+    totalPriceElement.textContent = `${price} VND`;
+  } else {
+    // Nếu mã giảm giá không hợp lệ, thông báo lỗi
+    alert("Mã giảm giá không hợp lệ.");
   }
 }
 
@@ -226,14 +230,17 @@ function buyticket() {
   var total = document.getElementById("totalPrice").textContent;
 
   // Lấy mã giảm giá
-  const discountCode = document.getElementById('discount').value.trim().toUpperCase();
+  const discountCode = document
+    .getElementById("discount")
+    .value.trim()
+    .toUpperCase();
   let discount = 0; // Mặc định không có giảm giá
 
   // Kiểm tra mã giảm giá
   if (discountCodes[discountCode]) {
-      discount = discountCodes[discountCode] * 100 + "%"; // Chuyển thành phần trăm
+    discount = discountCodes[discountCode] * 100 + "%"; // Chuyển thành phần trăm
   } else {
-      discount = "0%"; // Không có mã giảm giá
+    discount = "0%"; // Không có mã giảm giá
   }
 
   // Gán giá trị cho thông báo
@@ -247,33 +254,30 @@ function buyticket() {
   console.log(order, seat, dt, price, discount, total);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const showButton = document.getElementById('showMessageButton');
-  const closeButton = document.getElementById('closeMessageButton');
-  const acceptButton = document.getElementById('acceptMessageButton');
-  const customMessage = document.getElementById('customMessage');
+document.addEventListener("DOMContentLoaded", () => {
+  const showButton = document.getElementById("showMessageButton");
+  const closeButton = document.getElementById("closeMessageButton");
+  const acceptButton = document.getElementById("acceptMessageButton");
+  const customMessage = document.getElementById("customMessage");
 
-  
-  
   // Hiển thị thông báo với hiệu ứng
-  showButton.addEventListener('click', () => {
-    customMessage.classList.remove('hidden');
-    customMessage.classList.add('show');
-    
-    
+  showButton.addEventListener("click", () => {
+    customMessage.classList.remove("hidden");
+    customMessage.classList.add("show");
   });
 
   // Ẩn thông báo với hiệu ứng
-  closeButton.addEventListener('click', () => {
-    customMessage.classList.remove('show');
-    customMessage.classList.add('hidden');
+  closeButton.addEventListener("click", () => {
+    customMessage.classList.remove("show");
+    customMessage.classList.add("hidden");
   });
-  
-  acceptButton.addEventListener('click', () => {
-    customMessage.classList.remove('show');
-    customMessage.classList.add('hidden');
+
+  acceptButton.addEventListener("click", () => {
+    customMessage.classList.remove("show");
+    customMessage.classList.add("hidden");
   });
 });
+<<<<<<< HEAD
 
 
 /////////// fix lỗi làm mờ khi chưa chọn chỗ 
@@ -317,3 +321,5 @@ document.addEventListener("DOMContentLoaded", function() {
                        document.getElementById('partOfDay').value !== "";
   checkButtonStatus(seatSelected, timeSelected);
 });
+=======
+>>>>>>> 610ea6dd85f1bba69f6f560b5ed1d50d25c882ee
