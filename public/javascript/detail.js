@@ -319,4 +319,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+<<<<<<< HEAD
 
+=======
+// fix lỗi làm mờ button khi không có chỗ và time
+>>>>>>> d3524bc102200be2ec30c118c00fbf218155dbbb
