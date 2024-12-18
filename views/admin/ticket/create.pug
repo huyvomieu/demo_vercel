@@ -6,7 +6,7 @@ block content
         form(class= "form" action="/admin/ticket/create", method="post")
             .form-group
                 label() Phim
-                select.form-control(name="id_movie") 
+                select.form-control(name="id_movie" required) 
                     option(value = "" disabled selected) -- Chọn phim --
                     each movie in movies 
                         option(value = movie._id) #{movie.name}
@@ -25,7 +25,7 @@ block content
                     input.form-control(type="number", min="0" max ='100' id="quantity", name="quantity" required)
             .form-group
                 label() Phòng chiếu
-                select.form-control(name="place") 
+                select.form-control(name="place" required) 
                     option(value = "" disabled selected) -- Chọn phòng --
                     option(value = "PH01") PH01
                     option(value = "PH02") PH02
@@ -34,3 +34,8 @@ block content
                     option(value = "PH05") PH05
 
             button(type="submit" class="btn btn-primary") Create
+    script.
+        // Lấy ngày hiện tại
+        const today = new Date().toISOString().split('T')[0];
+        // Đặt giá trị min cho input
+        document.getElementById('datestart').setAttribute('min', today);

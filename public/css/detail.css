@@ -755,11 +755,14 @@ main .seat_time .st_right > p {
   line-height: 36px; /* 128.571% */
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 71px;
+  margin-bottom: 104px;
+}
+main .seat_time .st_right form#dateTimeForm {
+  padding-top: 20px;
 }
 main .seat_time .st_right form#dateTimeForm label {
   display: block;
-  margin-top: 10px;
+  margin-top: 29px;
   font-weight: bold;
   color: #fcc434;
   text-align: center;
@@ -791,7 +794,7 @@ main .seat_time .st_right button.subtime {
   background: var(--Primary, #fcc434);
   outline: none;
 
-  margin-top: 40px;
+  margin-top: 200px;
   margin-left: 255px;
 
   margin-bottom: 15px;
@@ -997,6 +1000,12 @@ main .seat_time .st_right button.subtime:active {
   transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
   opacity: 0; /* Ban đầu ẩn đi */
   z-index: 1000; /* Đảm bảo phần tử nổi lên trên tất cả */
+  position: fixed; /* Đặt phần tử cố định trên màn hình */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
+  opacity: 0; /* Ban đầu ẩn đi */
+  z-index: 1000; /* Đảm bảo phần tử nổi lên trên tất cả */
   transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
 }
 #customMessage .thanhngang {
@@ -1046,8 +1055,11 @@ main .seat_time .st_right button.subtime:active {
 #customMessage.show {
   display: flex; /* Hiển thị lại phần tử */
   opacity: 1; /* Mờ dần vào */
+  display: flex; /* Hiển thị lại phần tử */
+  opacity: 1; /* Mờ dần vào */
   transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi xuất hiện */
 }
+
 #showMessageButton:disabled {
   opacity: 0.5; /* Làm mờ nút */
   cursor: not-allowed; /* Thay đổi con trỏ chuột */

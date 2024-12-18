@@ -5,15 +5,16 @@ header
       li
         a(href='/') Home
       li
-        a(href='') About
+        a(href='/about') About
       li
-        a(href='') Contact
+        a(href='/contact') Contact
       li
-        a(href='') FAQ
+        a(href='/faq') FAQ
     .login_up
       if(tokenExist)
         a.iconBtn(href='/user/logout')
-          img(width="40px" style="border-radius: 20px;" src= UserInfor.avatar  alt='')
+          .image
+            img(src= UserInfor.avatar  alt='')
           p Logout
       else 
         a.signup(href='/user/register') Sign up

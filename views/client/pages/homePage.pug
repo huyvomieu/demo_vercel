@@ -70,15 +70,17 @@ header
       .search-results(style="display: none")
         
     .iconBtn(onclick='hello')
-      img(src='./image/homepage_img/ticket.svg' alt='')
-      p Ticket
+      a(href= "/ticket/")
+        img(src='./image/homepage_img/ticket.svg' alt='')
+        p Ticket
     .iconBtn
       a(href= "/movie")
         img(src='./image/homepage_img/video.svg' alt='')
         p Movie
     if(tokenExist)
       .iconBtn.avataruser()
-        img(onclick = "check()" width="40px" style="border-radius: 20px;" src= UserInfor.avatar alt='')
+        .image 
+          img(onclick = "check()" width="40px" style="border-radius: 20px;" src= UserInfor.avatar alt='')
         p Hi #{UserInfor.lastname}!
         div.detail()
           ul
@@ -132,7 +134,8 @@ header
       .movie_playing
         .poster
           img(src=movie.avatar alt='')
-        .title #{movie.name}
+        .title
+          a(href= `/movie/${movie._id}` style= "color: #fcc434") #{movie.name} 
         .inf
           .inf-detail
             p
@@ -205,7 +208,7 @@ footer#ft
         ul
           li Nguyễn Công Bằng
           li Hoàng Thu Thảo
-          li Nguyễn Dình Linh
+          li Nguyễn Đình Linh
           li Nguyễn Quốc Huy
           li Lê Trần Huy
       p
