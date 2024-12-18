@@ -332,6 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //   const timeSelected = dateInput !== "" && partOfDay !== "";
 //   checkButtonStatus(seatSelected, timeSelected);
 // });
+/// phần này để kiểm tra xem có ghế nào, time nàonào được chọn hay không để con hiển thị buy ticketticket
 document.addEventListener("DOMContentLoaded", function () {
   const buyTicketButton = document.getElementById("showMessageButton"); // Nút Buy Ticket
   const submitTimeButton = document.querySelector(".subtime"); // Nút Submit Time
