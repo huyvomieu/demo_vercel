@@ -144,7 +144,7 @@
     margin-right: 10px;
     font-size: 2.4rem;
   }
-  .pr {
+  .tk_pr {
     width: 639px;
     border-left: 2px solid #595959;
     padding-top: 20px;
@@ -154,11 +154,11 @@
     padding-left: 50px;
     display: none;
   }
-  .pr.active {
+  .tk_pr.active {
     display: block;
   }
   
-  .pr .line {
+  .tk_pr .line {
     width: 550px;
     height: 40px;
     display: flex;
@@ -167,15 +167,15 @@
     margin-bottom: 20px;
     padding-right: 30px;
   }
-  .pr .line span {
+  .tk_pr .line span {
     color: #fff;
     font-size: 24px;
   }
-  .pr .line p {
+  .tk_pr .line p {
     color: #fff;
     font-size: 24px;
   }
-  .pr .line input {
+  .tk_pr .line input {
     outline: none;
     background: rgba(24, 23, 23, 0.8);
     width: 406px;
@@ -185,10 +185,10 @@
     padding-left: 20px;
     border-radius: 8px 0 0 8px;
   }
-  .pr .line input:placeholder-shown {
+  .tk_pr .line input:placeholder-shown {
     color: #fff;
   }
-  .pr .line button.apply-dis {
+  .tk_pr .line button.apply-dis {
     height: 36px;
     width: 124px;
     border-radius: 0 8px 8px 0;
@@ -204,25 +204,25 @@
     font-size: 16px;
     font-weight: bold;
   }
-  .pr .line button.apply-dis:active {
+  .tk_pr .line button.apply-dis:active {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
   }
-  .pr .line + .thanh {
+  .tk_pr .line + .thanh {
     margin-top: 20px;
     background-color: #fff;
     width: 520px;
     height: 1px;
   }
-  .pr .line p.totalprice span,
-  .pr .line p.totalprice {
+  .tk_pr .line p.totalprice span,
+  .tk_pr .line p.totalprice {
     color: #fcc434;
     font-size: 24px;
   }
-  .pr .line + .buytick {
+  .tk_pr .line + .buytick {
     margin-top: 30px;
     height: 56px;
   }
-  .pr .line + .buytick button.buyticket {
+  .tk_pr .line + .buytick button.buyticket {
     height: 56px;
     width: 191px;
     border-radius: 60px;
@@ -235,7 +235,7 @@
     font-size: 20px;
     font-weight: bold;
   }
-  .pr .line + .buytick button.buyticket:active {
+  .tk_pr .line + .buytick button.buyticket:active {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
   }
   /* //////////////// thong bao .......... */
