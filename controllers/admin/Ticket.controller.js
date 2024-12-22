@@ -5,6 +5,9 @@ class TicketController {
     // [GET] /admin/ticket
     async index(req, res, err) {
         const tickets = await Ticket.find({});
+        for await (const item of tickets) {
+            item.movie_info = await Movie.findOne({_id: item.id_movie})
+        }
         
         res.render("admin/ticket/index",
             {

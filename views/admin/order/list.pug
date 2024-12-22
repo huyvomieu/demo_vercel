@@ -1,6 +1,10 @@
 extends ../layouts/main.pug
 block content
     div(class= "text-left mt-3")
+        nav(aria-label='breadcrumb' class="bg-none")
+            ol.breadcrumb
+                li.breadcrumb-item.active(aria-current='page') Order
+
     table(class= "table mt-3")
         thead.table-dark
             tr

@@ -18,6 +18,10 @@ const User = new mongoose.Schema(
             type: String,
             default: generateStringRandom.generateStringToken(30),
         },
+        status: {
+            type: Number,
+            default: 1
+        }
     },
     {
         timestamps: true

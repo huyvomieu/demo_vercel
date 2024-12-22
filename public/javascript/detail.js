@@ -12,10 +12,10 @@ document.getElementById("dateInput").addEventListener("change", (e) => {
       let tickets = [...data];
       var html = "";
       tickets.forEach((ticket) => {
-        html += `<option value= '${ticket.timestart}' price= '${ticket.price}'>${ticket.timestart}  </option>`;
+        html += `<option value= '${ticket.timestart}' price= '${ticket.price}' ticket-id = '${ticket._id}'>${ticket.timestart}  </option>`;
       });
       if(!html) {
-        html += `<option disabled selected> Không có khung giờ chiếu nào trong ngày!</option>`;
+        html += `<option disabled> Không có khung giờ chiếu nào trong ngày!</option>`;
       }
 
       document.getElementById("timeofTicket").innerHTML = html;
