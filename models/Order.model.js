@@ -12,9 +12,10 @@ const Order = new mongoose.Schema(
         place: String,
         time: String,
         status: {
-            type: Number,    // 0 la dang xu ly  // 1 da thanh toan
+            type: Number,    // 0 la dang xu ly  // 1 da thanh toan // -1 đã hủy hoặc hết thời hạn
             default: 0
-        }
+        },
+        expireAt: { type: Date }
     },
     {
         timestamps: true

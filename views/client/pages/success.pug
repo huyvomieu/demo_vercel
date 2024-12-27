@@ -1,0 +1,8 @@
+extends ../layouts/default.pug
+block content
+    if code == "00"
+        p(style="text-align: center")  Đặt vé thành công
+        a.btn.btn-default(href='/ticket') Xem vé đã đặt
+    else
+        p(style="text-align: center; color: red") GD thất bại
+    p(style="text-align: center")

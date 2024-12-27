@@ -20,38 +20,38 @@ block content
               p.mseat #{record.seats}
             .right &gt;
       .tk_pr
-        .line
-          p Order ID
-          p#orderID XXXXXXXXX
-        .line
-          span Seats
-          p#seats_buy XX
-        .line
-          span Date
-          p#datetimeticket XX/XX/XXXX
-        .line
-          span Time
-          p#time XX:XX am
-        .line
-          span Room
-          p#Room XXXXXXXXXX
-        .line
-          span Price
-          p#price
-            | XXXXXXXXXX 
-            span VND
-        .line
-          span Discount
-          p#discount XX%
-        .line.thanh
-        .line.total
-          span Total Price
-          p#totalPrice.totalprice
-            | XXXXXXXX 
-            span  VND
-        .line.buytick
-          button#showMessageButton.buyticket(type='button' onclick='resetDetail()')
-            | CloseClose
+          .line
+            p Order ID
+            p#orderID XXXXXXXXX
+          .line
+            span Seats
+            p#seats_buy XX
+          .line
+            span Date
+            p#datetimeticket XX/XX/XXXX
+          .line
+            span Time
+            p#time XX:XX am
+          .line
+            span Room
+            p#Room XXXXXXXXXX
+          .line
+            span Price
+            p#price
+              | XXXXXXXXXX 
+              span VND
+          .line
+            span Discount
+            p#discount XX%
+          .line.thanh
+          .line.total
+            span Total Price
+            p#totalPrice.totalprice
+              | XXXXXXXX 
+              span  VND
+          .line.buytick
+            button#closeMessageButton.buyticket(type='button' onclick='resetDetail()')
+              | Close
     // // thông báo
     //
       <div id="customMessage" class="hidden">
