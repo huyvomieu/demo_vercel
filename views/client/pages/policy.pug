@@ -1,147 +1,183 @@
-extend ../layouts/default.pug
-block content
-  link(rel='stylesheet' href='styles.css')
+doctype html 
+head 
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Policy Page
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous')
   script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous')
   link(rel="stylesheet", href="/css/policy.css")
+  link(rel="stylesheet", href="/css/header.css")
+  link(rel="stylesheet", href="/css/footer.css")
 
-  .container.mt-5
-    #accordionFlushExample.accordion.accordion-flush
-      .accordion-item
-        h2#flush-headingOne.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne')
-            | 1. Ch&iacute;nh s&aacute;ch &dstrok;&#x1EB7;t v&eacute;
-        #flush-collapseOne.accordion-collapse.collapse(aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 Th&#x1EDD;i gian &dstrok;&#x1EB7;t v&eacute;:
-              li
-                | Kh&aacute;ch h&agrave;ng ch&#x1EC9; c&oacute; th&#x1EC3; &dstrok;&#x1EB7;t v&eacute; tr&#x1B0;&#x1EDB;c t&#x1ED1;i &dstrok;a 7
-                | ng&agrave;y v&agrave; tr&#x1B0;&#x1EDB;c gi&#x1EDD; chi&#x1EBF;u 30 ph&uacute;t.
-              li
-                | V&eacute; s&#x1EBD; t&#x1EF1; &dstrok;&#x1ED9;ng h&#x1EE7;y n&#x1EBF;u kh&ocirc;ng thanh to&aacute;n sau
-                | 15 ph&uacute;t k&#x1EC3; t&#x1EEB; khi &dstrok;&#x1EB7;t.
-            ul
-              h2 H&#x1EA1;n m&#x1EE9;c v&eacute;:
-              li
-                | M&#x1ED7;i ng&#x1B0;&#x1EDD;i d&ugrave;ng c&oacute; th&#x1EC3; &dstrok;&#x1EB7;t t&#x1ED1;i &dstrok;a 6 v&eacute; trong
-                | m&#x1ED9;t giao d&#x1ECB;ch.
-              li
-                | C&aacute;c giao d&#x1ECB;ch ph&#x1EA3;i &dstrok;&#x1EA3;m b&#x1EA3;o kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EB7;t
-                | nhi&#x1EC1;u v&eacute; tr&ugrave;ng v&#x1ECB; tr&iacute; trong c&ugrave;ng m&#x1ED9;t su&#x1EA5;t
-                | chi&#x1EBF;u.
-      .accordion-item
-        h2#flush-headingTwo.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseTwo' aria-expanded='false' aria-controls='flush-collapseTwo')
-            | 2. Ch&iacute;nh s&aacute;ch &dstrok;&#x1ED5;i/tr&#x1EA3; v&eacute;
-        #flush-collapseTwo.accordion-collapse.collapse(aria-labelledby='flush-headingTwo' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 &Dstrok;i&#x1EC1;u ki&#x1EC7;n &dstrok;&#x1ED5;i v&eacute;:
-              li
-                | V&eacute; ch&#x1EC9; c&oacute; th&#x1EC3; &dstrok;&#x1ED5;i tr&#x1B0;&#x1EDB;c 2 gi&#x1EDD; so v&#x1EDB;i th&#x1EDD;i
-                | gian b&#x1EAF;t &dstrok;&#x1EA7;u chi&#x1EBF;u.
-              li
-                | Ch&#x1EC9; &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1ED5;i v&eacute; sang c&ugrave;ng su&#x1EA5;t chi&#x1EBF;u ho&#x1EB7;c
-                | c&ugrave;ng gi&aacute; tr&#x1ECB; v&eacute;.
-            ul
-              h2 &Dstrok;i&#x1EC1;u ki&#x1EC7;n tr&#x1EA3; v&eacute;:
-              li
-                | V&eacute; &dstrok;&atilde; &dstrok;&#x1EB7;t kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c ho&agrave;n l&#x1EA1;i, tr&#x1EEB; tr&#x1B0;&#x1EDD;ng
-                | h&#x1EE3;p su&#x1EA5;t chi&#x1EBF;u b&#x1ECB; h&#x1EE7;y do l&#x1ED7;i t&#x1EEB; ph&iacute;a r&#x1EA1;p.
-            ul
-              h2 Ph&iacute; &dstrok;&#x1ED5;i v&eacute;:
-              li
-                | &Aacute;p d&#x1EE5;ng ph&iacute; &dstrok;&#x1ED5;i v&eacute; t&#x1EEB; 10% gi&aacute; tr&#x1ECB; v&eacute; ho&#x1EB7;c
-                | m&#x1EE9;c c&#x1ED1; &dstrok;&#x1ECB;nh
-      .accordion-item
-        h2#flush-headingThree.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseThree' aria-expanded='false' aria-controls='flush-collapseThree')
-            | 3. Ch&iacute;nh s&aacute;ch thanh to&aacute;n
-        #flush-collapseThree.accordion-collapse.collapse(aria-labelledby='flush-headingThree' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 Ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh to&aacute;n:
-              li
-                | Thanh to&aacute;n tr&#x1EF1;c tuy&#x1EBF;n qua c&aacute;c c&#x1ED5;ng nh&#x1B0; v&iacute;
-                | &dstrok;i&#x1EC7;n t&#x1EED;, th&#x1EBB; t&iacute;n d&#x1EE5;ng, ho&#x1EB7;c c&aacute;c ph&#x1B0;&#x1A1;ng th&#x1EE9;c
-                | &dstrok;&#x1B0;&#x1EE3;c h&#x1ED7; tr&#x1EE3;.
-              li
-                | N&#x1EBF;u ch&#x1ECD;n thanh to&aacute;n t&#x1EA1;i r&#x1EA1;p, kh&aacute;ch h&agrave;ng c&#x1EA7;n
-                | thanh to&aacute;n trong v&ograve;ng 2 gi&#x1EDD; tr&#x1B0;&#x1EDB;c su&#x1EA5;t
-                | chi&#x1EBF;u.
-            ul
-              h2 Ho&agrave;n ti&#x1EC1;n:
-              li
-                | Ti&#x1EC1;n v&eacute; s&#x1EBD; &dstrok;&#x1B0;&#x1EE3;c ho&agrave;n qua ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh
-                | to&aacute;n ban &dstrok;&#x1EA7;u n&#x1EBF;u &dstrok;&aacute;p &#x1EE9;ng ch&iacute;nh s&aacute;ch ho&agrave;n
-                | tr&#x1EA3;.
-              li Th&#x1EDD;i gian ho&agrave;n ti&#x1EC1;n: 3-5 ng&agrave;y l&agrave;m vi&#x1EC7;c
-      .accordion-item
-        h2#flush-headingFour.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseFour' aria-expanded='false' aria-controls='flush-collapseFour')
-            | 4. Ch&iacute;nh s&aacute;ch tr&#x1EBB; em v&agrave; ng&#x1B0;&#x1EDD;i l&#x1EDB;n tu&#x1ED5;i
-        #flush-collapseFour.accordion-collapse.collapse(aria-labelledby='flush-headingFour' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 Tr&#x1EBB; em:
-              li
-                | Tr&#x1EBB; em d&#x1B0;&#x1EDB;i 12 tu&#x1ED5;i c&#x1EA7;n c&oacute; ng&#x1B0;&#x1EDD;i l&#x1EDB;n &dstrok;i k&egrave;m.
-              li
-                | V&eacute; tr&#x1EBB; em &dstrok;&#x1B0;&#x1EE3;c gi&#x1EA3;m gi&aacute; n&#x1EBF;u su&#x1EA5;t chi&#x1EBF;u &aacute;p
-                | d&#x1EE5;ng khuy&#x1EBF;n m&atilde;i.
-            ul
-              h2 Ng&#x1B0;&#x1EDD;i l&#x1EDB;n tu&#x1ED5;i:
-              li
-                | Ng&#x1B0;&#x1EDD;i tr&ecirc;n 60 tu&#x1ED5;i c&oacute; th&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c gi&#x1EA3;m gi&aacute; v&eacute;
-                | t&ugrave;y theo ch&iacute;nh s&aacute;ch khuy&#x1EBF;n m&atilde;i c&#x1EE7;a r&#x1EA1;p.
-      .accordion-item
-        h2#flush-headingFive.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseFive' aria-expanded='false' aria-controls='flush-collapseFive')
-            | 5. Ch&iacute;nh s&aacute;ch &#x1B0;u &dstrok;&atilde;i v&agrave; khuy&#x1EBF;n m&atilde;i
-        #flush-collapseFive.accordion-collapse.collapse(aria-labelledby='flush-headingFive' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 V&eacute; khuy&#x1EBF;n m&atilde;i:
-              li V&eacute; &#x1B0;u &dstrok;&atilde;i kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1ED5;i tr&#x1EA3;
-              li
-                | V&eacute; khuy&#x1EBF;n m&atilde;i c&oacute; th&#x1EC3; c&oacute; &dstrok;i&#x1EC1;u ki&#x1EC7;n s&#x1EED; d&#x1EE5;ng
-                | ri&ecirc;ng (v&iacute; d&#x1EE5;: ch&#x1EC9; &aacute;p d&#x1EE5;ng v&agrave;o ng&agrave;y th&#x1B0;&#x1EDD;ng).
-            ul
-              h2 T&iacute;ch &dstrok;i&#x1EC3;m th&agrave;nh vi&ecirc;n:
-              li
-                | Th&agrave;nh vi&ecirc;n t&iacute;ch &dstrok;i&#x1EC3;m t&#x1EEB; m&#x1ED7;i giao d&#x1ECB;ch &dstrok;&#x1EC3; &dstrok;&#x1ED5;i
-                | v&eacute; ho&#x1EB7;c nh&#x1EAD;n &#x1B0;u &dstrok;&atilde;i kh&aacute;c
-      .accordion-item
-        h2#flush-headingSix.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseSix' aria-expanded='false' aria-controls='flush-collapseSix')
-            | 6. Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t th&ocirc;ng tin
-        #flush-collapseSix.accordion-collapse.collapse(aria-labelledby='flush-headingSix' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              li
-                | Th&ocirc;ng tin kh&aacute;ch h&agrave;ng (h&#x1ECD; t&ecirc;n, email, s&#x1ED1; &dstrok;i&#x1EC7;n
-                | tho&#x1EA1;i) ch&#x1EC9; &dstrok;&#x1B0;&#x1EE3;c s&#x1EED; d&#x1EE5;ng cho m&#x1EE5;c &dstrok;&iacute;ch x&aacute;c
-                | nh&#x1EAD;n &dstrok;&#x1EB7;t v&eacute; v&agrave; ch&abreve;m s&oacute;c kh&aacute;ch h&agrave;ng.
-              li
-                | Kh&ocirc;ng chia s&#x1EBB; d&#x1EEF; li&#x1EC7;u kh&aacute;ch h&agrave;ng v&#x1EDB;i b&ecirc;n th&#x1EE9;
-                | ba m&agrave; kh&ocirc;ng c&oacute; s&#x1EF1; &dstrok;&#x1ED3;ng &yacute;.
-              li
-                | &Aacute;p d&#x1EE5;ng c&aacute;c bi&#x1EC7;n ph&aacute;p b&#x1EA3;o m&#x1EAD;t c&#x1EA7;n thi&#x1EBF;t &dstrok;&#x1EC3;
-                | b&#x1EA3;o v&#x1EC7; th&ocirc;ng tin c&aacute; nh&acirc;n kh&#x1ECF;i truy c&#x1EAD;p tr&aacute;i
-                | ph&eacute;p, m&#x1EA5;t m&aacute;t ho&#x1EB7;c r&ograve; r&#x1EC9;
-      .accordion-item
-        h2#flush-headingSeven.accordion-header
-          button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseSeven' aria-expanded='false' aria-controls='flush-collapseSeven')
-            | 7. Ch&iacute;nh s&aacute;ch x&#x1EED; l&yacute; l&#x1ED7;i h&#x1EC7; th&#x1ED1;ng
-        #flush-collapseSeven.accordion-collapse.collapse(aria-labelledby='flush-headingSeven' data-bs-parent='#accordionFlushExample')
-          .accordion-body
-            ul
-              h2 N&#x1EBF;u h&#x1EC7; th&#x1ED1;ng x&#x1EA3;y ra l&#x1ED7;i:
-              li
-                | R&#x1EA1;p c&oacute; tr&aacute;ch nhi&#x1EC7;m th&ocirc;ng b&aacute;o &dstrok;&#x1EBF;n kh&aacute;ch h&agrave;ng
-                | qua email ho&#x1EB7;c s&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i &dstrok;&atilde; &dstrok;&abreve;ng k&yacute;.
-              li
-                | &Dstrok;&#x1EA3;m b&#x1EA3;o ho&agrave;n ti&#x1EC1;n ho&#x1EB7;c &dstrok;&#x1ED5;i su&#x1EA5;t chi&#x1EBF;u t&#x1B0;&#x1A1;ng
-                | &dstrok;&#x1B0;&#x1A1;ng n&#x1EBF;u l&#x1ED7;i xu&#x1EA5;t ph&aacute;t t&#x1EEB; h&#x1EC7; th&#x1ED1;ng.
-
+  body(style = "display: flex; flex-direction: column; height: 100vh; margin: 0;")
+    header(style= "display: flex;justify-content: center;")
+        nav(style= "width: 80%; margin: 0")
+          img.logo_icon(src='/image/login_image/login_logo.png' alt='')
+          ul.menu
+            li
+              a(href='/') Home
+            li
+              a(href='') About
+            li
+              a(href='') Contact
+            li
+              a(href='') FAQ
+            li 
+              a(href="/policy") Policy 
+          .login_up
+            a.signup(href='/user/register' style="margin-right:20px") Sign up
+            a.login(href='/user/login') Log In    
+    main(style= "margin-top: 100px; flex: 1")
+      .container.mt-5
+        #accordionFlushExample.accordion.accordion-flush
+          .accordion-item
+            h2#flush-headingOne.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne')
+                | 1. Ch&iacute;nh s&aacute;ch &dstrok;&#x1EB7;t v&eacute;
+            #flush-collapseOne.accordion-collapse.collapse(aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 Th&#x1EDD;i gian &dstrok;&#x1EB7;t v&eacute;:
+                  li
+                    | Kh&aacute;ch h&agrave;ng ch&#x1EC9; c&oacute; th&#x1EC3; &dstrok;&#x1EB7;t v&eacute; tr&#x1B0;&#x1EDB;c t&#x1ED1;i &dstrok;a 7
+                    | ng&agrave;y v&agrave; tr&#x1B0;&#x1EDB;c gi&#x1EDD; chi&#x1EBF;u 30 ph&uacute;t.
+                  li
+                    | V&eacute; s&#x1EBD; t&#x1EF1; &dstrok;&#x1ED9;ng h&#x1EE7;y n&#x1EBF;u kh&ocirc;ng thanh to&aacute;n sau
+                    | 15 ph&uacute;t k&#x1EC3; t&#x1EEB; khi &dstrok;&#x1EB7;t.
+                ul
+                  h2 H&#x1EA1;n m&#x1EE9;c v&eacute;:
+                  li
+                    | M&#x1ED7;i ng&#x1B0;&#x1EDD;i d&ugrave;ng c&oacute; th&#x1EC3; &dstrok;&#x1EB7;t t&#x1ED1;i &dstrok;a 6 v&eacute; trong
+                    | m&#x1ED9;t giao d&#x1ECB;ch.
+                  li
+                    | C&aacute;c giao d&#x1ECB;ch ph&#x1EA3;i &dstrok;&#x1EA3;m b&#x1EA3;o kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EB7;t
+                    | nhi&#x1EC1;u v&eacute; tr&ugrave;ng v&#x1ECB; tr&iacute; trong c&ugrave;ng m&#x1ED9;t su&#x1EA5;t
+                    | chi&#x1EBF;u.
+          .accordion-item
+            h2#flush-headingTwo.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseTwo' aria-expanded='false' aria-controls='flush-collapseTwo')
+                | 2. Ch&iacute;nh s&aacute;ch &dstrok;&#x1ED5;i/tr&#x1EA3; v&eacute;
+            #flush-collapseTwo.accordion-collapse.collapse(aria-labelledby='flush-headingTwo' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 &Dstrok;i&#x1EC1;u ki&#x1EC7;n &dstrok;&#x1ED5;i v&eacute;:
+                  li
+                    | V&eacute; ch&#x1EC9; c&oacute; th&#x1EC3; &dstrok;&#x1ED5;i tr&#x1B0;&#x1EDB;c 2 gi&#x1EDD; so v&#x1EDB;i th&#x1EDD;i
+                    | gian b&#x1EAF;t &dstrok;&#x1EA7;u chi&#x1EBF;u.
+                  li
+                    | Ch&#x1EC9; &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1ED5;i v&eacute; sang c&ugrave;ng su&#x1EA5;t chi&#x1EBF;u ho&#x1EB7;c
+                    | c&ugrave;ng gi&aacute; tr&#x1ECB; v&eacute;.
+                ul
+                  h2 &Dstrok;i&#x1EC1;u ki&#x1EC7;n tr&#x1EA3; v&eacute;:
+                  li
+                    | V&eacute; &dstrok;&atilde; &dstrok;&#x1EB7;t kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c ho&agrave;n l&#x1EA1;i, tr&#x1EEB; tr&#x1B0;&#x1EDD;ng
+                    | h&#x1EE3;p su&#x1EA5;t chi&#x1EBF;u b&#x1ECB; h&#x1EE7;y do l&#x1ED7;i t&#x1EEB; ph&iacute;a r&#x1EA1;p.
+                ul
+                  h2 Ph&iacute; &dstrok;&#x1ED5;i v&eacute;:
+                  li
+                    | &Aacute;p d&#x1EE5;ng ph&iacute; &dstrok;&#x1ED5;i v&eacute; t&#x1EEB; 10% gi&aacute; tr&#x1ECB; v&eacute; ho&#x1EB7;c
+                    | m&#x1EE9;c c&#x1ED1; &dstrok;&#x1ECB;nh
+          .accordion-item
+            h2#flush-headingThree.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseThree' aria-expanded='false' aria-controls='flush-collapseThree')
+                | 3. Ch&iacute;nh s&aacute;ch thanh to&aacute;n
+            #flush-collapseThree.accordion-collapse.collapse(aria-labelledby='flush-headingThree' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 Ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh to&aacute;n:
+                  li
+                    | Thanh to&aacute;n tr&#x1EF1;c tuy&#x1EBF;n qua c&aacute;c c&#x1ED5;ng nh&#x1B0; v&iacute;
+                    | &dstrok;i&#x1EC7;n t&#x1EED;, th&#x1EBB; t&iacute;n d&#x1EE5;ng, ho&#x1EB7;c c&aacute;c ph&#x1B0;&#x1A1;ng th&#x1EE9;c
+                    | &dstrok;&#x1B0;&#x1EE3;c h&#x1ED7; tr&#x1EE3;.
+                  li
+                    | N&#x1EBF;u ch&#x1ECD;n thanh to&aacute;n t&#x1EA1;i r&#x1EA1;p, kh&aacute;ch h&agrave;ng c&#x1EA7;n
+                    | thanh to&aacute;n trong v&ograve;ng 2 gi&#x1EDD; tr&#x1B0;&#x1EDB;c su&#x1EA5;t
+                    | chi&#x1EBF;u.
+                ul
+                  h2 Ho&agrave;n ti&#x1EC1;n:
+                  li
+                    | Ti&#x1EC1;n v&eacute; s&#x1EBD; &dstrok;&#x1B0;&#x1EE3;c ho&agrave;n qua ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh
+                    | to&aacute;n ban &dstrok;&#x1EA7;u n&#x1EBF;u &dstrok;&aacute;p &#x1EE9;ng ch&iacute;nh s&aacute;ch ho&agrave;n
+                    | tr&#x1EA3;.
+                  li Th&#x1EDD;i gian ho&agrave;n ti&#x1EC1;n: 3-5 ng&agrave;y l&agrave;m vi&#x1EC7;c
+          .accordion-item
+            h2#flush-headingFour.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseFour' aria-expanded='false' aria-controls='flush-collapseFour')
+                | 4. Ch&iacute;nh s&aacute;ch tr&#x1EBB; em v&agrave; ng&#x1B0;&#x1EDD;i l&#x1EDB;n tu&#x1ED5;i
+            #flush-collapseFour.accordion-collapse.collapse(aria-labelledby='flush-headingFour' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 Tr&#x1EBB; em:
+                  li
+                    | Tr&#x1EBB; em d&#x1B0;&#x1EDB;i 12 tu&#x1ED5;i c&#x1EA7;n c&oacute; ng&#x1B0;&#x1EDD;i l&#x1EDB;n &dstrok;i k&egrave;m.
+                  li
+                    | V&eacute; tr&#x1EBB; em &dstrok;&#x1B0;&#x1EE3;c gi&#x1EA3;m gi&aacute; n&#x1EBF;u su&#x1EA5;t chi&#x1EBF;u &aacute;p
+                    | d&#x1EE5;ng khuy&#x1EBF;n m&atilde;i.
+                ul
+                  h2 Ng&#x1B0;&#x1EDD;i l&#x1EDB;n tu&#x1ED5;i:
+                  li
+                    | Ng&#x1B0;&#x1EDD;i tr&ecirc;n 60 tu&#x1ED5;i c&oacute; th&#x1EC3; &dstrok;&#x1B0;&#x1EE3;c gi&#x1EA3;m gi&aacute; v&eacute;
+                    | t&ugrave;y theo ch&iacute;nh s&aacute;ch khuy&#x1EBF;n m&atilde;i c&#x1EE7;a r&#x1EA1;p.
+          .accordion-item
+            h2#flush-headingFive.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseFive' aria-expanded='false' aria-controls='flush-collapseFive')
+                | 5. Ch&iacute;nh s&aacute;ch &#x1B0;u &dstrok;&atilde;i v&agrave; khuy&#x1EBF;n m&atilde;i
+            #flush-collapseFive.accordion-collapse.collapse(aria-labelledby='flush-headingFive' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 V&eacute; khuy&#x1EBF;n m&atilde;i:
+                  li V&eacute; &#x1B0;u &dstrok;&atilde;i kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1ED5;i tr&#x1EA3;
+                  li
+                    | V&eacute; khuy&#x1EBF;n m&atilde;i c&oacute; th&#x1EC3; c&oacute; &dstrok;i&#x1EC1;u ki&#x1EC7;n s&#x1EED; d&#x1EE5;ng
+                    | ri&ecirc;ng (v&iacute; d&#x1EE5;: ch&#x1EC9; &aacute;p d&#x1EE5;ng v&agrave;o ng&agrave;y th&#x1B0;&#x1EDD;ng).
+                ul
+                  h2 T&iacute;ch &dstrok;i&#x1EC3;m th&agrave;nh vi&ecirc;n:
+                  li
+                    | Th&agrave;nh vi&ecirc;n t&iacute;ch &dstrok;i&#x1EC3;m t&#x1EEB; m&#x1ED7;i giao d&#x1ECB;ch &dstrok;&#x1EC3; &dstrok;&#x1ED5;i
+                    | v&eacute; ho&#x1EB7;c nh&#x1EAD;n &#x1B0;u &dstrok;&atilde;i kh&aacute;c
+          .accordion-item
+            h2#flush-headingSix.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseSix' aria-expanded='false' aria-controls='flush-collapseSix')
+                | 6. Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t th&ocirc;ng tin
+            #flush-collapseSix.accordion-collapse.collapse(aria-labelledby='flush-headingSix' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  li
+                    | Th&ocirc;ng tin kh&aacute;ch h&agrave;ng (h&#x1ECD; t&ecirc;n, email, s&#x1ED1; &dstrok;i&#x1EC7;n
+                    | tho&#x1EA1;i) ch&#x1EC9; &dstrok;&#x1B0;&#x1EE3;c s&#x1EED; d&#x1EE5;ng cho m&#x1EE5;c &dstrok;&iacute;ch x&aacute;c
+                    | nh&#x1EAD;n &dstrok;&#x1EB7;t v&eacute; v&agrave; ch&abreve;m s&oacute;c kh&aacute;ch h&agrave;ng.
+                  li
+                    | Kh&ocirc;ng chia s&#x1EBB; d&#x1EEF; li&#x1EC7;u kh&aacute;ch h&agrave;ng v&#x1EDB;i b&ecirc;n th&#x1EE9;
+                    | ba m&agrave; kh&ocirc;ng c&oacute; s&#x1EF1; &dstrok;&#x1ED3;ng &yacute;.
+                  li
+                    | &Aacute;p d&#x1EE5;ng c&aacute;c bi&#x1EC7;n ph&aacute;p b&#x1EA3;o m&#x1EAD;t c&#x1EA7;n thi&#x1EBF;t &dstrok;&#x1EC3;
+                    | b&#x1EA3;o v&#x1EC7; th&ocirc;ng tin c&aacute; nh&acirc;n kh&#x1ECF;i truy c&#x1EAD;p tr&aacute;i
+                    | ph&eacute;p, m&#x1EA5;t m&aacute;t ho&#x1EB7;c r&ograve; r&#x1EC9;
+          .accordion-item
+            h2#flush-headingSeven.accordion-header
+              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseSeven' aria-expanded='false' aria-controls='flush-collapseSeven')
+                | 7. Ch&iacute;nh s&aacute;ch x&#x1EED; l&yacute; l&#x1ED7;i h&#x1EC7; th&#x1ED1;ng
+            #flush-collapseSeven.accordion-collapse.collapse(aria-labelledby='flush-headingSeven' data-bs-parent='#accordionFlushExample')
+              .accordion-body
+                ul
+                  h2 N&#x1EBF;u h&#x1EC7; th&#x1ED1;ng x&#x1EA3;y ra l&#x1ED7;i:
+                  li
+                    | R&#x1EA1;p c&oacute; tr&aacute;ch nhi&#x1EC7;m th&ocirc;ng b&aacute;o &dstrok;&#x1EBF;n kh&aacute;ch h&agrave;ng
+                    | qua email ho&#x1EB7;c s&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i &dstrok;&atilde; &dstrok;&abreve;ng k&yacute;.
+                  li
+                    | &Dstrok;&#x1EA3;m b&#x1EA3;o ho&agrave;n ti&#x1EC1;n ho&#x1EB7;c &dstrok;&#x1ED5;i su&#x1EA5;t chi&#x1EBF;u t&#x1B0;&#x1A1;ng
+                    | &dstrok;&#x1B0;&#x1A1;ng n&#x1EBF;u l&#x1ED7;i xu&#x1EA5;t ph&aacute;t t&#x1EEB; h&#x1EC7; th&#x1ED1;ng.
+    // footer
+  footer(style = "width: 80%; display: flex; justify-content: space-between; margin: auto")
+    p.Copyright
+      | Copyright &copy; 2022 TicketBooker. All rights reserved.
+    .icon
+      a(href='')
+        img(src='/image/login_image/ph_instagram-logo.svg' alt='insta')
+      a(href='')
+        img(src='/image/login_image/ri_linkedin-box-fill.svg' alt='linkd')
+      a(href='')
+        img(src='/image/login_image/mdi_twitter.svg' alt='twitter')
+    .pt
+      a(href='') Privacy Policy
+      a(href='') Term of Use
