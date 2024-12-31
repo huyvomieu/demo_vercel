@@ -23,10 +23,16 @@ head
             li
               a(href='') FAQ
             li 
-              a(href="/policy") Policy 
+              a(href="/policy") Policy  
           .login_up
-            a.signup(href='/user/register' style="margin-right:20px") Sign up
-            a.login(href='/user/login') Log In    
+            if(tokenExist)
+              a.iconBtn(href='/user/logout')
+                .image
+                  img(src= UserInfor.avatar  alt='')
+                p Logout
+            else 
+              a.signup(href='/user/register') Sign up
+              a.login(href='/user/login') Log In  
     main(style= "margin-top: 100px; flex: 1")
       .container.mt-5
         #accordionFlushExample.accordion.accordion-flush
