@@ -2,30 +2,51 @@ include ../../mixins/alert.pug
 
 doctype html
 head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='')
+  meta(name='author' content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+  meta(name='generator' content='Hugo 0.101.0')
+  title Đăng nhập admin
+  link(rel='canonical' href='https://getbootstrap.com/docs/4.6/examples/sign-in/')
+  // Bootstrap core CSS
   link(href='/assets/dist/css/bootstrap.min.css' rel='stylesheet')
-  link(href='/css/flash.css' rel='stylesheet')
-body
-    //- +alert-danger(1500)
-    .row.justify-content-center
-        .col-8
-            form(action= "/admin/login" method= "post")
-                .form-group(class= "text-center")
-                    h2 Đăng nhập để quản trị Website
-                .text-center
-                    #alert.alert.alert-danger #{messages.danger}
-                .form-group
-                    label() Tên đăng nhập
-                    input.form-control(type="text", placeholder="Tên đăng nhập",id="username", name="username" required)
-                .form-group
-                    label() Mật khẩu
-                    input.form-control(type="password", placeholder="Mật khẩu", id="password", name="password" required)
-                .form-group(class= "text-center")
-                    button(class= "btn btn-primary justify-content-center" type= "sumbit") Đăng nhập
+  style.
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+  link(href='/admin/css/signin.css' rel='stylesheet')
+form.form-signin(action= "/admin/login" method= "post")
+  .text-center
+    #alert.alert.alert-danger #{messages.danger}
+  img.mb-4(src='/image/login_image/avatarAdmin.jpg' alt='' width='72' height='72' style="border-radius: 8px;")
+  h1.h3.mb-3.font-weight-normal Đăng nhập quản trị trang Admin
+  label.sr-only(for='inputEmail') Tên đăng nhập
+  input#inputEmail.form-control(type='text' placeholder='Username' name="username" required autofocus )
+  label.sr-only(for='inputPassword') Mật khẩu
+  input#inputPassword.form-control(type='password' placeholder='Password' name="password" required)
+  .checkbox.mb-3
+    label
+      input(type='checkbox' value='remember-me')
+      |  Lưu mật khẩu
+  button.btn.btn-lg.btn-primary.btn-block(type='submit') Đăng nhập
+  p.mt-5.mb-3.text-muted &copy; 2024 by huynq2004
+
+script(src= "/javascript/showAlert.js")
 script(src= "/javascript/showAlert.js")
 script.
     var text = document.getElementById('alert')
     if(text){
-        console.log(text.textContent)
         if(!text.textContent) {
             text.style.display = 'none'
         }
@@ -33,6 +54,4 @@ script.
             text.style.display = 'block'
         }
     }
-
-
     
