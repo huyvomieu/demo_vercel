@@ -99,6 +99,11 @@ class OrderController {
         let signed = hmac.update(new Buffer(signData, 'utf-8')).digest("hex");
 
         if (secureHash === signed) {
+            if (vnp_Params.vnp_ResponseCode != '00') {
+                await Order.findOneAndUpdate({ order_id: orderId }, { status: -1 })
+                res.render('client/pages/success', { code: vnp_Params['vnp_ResponseCode'] })
+                return
+            }
             //Kiem tra xem du lieu trong db co hop le hay khong va thong bao ket qua
             const order = await Order.findOne({ order_id: orderId })
             order.status = 1;

@@ -36,8 +36,10 @@ block content
                         if(record.status == 1)
                             span(class="ti-check px-2 text-success")
                             span Đã thanh toán 
-                        else
+                        else if(record.status == 0)
                             span(class="ti-check-box px-2 text-danger" data-id = record._id id="changeStatus")    Đang xử lý
+                        else 
+                            span(class="ti-close px-2 text-danger" data-id = record._id)    Đã hủy
     form(action=``, method="post" id= "form-delete") 
     .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
         .modal-dialog(role='document')
