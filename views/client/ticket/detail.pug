@@ -1,6 +1,6 @@
 extends ../layouts/default.pug
 block content
- main
+  main
   .pay
     .head-list-detail
       h1 LIST OF TICKET
@@ -8,50 +8,50 @@ block content
     .payment
       .pl
         ul.menu
-          each ticket in records
-            li#toggleElement.toggle-element(onclick='showTicketDetail(0)')
-              .left
-                img(src= ticket.MovieInfo.avatar alt='')
-              .middle
-                p.namefilm #{ticket.MovieInfo.name}
-                .time
-                  p.date Date : #{ticket.time}
-                  p.hour Time : 10:00 AM
-                p.mseat Seats : #{ticket.seats}
-              .right &gt;
-      .pr
-        .line
-          p Order ID
-          p#orderID XXXXXXXXX
-        .line
-          span Seats
-          p#seats_buy XX
-        .line
-          span Date
-          p#datetimeticket XX/XX/XXXX
-        .line
-          span Time
-          p#time XX:XX am
-        .line
-          span Room
-          p#Room XXXXXXXXXX
-        .line
-          span Price
-          p#price
-            | XXXXXXXXXX 
-            span VND
-        .line
-          span Discount
-          p#discount XX%
-        .line.thanh
-        .line.total
-          span Total Price
-          p#totalPrice.totalprice
-            | XXXXXXXX 
-            span  VND
-        .line.buytick
-          button#showMessageButton.buyticket(type='button' onclick='resetDetail()')
-            | CloseClose
+         each record in records
+          li#toggleElement.toggle-element(onclick='showTicketDetail(0)')
+            .left
+              img(src=  record.MovieInfo.avatar alt='')
+            .middle
+              p.namefilm #{record.MovieInfo.name}
+              .time
+                p.date #{record.time}
+                p.hour Time : 10:00 AM
+              p.mseat #{record.seats}
+            .right &gt;
+      .tk_pr
+          .line
+            p Order ID
+            p#orderID XXXXXXXXX
+          .line
+            span Seats
+            p#seats_buy XX
+          .line
+            span Date
+            p#datetimeticket XX/XX/XXXX
+          .line
+            span Time
+            p#time XX:XX am
+          .line
+            span Room
+            p#Room XXXXXXXXXX
+          .line
+            span Price
+            p#price
+              | XXXXXXXXXX 
+              span VND
+          .line
+            span Discount
+            p#discount XX%
+          .line.thanh
+          .line.total
+            span Total Price
+            p#totalPrice.totalprice
+              | XXXXXXXX 
+              span  VND
+          .line.buytick
+            button#closeMessageButton.buyticket(type='button' onclick='resetDetail()')
+              | Close
     // // thông báo
     //
       <div id="customMessage" class="hidden">
@@ -64,3 +64,4 @@ block content
       </div>
       </div>
   section.detailOfticket
+  script(src="/javascript/listTicketOrder.js") 

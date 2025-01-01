@@ -1,8 +1,13 @@
 extends ../layouts/main.pug
 block content
-    div(class= "text-right mt-3")
+    nav(aria-label='breadcrumb mt-3')
+        ol.breadcrumb
+            li.breadcrumb-item
+            a(href='#') Home
+
+    div(class= "text-right")
         a(href="/admin/movie/create" class= "btn btn-primary") Create new movie
-    table(class= "table table-striped mt-3")
+    table(class= "table mt-3")
         thead.table-dark
             tr
                 th No
@@ -11,6 +16,7 @@ block content
                 th Author
                 th Start date
                 th 
+                th
         tbody
             - var count = 1
             each movie in movies
@@ -21,8 +27,9 @@ block content
                     td #{movie.name}
                     td #{movie.author}
                     td #{movie.date}
-                    th
+                    td
                         a(href= `/admin/movie/edit/${movie.id}` class= "btn btn-primary") Edit
+                    td
                         button(type="button" class= "btn btn-danger" data-id=movie.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-movie) Delete
     form(action=``, method="post" id= "form-delete") 
     .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")

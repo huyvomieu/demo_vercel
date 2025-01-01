@@ -2,15 +2,15 @@ extends ../layouts/main.pug
 block content
     div(class= "text-right mt-3")
         //- a(href="/admin/movie/create" class= "btn btn-primary") Create new movie
-    table(class= "table table-striped mt-3")
+    table(class= "table mt-3")
         thead.table-dark
             tr
                 th No
-                th Fullname
+                th Họ tên
                 th Email
-                th createAt
-                th Orders
-                td
+                th Thời gian tạo
+                th Trạng thái
+                td Hành động
         tbody
             - var count = 1
             each user in users
@@ -18,12 +18,26 @@ block content
                     td #{count++}
                     td #{user.fullname}
                     td #{user.email}
-                    td #{user.createdAt}
+                    td #{user.createdFormat}
+                    if(user.status == 1)
+                        td(class= "text-success ")
+                            svg.bi.bi-circle-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                circle(cx='8' cy='8' r='8') 
+                            span(class="ml-2") Hoạt động
+                    else 
+                        td(class= "text-danger ")
+                            svg.bi.bi-circle-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                                circle(cx='8' cy='8' r='8')
+                            span(class="ml-2") Khóa
+
                     td
-                    td
-                        a(href= `/admin/user/edit/${user.id}` class= "btn btn-primary") Edit
-                        a(href= `/admin/user/reset/${user.id}` class= "btn btn-warning") Reset Pass
-                        button(type="button" class= "btn btn-danger" data-id=user.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-user) Delete
+                        .dropdown
+                            button.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='false')
+                                | Chọn
+                            .dropdown-menu
+                                a.dropdown-item(href= `/admin/user/edit/${user.id}` class= "btn btn-primary") Xem chi tiết người dùng
+                                a.dropdown-item(href= `/admin/user/reset/${user.id}` class= "btn btn-warning") Đặt lại mật khẩu
+                                button.dropdown-item(type="button" class= "btn btn-danger" data-id=user.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-user) Xóa
     form(action=``, method="post" id= "form-delete") 
     .modal(class="modal fade" tabindex='-1' role='dialog' id= "ModalDelete" aria-labelledby="exampleModalLabel" aria-hidden="true")
         .modal-dialog(role='document')

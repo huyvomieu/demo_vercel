@@ -31,7 +31,7 @@ header {
     background: var(--Background---Dark, #000);
 }
 header nav {
-    width: 1280px;
+    width: 70%;
     height: 100%;
     margin-left: 80px;
     margin-right: 80px;

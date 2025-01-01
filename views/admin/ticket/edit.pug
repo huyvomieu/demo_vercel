@@ -4,29 +4,50 @@ block content
     +alert-success(2000)
     +alert-danger(2000)
     .form.my-3
-        form(class= "form" action=`/admin/movie/edit/${record._id}?_method=PATCH`, method="post")
+        form(class= "form" action=`/admin/ticket/edit/${ticket._id}?_method=PATCH`, method="post")
             .form-group
-                label() Title
-                input.form-control(type="text", placeholder="", id="name", name="name" value=record.name)
+                label() Phim
+                select.form-control(name="id_movie" required) 
+                    option(value = "" disabled selected) -- Chọn phim --
+                    each movie in movies 
+                        option(value = movie._id) #{movie.name}
+            .row
+                .form-group.col-2
+                    label() Giá
+                    input.form-control(type="number", min="0" id="price", name="price" value= ticket.price required)
+                .form-group.col-2
+                    label() Thời gian bắt đầu
+                    input.form-control(type="time", id="timestart", name="timestart" value= ticket.timestart required)
+                .form-group.col-2
+                    label() Ngày chiếu
+                    input.form-control(type="date", id="datestart", name="datestart" value= ticket.datestart required )
+                .form-group.col-2
+                    label() Số lượng vé
+                    input.form-control(type="number", min="1" max ='139'  id="quantity", name="quantity" value= ticket.quantity  required)
             .form-group
-                label() Price
-                input.form-control(type="text", placeholder="", id="price", name="price" value= record.price)
-            .form-group
-                label() Description
-                input.form-control(type="text", placeholder="", id="description", name="description" value=record.description)
-            .form-group
-                label() Author
-                input.form-control(type="text", placeholder="", id="author", name="author" value=record.author)
-            .form-group
-                label() Performer
-                input.form-control(type="text", placeholder="", id="performer", name="performer" value=record.performer)
-            .form-group
-                label() Duration
-                input.form-control(type="text", placeholder="", id="duration", name="duration" value=record.duration)
-            .form-group
-                label() Start date
-                input.form-control(type="text", placeholder="", id="date", name="date" value=record.date)
-            .form-group
-                label() Image
-                input.form-control(type="text", placeholder="Link Image" id="avatar", name="avatar" value=record.avatar)
+                label() Phòng chiếu
+                select.form-control(name="place" required) 
+                    option(value = "" disabled selected) -- Chọn phòng --
+                    option(value = "PH01") PH01
+                    option(value = "PH02") PH02
+                    option(value = "PH03") PH03
+                    option(value = "PH04") PH04
+                    option(value = "PH05") PH05
+            input(type="hidden" data-movie = ticket.id_movie)
+            input(type="hidden" data-place = ticket.place)
             button(type="submit" class="btn btn-primary") Update
+    script.
+        // Lấy ngày hiện tại
+        const today = new Date().toISOString().split('T')[0];
+        // Đặt giá trị min cho input
+        document.getElementById('datestart').setAttribute('min', today);
+        let dataMovie = document.querySelector('input[data-movie]').getAttribute('data-movie');
+        document.querySelector(`option[value="${dataMovie}"]`).setAttribute('selected', "true");
+
+
+        let dataPlace = document.querySelector('input[data-place]').getAttribute('data-place');
+        document.querySelector(`option[value="${dataPlace}"]`).setAttribute('selected', "true");
+
+
+
+

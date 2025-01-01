@@ -20,6 +20,8 @@ header
         a(href='') Contact
       li
         a(href='') FAQ
+      li 
+        a(href="/policy") Policy  
     .login_up
       a.signup(href='/user/register') Sign up
       a.login(href='/user/login') Log In
@@ -35,7 +37,7 @@ header
       input#username.custom_username(
         type='email'
         name='email'
-        placeholder='Email address / Phone number'
+        placeholder='Email address'
         oninvalid="setCustomMessage(this)"
         oninput="clearCustomMessage(this)" 
         required)

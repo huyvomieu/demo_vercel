@@ -1,1056 +1,1189 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
+
 body {
-  width: 1440px;
-  height: 1047px;
-  background: var(--Background---Dark, #000);
-  font-size: 1.6rem;
-  font-family: "Poppins", sans-serif;
-  margin-left: auto;
-  margin-right: auto;
+    width: 1440px;
+    height: 1047px;
+    background: var(--Background---Dark, #000);
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 span,
 p {
-  color: #fff;
+    color: #fff;
 }
+
 a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
+
 ul {
-  list-style: none;
+    list-style: none;
 }
+
 body #header-placeholder {
-  height: 100px;
-  width: 100%;
+    height: 100px;
+    width: 100%;
 }
+
 body #footer-placeholder {
-  height: 80px;
-  width: 100%;
+    height: 80px;
+    width: 100%;
 }
+
 /* main */
 main {
-  margin-top: 44px;
-  margin-left: 80px;
-  margin-right: 80px;
-  width: 1280px;
-  display: flex;
-  flex-direction: column; /* Các phần tử con sắp xếp từ trên xuống dưới */
-  /* border: 1px solid #fff; */
-  /* như này thì main  sẽ tự động điều chỉnh chiều cao cho phù hợp với các phần tử con  */
+    margin-top: 44px;
+    margin-left: 80px;
+    margin-right: 80px;
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    /* Các phần tử con sắp xếp từ trên xuống dưới */
+    /* border: 1px solid #fff; */
+    /* như này thì main  sẽ tự động điều chỉnh chiều cao cho phù hợp với các phần tử con  */
 }
+
 main .detail_of_film {
-  width: 100%;
-  height: 703px;
+    width: 100%;
+    height: 703px;
 
-  display: flex;
+    display: flex;
 }
+
 .detail_of_film .power_left {
-  width: 458px;
-  height: 645px;
+    width: 458px;
+    height: 645px;
 
-  position: relative;
+    position: relative;
 }
+
 .detail_of_film .power_left img.poster {
-  width: 379px;
-  height: 449px;
-  margin-left: 38px;
-  position: relative;
-  border-radius: 16px;
+    width: 379px;
+    height: 449px;
+    margin-left: 38px;
+    position: relative;
+    border-radius: 16px;
 }
+
 .detail_of_film .power_left .name_review {
-  width: 319px;
+    width: 319px;
 
-  margin-left: 70px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  border-radius: 16px;
-  background: #1c1c1c;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 360px;
+    margin-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 16px;
+    background: #1c1c1c;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 360px;
 }
+
 .detail_of_film .power_left .name_review p#namefilm {
-  color: #f2f2f2;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 2.4rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%; /* 30px */
-  padding-left: 20px;
+    color: #f2f2f2;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    /* 30px */
+    padding-left: 20px;
 
-  /* Thêm các thuộc tính dưới đây */
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu vượt quá */
+    /* Thêm các thuộc tính dưới đây */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Giới hạn tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Hiển thị dấu "..." nếu vượt quá */
 }
+
 .detail_of_film .power_left .name_review .TL_NPH {
-  height: 21px;
-  width: 152px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-between;
+    height: 21px;
+    width: 152px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+
 .detail_of_film .power_left .name_review .TL_NPH p {
-  color: var(--Neutral-N50, #bfbfbf);
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 2.1rem; /* 131.25% */
-  margin-top: 5px;
+    color: var(--Neutral-N50, #bfbfbf);
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.1rem;
+    /* 131.25% */
+    margin-top: 5px;
 }
+
 .detail_of_film .power_left .name_review .review {
-  width: 208px;
-  height: 20px;
-  margin-top: 40px;
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
+    width: 208px;
+    height: 20px;
+    margin-top: 40px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
+
 .detail_of_film .power_left .name_review .review p:first-child {
-  color: #f2f2f2;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2rem; /* 20px */
-  margin-right: 10px;
+    color: #f2f2f2;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem;
+    /* 20px */
+    margin-right: 10px;
 }
+
 .detail_of_film .power_left .name_review .review img {
-  height: 16px;
-  width: 16px;
-  margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
 }
+
 .detail_of_film .power_left .name_review .review p.numberOfstar {
-  color: #f2f2f2;
-  font-family: "SF Pro";
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2rem; /* 20px */
-  margin-right: 2px;
+    color: #f2f2f2;
+    font-family: "SF Pro";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem;
+    /* 20px */
+    margin-right: 2px;
 }
+
 .detail_of_film .power_left .name_review .review p.numberOfreview {
-  color: #bfbfbf;
+    color: #bfbfbf;
 
-  /* Caption */
-  font-family: sans-serif;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.8rem;
-  padding-top: 4.5px;
+    /* Caption */
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    padding-top: 4.5px;
 }
-.detail_of_film .power_left .name_review .review_bottom {
-  width: 100%;
 
-  display: flex;
-  height: 33px;
+.detail_of_film .power_left .name_review .review_bottom {
+    width: 100%;
+
+    display: flex;
+    height: 33px;
 }
 
 .detail_of_film .power_left .name_review .review_bottom .rating {
-  width: 140px;
-  height: 32px;
-  margin-left: 7px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse; /* Đổi từ row-reverse thành row để sao sáng từ trái qua phải */
+    width: 140px;
+    height: 32px;
+    margin-left: 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    /* Đổi từ row-reverse thành row để sao sáng từ trái qua phải */
 }
 
 .detail_of_film .power_left .name_review .review_bottom .rating input {
-  display: none; /* Ẩn radio buttons */
+    display: none;
+    /* Ẩn radio buttons */
 }
 
 .detail_of_film .power_left .name_review .review_bottom .rating label {
-  font-size: 3rem;
-  color: #575757; /* Màu sao mặc định */
-  transition: color 0.3s;
-  margin-top: 0;
+    font-size: 3rem;
+    color: #575757;
+    /* Màu sao mặc định */
+    transition: color 0.3s;
+    margin-top: 0;
 }
 
 /* Hover vào một sao và tất cả sao trước nó */
 .detail_of_film .power_left .name_review .review_bottom .rating label:hover,
-.detail_of_film
-  .power_left
-  .name_review
-  .review_bottom
-  .rating
-  label:hover
-  ~ label {
-  color: #fcc434; /* Màu sao khi hover */
-  cursor: pointer;
+.detail_of_film .power_left .name_review .review_bottom .rating label:hover~label {
+    color: #fcc434;
+    /* Màu sao khi hover */
+    cursor: pointer;
 }
 
 /* Định dạng ngôi sao khi đã chọn */
-.detail_of_film
-  .power_left
-  .name_review
-  .review_bottom
-  .rating
-  input:checked
-  + label,
-.detail_of_film
-  .power_left
-  .name_review
-  .review_bottom
-  .rating
-  input:checked
-  + label
-  ~ label {
-  color: #fcc434; /* Màu sao khi được chọn */
+.detail_of_film .power_left .name_review .review_bottom .rating input:checked+label,
+.detail_of_film .power_left .name_review .review_bottom .rating input:checked+label~label {
+    color: #fcc434;
+    /* Màu sao khi được chọn */
 }
 
 /* button readnews */
 .detail_of_film .power_left .name_review .review_bottom button.readnews {
-  padding: 8px 12px;
-  align-items: center;
-  gap: var(--Number, 4px);
-  display: flex;
-  height: 34px;
-  width: 110px;
-  margin-left: 50px;
-  border-radius: var(--Number, 4px);
-  border: 1px solid var(--Neutral-N50, #bfbfbf);
-  background-color: #1c1c1c;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
+    padding: 8px 12px;
+    align-items: center;
+    gap: var(--Number, 4px);
+    display: flex;
+    height: 34px;
+    width: 110px;
+    margin-left: 50px;
+    border-radius: var(--Number, 4px);
+    border: 1px solid var(--Neutral-N50, #bfbfbf);
+    background-color: #1c1c1c;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
 }
+
 .detail_of_film .power_left .name_review .review_bottom button.readnews:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .detail_of_film .power_left .name_review .review_bottom button.readnews:active {
-  background-color: #fcc434;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+    background-color: #fcc434;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
 }
+
 /*  ******************** power right *********************** */
 .detail_of_film .power_right {
-  padding-top: 20px;
-  width: 822px;
-  /* border: 1px solid #fff; */
-  height: 100%;
-  padding-left: 40px;
-  padding-right: 20px;
-  display: flex;
-  flex-direction: column;
+    padding-top: 20px;
+    width: 822px;
+    /* border: 1px solid #fff; */
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
 .detail_of_film .power_right .mcl {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
 .detail_of_film .power_right .mcl span.details {
-  white-space: pre;
-  color: #cdcdcd;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%; /* 20px */
+    white-space: pre;
+    color: #cdcdcd;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 20px */
 }
+
 .detail_of_film .power_right .mcl p {
-  display: inline-block;
-  color: #f2f2f2;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.1rem; /* 131.25% */
-  margin-left: 20px;
+    display: inline-block;
+    color: #f2f2f2;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.1rem;
+    /* 131.25% */
+    margin-left: 20px;
 }
+
 .detail_of_film .power_right .storyline {
-  padding-top: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 179px;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 179px;
 }
+
 .detail_of_film .power_right .storyline p:first-child {
-  color: #f2f2f2;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 2.4rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%; /* 30px */
+    color: #f2f2f2;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    /* 30px */
 }
+
 .detail_of_film .power_right .storyline .line {
-  margin-top: 10px;
-  width: 234px;
-  height: 1px;
-  background: #fff;
+    margin-top: 10px;
+    width: 234px;
+    height: 1px;
+    background: #fff;
 }
+
 .detail_of_film .power_right .storyline .st {
-  position: relative;
+    position: relative;
 }
 
 .detail_of_film .power_right .storyline .st p.desc {
-  padding-top: 15px;
-  padding-right: 10px;
-  color: #fff;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26px; /* 162.5% */
+    padding-top: 15px;
+    padding-right: 10px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    /* 162.5% */
 
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Giới hạn tối đa 3 dòng */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu vượt quá */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Giới hạn tối đa 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Hiển thị dấu "..." nếu vượt quá */
 }
 
 /* Nút "See more" */
 .detail_of_film .power_right .storyline .st .see-more {
-  color: #fcc434;
-  cursor: pointer;
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 2.6rem;
-  display: inline-block;
-  margin-top: 5px;
-  display: none;
+    color: #fcc434;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 2.6rem;
+    display: inline-block;
+    margin-top: 5px;
+    display: none;
 }
 
 /* Khi lớp 'open' được thêm vào, hiển thị toàn bộ nội dung */
 .detail_of_film .power_right .storyline .st.open p.desc {
-  -webkit-line-clamp: unset; /* Bỏ giới hạn dòng */
-  display: block;
+    -webkit-line-clamp: unset;
+    /* Bỏ giới hạn dòng */
+    display: block;
 }
 
 /* Ẩn "See more" khi đã mở rộng văn bản */
 .detail_of_film .power_right .storyline .st.open .see-more {
-  display: none;
+    display: none;
 }
+
 /*  director va actor */
 .detail_of_film .power_right .Actor,
 .detail_of_film .power_right .dicrector {
-  padding-top: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 150px;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
 }
+
 .detail_of_film .power_right .Actor p:first-child,
 .detail_of_film .power_right .dicrector p:first-child {
-  color: #f2f2f2;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 2.4rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%; /* 30px */
+    color: #f2f2f2;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    /* 30px */
 }
 
 .detail_of_film .power_right .dicrector .line {
-  margin-top: 10px;
-  width: 234px;
-  height: 1.5px;
-  background: #fff;
-  margin-bottom: 10px;
+    margin-top: 10px;
+    width: 234px;
+    height: 1.5px;
+    background: #fff;
+    margin-bottom: 10px;
 }
+
 .detail_of_film .power_right .Actor .line {
-  margin-top: 10px;
-  width: 234px;
-  height: 2px;
-  background: #fff;
-  margin-bottom: 10px;
+    margin-top: 10px;
+    width: 234px;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 10px;
 }
+
 .detail_of_film .power_right .Actor .list_actor,
 .detail_of_film .power_right .dicrector .list_director {
-  width: 100%;
-  display: flex;
-  margin-top: 8px;
+    width: 100%;
+    display: flex;
+    margin-top: 8px;
 }
+
 .detail_of_film .power_right .Actor .list_actor .act,
 .detail_of_film .power_right .dicrector .list_director .dir {
-  width: 180px;
-  height: 58px;
-  display: flex;
-  padding: 8px 12px;
-  align-items: center;
-  gap: 12px;
-  border-radius: 12px;
-  background: var(--Neutral-N700, #1c1c1c);
-  margin-right: 15px;
+    width: 180px;
+    height: 58px;
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
+    background: var(--Neutral-N700, #1c1c1c);
+    margin-right: 15px;
 }
+
 .detail_of_film .power_right .Actor .list_actor .act img,
 .detail_of_film .power_right .dicrector .list_director .dir img {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
 }
+
 /* ************************ Button ************************ */
 .detail_of_film .power_right .descript_bottom {
-  margin-top: 20px;
-  width: 100%;
-  height: 100px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc {
-  height: 42px;
-  display: flex;
-  width: 188px;
+    height: 42px;
+    display: flex;
+    width: 188px;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .unlike,
 .detail_of_film .power_right .descript_bottom .thacamxuc .like {
-  width: 84px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 8px;
-  border: 2px solid #fcc434;
+    width: 84px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 2px solid #fcc434;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .unlike:hover,
 .detail_of_film .power_right .descript_bottom .thacamxuc .like:hover {
-  cursor: pointer;
-  background: #fcc434;
+    cursor: pointer;
+    background: #fcc434;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .unlike:active,
 .detail_of_film .power_right .descript_bottom .thacamxuc .like:active {
-  background: #fcc434;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+    background: #fcc434;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .unlike:hover span,
 .detail_of_film .power_right .descript_bottom .thacamxuc .like:hover span {
-  color: #000;
+    color: #000;
 }
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .thacamxuc
-  .unlike:hover
-  .unlike_icon
-  path,
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .thacamxuc
-  .like:hover
-  .like_icon
-  path {
-  fill: #000;
+
+.detail_of_film .power_right .descript_bottom .thacamxuc .unlike:hover .unlike_icon path,
+.detail_of_film .power_right .descript_bottom .thacamxuc .like:hover .like_icon path {
+    fill: #000;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .like {
-  margin-right: 24px;
+    margin-right: 24px;
 }
+
 .detail_of_film .power_right .descript_bottom .thacamxuc .unlike .unlike_icon,
 .detail_of_film .power_right .descript_bottom .thacamxuc .like .like_icon {
-  width: 32px;
-  height: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 /* ********** bôking trailer ******** */
 .detail_of_film .power_right .descript_bottom .booking_trailer {
-  width: 297px;
-  height: 43px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 297px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .detail_of_film .power_right .descript_bottom .booking_trailer button.trailer,
 .detail_of_film .power_right .descript_bottom .booking_trailer button.booking {
-  height: 100%;
-  width: 143px;
+    height: 100%;
+    width: 143px;
 }
+
 .detail_of_film .power_right .descript_bottom .booking_trailer button.booking {
-  display: flex;
-  width: 143px;
-  height: 48px;
-  padding: 10px 25px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  border: 1px solid #fcc434;
-  background: #000;
-  color: #fcc434;
-  font-family: sans-serif;
-  font-size: 1.8rem;
-  font-weight: 500;
+    display: flex;
+    width: 143px;
+    height: 48px;
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #fcc434;
+    background: #000;
+    color: #fcc434;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .booking_trailer
-  button.booking:hover {
-  cursor: pointer;
+
+.detail_of_film .power_right .descript_bottom .booking_trailer button.booking:hover {
+    cursor: pointer;
 }
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .booking_trailer
-  button.booking:active {
-  background: #fcc434;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
-  color: #fff;
+
+.detail_of_film .power_right .descript_bottom .booking_trailer button.booking:active {
+    background: #fcc434;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
+    color: #fff;
 }
+
 .detail_of_film .power_right .descript_bottom .booking_trailer button.trailer {
-  display: flex;
-  width: 143px;
-  height: 48px;
-  padding: 12px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: var(--Primary, #fcc434);
-  color: #fff;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%; /* 22.5px */
+    display: flex;
+    width: 143px;
+    height: 48px;
+    padding: 12px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--Primary, #fcc434);
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    /* 22.5px */
 }
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .booking_trailer
-  button.trailer:hover {
-  cursor: pointer;
+
+.detail_of_film .power_right .descript_bottom .booking_trailer button.trailer:hover {
+    cursor: pointer;
 }
-.detail_of_film
-  .power_right
-  .descript_bottom
-  .booking_trailer
-  button.trailer:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
-  outline: none;
+
+.detail_of_film .power_right .descript_bottom .booking_trailer button.trailer:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
+    outline: none;
 }
+
 main .thanhngang {
-  width: 1000px;
-  height: 1px;
-  background: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 30px;
+    width: 1000px;
+    height: 1px;
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
+
 /* seat-time */
 main .seat_time {
-  display: flex;
-  width: 1280px;
-  height: 680px;
-  /* border: 1px solid #fff; */
-  position: relative;
+    display: flex;
+    width: 1280px;
+    height: 680px;
+    /* border: 1px solid #fff; */
+    position: relative;
 }
+
 main .seat_time .st_left {
-  width: 640px;
-  height: 100%;
-  /* border-right: 1px solid #fff; */
-  display: flex;
-  flex-direction: column;
-  overflow: visible; /* Đảm bảo không cắt SVG */
-  background: #363333; /*Giữ nền tối nhưng không che SVG*/
-  position: relative;
-  z-index: 1;
-  padding-left: 100px;
-  padding-right: 100px;
-  align-items: center;
-  border-top-left-radius: 32px;
-  border-bottom-left-radius: 32px;
+    width: 640px;
+    height: 100%;
+    /* border-right: 1px solid #fff; */
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    /* Đảm bảo không cắt SVG */
+    background: #363333;
+    /*Giữ nền tối nhưng không che SVG*/
+    position: relative;
+    z-index: 1;
+    padding-left: 100px;
+    padding-right: 100px;
+    align-items: center;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
 }
-main .seat_time .st_left > p {
-  color: #f2f2f2;
-  font-family: sans-serif;
-  font-size: 2.8rem;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 36px; /* 128.571% */
-  margin-top: 10px;
-  text-align: center;
+
+main .seat_time .st_left>p {
+    color: #f2f2f2;
+    font-family: sans-serif;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 36px;
+    /* 128.571% */
+    margin-top: 10px;
+    text-align: center;
 }
+
 main .seat_time .st_left .manchieu {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 430.5px;
-  height: 84px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 430.5px;
+    height: 84px;
 }
+
 main .seat_time .st_left svg {
-  position: relative;
-  z-index: 2;
-  width: 430.5px;
-  height: 100%;
-  fill: url(#paint0_linear_121_2835);
+    position: relative;
+    z-index: 2;
+    width: 430.5px;
+    height: 100%;
+    fill: url(#paint0_linear_121_2835);
 }
+
 /* ***** ddatwj cho ngoi chieu ***** */
 main .st_left.seat-selection {
-  height: 360px;
-  width: 430px;
-  border: 1px solid #fff;
+    height: 360px;
+    width: 430px;
+    border: 1px solid #fff;
 }
+
 #seat-container {
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  gap: 5px;
-  margin: 10px auto;
-  max-width: 500px;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 5px;
+    margin: 10px auto;
+    max-width: 500px;
 }
 
 .seat {
-  text-align: center;
+    text-align: center;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  display: flex;
-  width: 28px;
-  height: 28px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: var(--Number, 4px);
-  background: var(--Neutral-N700, #1c1c1c);
+    display: flex;
+    width: 28px;
+    height: 28px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Number, 4px);
+    background: var(--Neutral-N700, #1c1c1c);
 
-  color: var(--Neutral-N50, #bfbfbf);
-  text-align: center;
-  /* Caption */
-  font-family: sans-serif;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px; /* 150% */
+    color: var(--Neutral-N50, #bfbfbf);
+    text-align: center;
+    /* Caption */
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 150% */
 }
 
 .seat.selected {
-  background-color: #ffcc00;
-  color: var(--Neutral-N900, #000);
-  text-align: center;
-  /* Caption */
-  font-family: sans-serif;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px; /* 150% */
+    background-color: #ffcc00;
+    color: var(--Neutral-N900, #000);
+    text-align: center;
+    /* Caption */
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 150% */
 }
 
 .seat.occupied {
-  background-color: #555;
-  pointer-events: none;
+    background-color: #555;
+    pointer-events: none;
 }
+
 .seat-selection .descriptionOfseat {
-  margin-top: 10px;
-  height: 28px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    margin-top: 10px;
+    height: 28px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .seat-selection .descriptionOfseat div {
-  height: 24px;
-  width: 24px;
-  margin-right: 3px;
-  border: 1px solid #888;
+    height: 24px;
+    width: 24px;
+    margin-right: 3px;
+    border: 1px solid #888;
 }
+
 .seat-selection .descriptionOfseat p {
-  color: #f2f2f2;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px; /* 150% */
-  margin-right: 10px;
+    color: #f2f2f2;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
+    margin-right: 10px;
 }
+
 .seat-selection .descriptionOfseat .cosan {
-  border-radius: var(--Number, 4px);
-  background: var(--Neutral-N700, #1c1c1c);
+    border-radius: var(--Number, 4px);
+    background: var(--Neutral-N700, #1c1c1c);
 }
-.seat-selection .descriptionOfseat .conguoidat {
-  border-radius: var(--Number, 4px);
-  background: var(--Secondary, #261d08);
+
+.conguoidat {
+    border-radius: var(--Number, 4px);
+    background: var(--Secondary, #261d08);
+    cursor: not-allowed;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Number, 4px);
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
 }
-.seat-selection .descriptionOfseat .chobanchon {
-  border-radius: var(--Number, 4px);
-  background: var(--Primary, #fcc434);
+
+.chobanchon {
+    border-radius: var(--Number, 4px);
+    background: var(--Primary, #fcc434);
 }
+
 .st_left button.submit_seats {
-  height: 48px;
-  width: 150px;
-  display: flex;
-  padding: 12px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: var(--Primary, #fcc434);
-  outline: none;
-  /* typograph */
-  color: #fff;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%; /* 22.5px */
-  margin-top: 50px;
+    height: 48px;
+    width: 150px;
+    display: flex;
+    padding: 12px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--Primary, #fcc434);
+    outline: none;
+    /* typograph */
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    /* 22.5px */
+    margin-top: 50px;
 }
+
 .st_left button.submit_seats:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .st_left button.submit_seats:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
-  outline: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
+    outline: none;
 }
+
 /* *************************st right**************** */
 main .seat_time .st_right {
-  width: 640px;
-  height: 100%;
-  /* border-right: 1px solid #fff; */
-  /* display: flex;
+    width: 640px;
+    height: 100%;
+    /* border-right: 1px solid #fff; */
+    /* display: flex;
   flex-direction: column; */
-  /* overflow: visible; Đảm bảo không cắt SVG */
-  background: rgba(54, 51, 51, 0.647); /*Giữ nền tối nhưng không che SVG*/
-  border-top-right-radius: 32px;
-  border-bottom-right-radius: 32px;
-  /* position: relative;
+    /* overflow: visible; Đảm bảo không cắt SVG */
+    background: rgba(54, 51, 51, 0.647);
+    /*Giữ nền tối nhưng không che SVG*/
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    /* position: relative;
   z-index: 1;
   padding-left: 100px;
   padding-right: 100px;
   align-items: center; */
 }
-main .seat_time .st_right > p {
-  color: #f2f2f2;
 
-  leading-trim: both;
+main .seat_time .st_right>p {
+    color: #f2f2f2;
 
-  text-edge: cap;
-  font-family: sans-serif;
-  font-size: 2.8rem;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 36px; /* 128.571% */
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 104px;
+    leading-trim: both;
+
+    text-edge: cap;
+    font-family: sans-serif;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 36px;
+    /* 128.571% */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 104px;
 }
+
 main .seat_time .st_right form#dateTimeForm {
-  padding-top: 20px;
+    padding-top: 20px;
 }
+
 main .seat_time .st_right form#dateTimeForm label {
-  display: block;
-  margin-top: 29px;
-  font-weight: bold;
-  color: #fcc434;
-  text-align: center;
-  font-size: 1.8rem;
+    display: block;
+    margin-top: 29px;
+    font-weight: bold;
+    color: #fcc434;
+    text-align: center;
+    font-size: 1.8rem;
 }
+
 main .seat_time .st_right form#dateTimeForm select,
 form#dateTimeForm input {
-  width: 400px;
-  padding: 8px;
-  margin-top: 5px;
-  margin-left: 131px;
-  height: 40px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  font-size: 14px;
+    width: 400px;
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 131px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
+
 main .seat_time .st_right button.subtime {
-  height: 48px;
-  width: 150px;
-  display: flex;
-  padding: 12px 0px;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: var(--Primary, #fcc434);
-  outline: none;
+    height: 48px;
+    width: 150px;
+    display: flex;
+    padding: 12px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--Primary, #fcc434);
+    outline: none;
 
-  margin-top: 200px;
-  margin-left: 255px;
+    margin-top: 200px;
+    margin-left: 255px;
 
-  margin-bottom: 15px;
-  /* typograph */
+    margin-bottom: 15px;
+    /* typograph */
 
-  font-family: sans-serif;
-  font-size: 1.8rem;
-  font-style: normal;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
 
-  line-height: 125%; /* 22.5px */
+    line-height: 125%;
+    /* 22.5px */
 }
 
 main .seat_time .st_right form#dateTimeForm input[readonly] {
-  background-color: #555;
-  color: #fff;
-  cursor: not-allowed;
+    background-color: #555;
+    color: #fff;
+    cursor: not-allowed;
 }
 
 main .seat_time .st_right button.subtime {
-  background-color: #ffcc00;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: #ffcc00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 main .seat_time .st_right button.subtime:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
-  outline: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
+    outline: none;
 }
+
 /* **************** payment ********** */
 .pay {
-  margin-top: 20px;
+    margin-top: 20px;
 
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.pay > h1 {
-  color: #fff;
-  padding-left: 77px;
+
+.pay>h1 {
+    color: #fff;
+    padding-left: 77px;
 }
+
 .pay .payment {
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
 }
+
 .pl {
-  margin-top: 10px;
-  width: 639px;
+    margin-top: 10px;
+    width: 639px;
 
-  padding-left: 78px;
-  height: 480px;
+    padding-left: 78px;
+    height: 480px;
 }
-.pl > ul {
-  width: 400px;
-  height: 480px;
+
+.pl>ul {
+    width: 400px;
+    height: 480px;
 }
-.pl > ul li {
-  width: 100%;
-  height: 80px;
-  border-radius: 12px;
-  background: var(--Neutral-N700, #1c1c1c);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+
+.pl>ul li {
+    width: 100%;
+    height: 80px;
+    border-radius: 12px;
+    background: var(--Neutral-N700, #1c1c1c);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
-.pl > ul li .left {
-  margin-left: 16px;
-  display: flex;
-  width: 290px;
-  align-items: center;
-  justify-content: space-between;
+
+.pl>ul li .left {
+    margin-left: 16px;
+    display: flex;
+    width: 290px;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
 }
-.pl > ul li .left img {
-  width: 86px;
-  height: 48px;
+
+.pl>ul li .left img {
+    width: 70px;
+    height: 35px;
+    margin-right: 20px;
 }
-.pl > ul li .left span {
-  width: 188px;
-  font-size: 1.6rem;
+
+.pl>ul li .left span {
+    width: 300px;
+    font-size: 1.6rem;
+    flex: 1;
 }
-.pl > ul li.toggle-element.active {
-  border-radius: 12px;
-  border: 1px solid var(--Primary, #fcc434);
-  background: var(--Secondary, #261d08);
+
+.pl>ul li.toggle-element.active {
+    border-radius: 12px;
+    border: 1px solid var(--Primary, #fcc434);
+    background: var(--Secondary, #261d08);
 }
-.pl > ul li .right {
-  color: white;
-  margin-right: 10px;
-  font-size: 2.4rem;
+
+.pl>ul li .right {
+    color: white;
+    margin-right: 10px;
+    font-size: 2.4rem;
 }
+
 .pr {
-  width: 639px;
+    width: 639px;
 
-  padding-top: 20px;
-  border-left: 2px solid #595959;
-  background: rgba(24, 23, 23, 0.8);
-  display: flex;
-  flex-direction: column;
-  padding-left: 50px;
+    padding-top: 20px;
+    border-left: 2px solid #595959;
+    background: rgba(24, 23, 23, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
 }
+
 .pr .line {
-  width: 550px;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-right: 30px;
+    width: 550px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-right: 30px;
 }
+
 .pr .line span {
-  color: #fff;
-  font-size: 24px;
+    color: #fff;
+    font-size: 24px;
 }
+
 .pr .line p {
-  color: #fff;
-  font-size: 24px;
+    color: #fff;
+    font-size: 24px;
 }
+
 .pr .line input {
-  outline: none;
-  background: rgba(24, 23, 23, 0.8);
-  width: 406px;
-  height: 32px;
-  color: #fff;
-  font-size: 20px;
-  padding-left: 20px;
-  border-radius: 8px 0 0 8px;
+    outline: none;
+    background: rgba(24, 23, 23, 0.8);
+    width: 406px;
+    height: 32px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 20px;
+    border-radius: 8px 0 0 8px;
 }
+
 .pr .line input:placeholder-shown {
-  color: #fff;
+    color: #fff;
 }
+
 .pr .line button.apply-dis {
-  height: 36px;
-  width: 124px;
-  border-radius: 0 8px 8px 0;
-  background: var(--Primary, #fcc434);
-  display: flex;
-  width: 119px;
-  height: 40px;
-  padding: 12px 24px;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
+    height: 36px;
+    width: 124px;
+    border-radius: 0 8px 8px 0;
+    background: var(--Primary, #fcc434);
+    display: flex;
+    width: 119px;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
 }
+
 .pr .line button.apply-dis:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
 }
-.pr .line + .thanh {
-  margin-top: 20px;
-  background-color: #fff;
-  width: 520px;
-  height: 1px;
+
+.pr .line+.thanh {
+    margin-top: 20px;
+    background-color: #fff;
+    width: 520px;
+    height: 1px;
 }
+
 .pr .line p.totalprice span,
 .pr .line p.totalprice {
-  color: #fcc434;
-  font-size: 24px;
+    color: #fcc434;
+    font-size: 24px;
 }
-.pr .line + .buytick {
-  margin-top: 30px;
-  height: 56px;
+
+.pr .line+.buytick {
+    margin-top: 30px;
+    height: 56px;
 }
-.pr .line + .buytick button.buyticket {
-  height: 56px;
-  width: 191px;
-  border-radius: 60px;
-  background: var(--Primary, #fcc434);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 172px;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
+
+.pr .line+.buytick button.buyticket {
+    height: 56px;
+    width: 191px;
+    border-radius: 60px;
+    background: var(--Primary, #fcc434);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 172px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
-.pr .line + .buytick button.buyticket:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+
+.pr .line+.buytick button.buyticket:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
 }
+
 /* //////////////// thong bao .......... */
 /* styles.css */
 
 #customMessage {
-  margin-top: 20px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
 
-  justify-content: center;
-  align-items: center;
-  background: #363333;
-  padding-top: 10px;
-  border-radius: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
-  position: fixed; /* Đặt phần tử cố định trên màn hình */
-  top: 50%; /* Căn giữa theo chiều dọc */
-  left: 50%; /* Căn giữa theo chiều ngang */
-  transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
-  opacity: 0; /* Ban đầu ẩn đi */
-  z-index: 1000; /* Đảm bảo phần tử nổi lên trên tất cả */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    justify-content: center;
+    align-items: center;
+    background: #363333;
+    padding-top: 10px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
+    position: fixed;
+    /* Đặt phần tử cố định trên màn hình */
+    top: 50%;
+    /* Căn giữa theo chiều dọc */
+    left: 50%;
+    /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%);
+    /* Căn giữa hoàn hảo */
+    opacity: 0;
+    /* Ban đầu ẩn đi */
+    z-index: 1000;
+    /* Đảm bảo phần tử nổi lên trên tất cả */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Thêm hiệu ứng chuyển động */
 }
+
 #customMessage .thanhngang {
-  height: 1px;
-  width: 100%;
-  background-color: #fff;
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
 }
+
 #customMessage img.qr {
-  height: 150px;
-  width: 150px;
-  margin-bottom: 20px;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
 }
+
 #customMessage p {
-  color: #fff;
-  font-size: 16px;
+    color: #fff;
+    font-size: 16px;
 }
+
 #customMessage .list_tt {
-  width: 100%;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 #customMessage .list_tt:last-of-type {
-  margin-top: 30px;
-  margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
+
 #customMessage .list_tt button {
-  width: 90px;
-  height: 30px;
-  background-color: #fcc434;
-  border-radius: 16px;
-  color: white;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+    width: 90px;
+    height: 30px;
+    background-color: #fcc434;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
 #customMessage .list_tt button:active {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Tạo bóng trắng */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    /* Tạo bóng trắng */
 }
+
 #customMessage.hidden {
-  display: none; /* Ẩn hoàn toàn phần tử */
+    display: none;
+    /* Ẩn hoàn toàn phần tử */
 }
 
 #customMessage.show {
-  display: flex; /* Hiển thị lại phần tử */
-  opacity: 1; /* Mờ dần vào */
-  transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi xuất hiện */
+    display: flex;
+    /* Hiển thị lại phần tử */
+    opacity: 1;
+    /* Mờ dần vào */
+    transform: translate(-50%, -50%) scale(1.1);
+    /* Phóng to nhẹ khi xuất hiện */
 }
+
 #showMessageButton:disabled {
     cursor: not-allowed;
     opacity: 0.5;

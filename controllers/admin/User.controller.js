@@ -9,8 +9,8 @@ class UserController {
         const users = await User.find({});
         // format ngày tạo
         users.map(user => {
-            user.createdAt = fomatDate(user.createdAt)
             user.createdFormat = fomatDate(user.createdAt)
+            user.fullname = user.firstname + " " + user.lastname;
         })
 
         res.render("admin/user/index",
@@ -38,7 +38,8 @@ class UserController {
         const record = await User.findOne({ _id: id })
 
         // format lại ngày tạo
-        record.createdAt = fomatDate(record.createdAt)
+        record.createdFormat = fomatDate(record.createdAt)
+        record.fullname = record.firstname + " " + record.lastname;
         res.render("admin/user/edit",
             {
                 title: "Customer",

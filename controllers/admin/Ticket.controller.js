@@ -5,7 +5,10 @@ class TicketController {
     // [GET] /admin/ticket
     async index(req, res, err) {
         const tickets = await Ticket.find({});
-        
+        for await (const item of tickets) {
+            item.movie_info = await Movie.findOne({ _id: item.id_movie })
+        }
+
         res.render("admin/ticket/index",
             {
                 title: "Ticket",
@@ -33,15 +36,18 @@ class TicketController {
         req.flash("success", "Thêm vé thành công!!")
         res.redirect('back')
     }
-    // [GET] /admin/ticket/:id
+    // [GET] /admin/ticket/edit/:id
     async edit(req, res, err) {
         let id = req.params.id;
-        const record = await Movie.findOne({ _id: id })
-        res.render("admin/movie/edit",
+        const record = await Ticket.findOne({ _id: id })
+        console.log(record)
+        const movies = await Movie.find({})
+        res.render("admin/ticket/edit",
             {
                 title: "Ticket",
                 TitlePage: "Ticket",
-                record: record
+                ticket: record,
+                movies
             }
         );
     }

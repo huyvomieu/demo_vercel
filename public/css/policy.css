@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/poppins_light.otf") format("truetype");
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins";
+    background-color: black;
+    width: 95% !important;
+}
+#header-placeholder {
+    margin-bottom: 100px;
+}
+.accordion-button {
+    background-color: black !important; /* Nền nút accordion */
+    color: #fcc434 !important; /* Màu chữ trên nút accordion */
+    padding: 20px 20px;
+    font-size: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #333 !important; /* Nền khi accordion mở */
+    color: #fcc434 !important; /* Màu chữ khi mở */
+}
+
+.accordion-body {
+    background-color: black; /* Nền nội dung accordion */
+    color: white; /* Màu chữ nội dung */
+}
+
+.accordion-item {
+    border: 1px solid gray; /* Bỏ viền giữa các accordion item */
+}
+
+.accordion-button:hover {
+    background-color: rgba(122, 117, 117, 1) !important;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+li {
+    list-style: circle;
+    font-size: 16px;
+    line-height: 2.5rem;
+}
+ul > h2 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+}

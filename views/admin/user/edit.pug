@@ -1,14 +1,18 @@
 extends ../layouts/main.pug
 block content
-    .form.my-3
-        form(class= "form" action=`/admin/user/edit/${record._id}?_method=PATCH`, method="post")
-            .form-group
-                label() Email
-                input.form-control(type="text", placeholder="", id="email", name="email" value=record.email)
-            .form-group
-                label() FullName
-                input.form-control(type="text", placeholder="", id="fullname", name="fullname" value=record.fullname)
-            .form-group
-                label() Ngày  tạo
-                input.form-control(type="text", placeholder="", id="createdAt", name="createdAt" value=record)
-            button(type="submit" class="btn btn-primary") Update
+    table(class='table')
+        thead
+            tr
+                th(colspan="4" class="text-center ")
+                    h3 Chi tiết tài khoản
+            tr 
+                td  Email
+                th #{record.email}
+            tr 
+                td Họ tên
+                th #{record.fullname}
+            tr 
+                td Thời gian tạo 
+                th #{record.createdFormat}
+            tr 
+                td Danh sách vẽ đã đặt

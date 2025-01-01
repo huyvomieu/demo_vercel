@@ -11,19 +11,17 @@ block content
                 th Giá vé
                 th Ngày giờ chiếu
                 th Phòng chiếu phim
-                th Ghế đã đặt
                 th
         tbody
             - var count = 1
             each ticket in tickets
                 tr
                     td #{count++}
-                    td #{ticket.id_movie}
+                    td #{ticket.movie_info.name}
                     td #{ticket.quantity}
                     td #{ticket.price}VND
                     td #{ticket.timestart}-#{ticket.datestart}
                     td #{ticket.place}
-                    td 
                     td
                         a(href= `/admin/ticket/edit/${ticket.id}` class= "btn btn-primary") Edit
                         button(type="button" class= "btn btn-danger" data-id=ticket.id  data-toggle="modal" data-target="#ModalDelete" btn-delete-ticket) Delete

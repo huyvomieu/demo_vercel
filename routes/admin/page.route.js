@@ -6,6 +6,7 @@ const authMiddleware = require('../../middlewares/auth.middleware')
 
 Router.get("/", authMiddleware, PageController.dashboard)
 Router.get("/login", PageController.login)
+Router.get("/report", PageController.report)
 Router.post("/login", PageController.loginPost)
 Router.get("/logout", authMiddleware, PageController.logout)
 

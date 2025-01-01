@@ -1,0 +1,59 @@
+extends ../layouts/main.pug
+block content
+    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+        h1.h2 Report
+    .row 
+        .col-3
+            table.table-bordered.table-hover
+                tr
+                    th Tổng số lượng phim
+                tr
+                    td Đang khởi chiếu
+                    td #{movie.movieActive}
+                tr 
+                    td Sắp khởi chiếu
+                    td #{movie.movieActive}
+                tr 
+                    th Tổng
+                    td #{movie.movieActive + movie.movieActive }
+        .col-3
+            table.table-bordered.table-hover
+                tr
+                    th(colspan="2") Tổng số lượng vé
+                tr
+                    td Đã đặt
+                    td #{ticket.ticketdd}
+                tr 
+                    td Chưa được đặt
+                    td #{ticket.ticketcd}
+                tr 
+                    th Tổng
+                    td #{ticket.ticketTotal}
+        .col-3
+            table.table-bordered.table-hover
+                tr
+                    th(colspan="2") Tổng số lượng người dùng
+                tr
+                    td Hoạt động
+                    td #{user.userActive}
+                tr 
+                    td Khóa
+                    td #{user.userblock}
+                tr 
+                    th Tổng
+                    td #{user.userActive + user.userblock}
+        .col-3
+            table.table-bordered.table-hover
+                tr
+                    th(colspan="2") Tổng số lượng đơn hàng
+                tr
+                    td Đã đặt
+                    td #{order.orderSuccess}
+                tr 
+                    td Đang chờ thanh toán 
+                    td #{order.orderProcess}
+
+                tr 
+                    td Đã hủy
+                    td #{order.orderCancel}
+

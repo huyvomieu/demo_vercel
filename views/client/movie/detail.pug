@@ -196,9 +196,9 @@ block content
             a(href="/user/login")
               button.buyticket(type='button') Login for continue
 
-    form(action="/order/checkout", method="post" id='formSubmit') 
+    form(action="/order/create_payment_url", method="post" id='formSubmit') 
       #customMessage.hidden
-        img.qr(src='/image/detail_imgae/qr thanh toan.png' alt='qr thanh toan')
+        //- img.qr(src='/image/detail_imgae/qr thanh toan.png' alt='qr thanh toan')
         if(UserInfor)
           input(type="hidden" id='user_id' name="user_id" value= UserInfor._id)
         input(type="hidden" id='order_id' name="order_id" )

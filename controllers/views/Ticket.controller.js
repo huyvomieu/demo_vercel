@@ -9,6 +9,7 @@ class TicketController {
             res.redirect('/user/login');
             return;
         }
+        // UserInfo.id là id người dùng
         const records = await Order.find({user_id:UserInfo.id });
         for await (const record of records) {
             record.MovieInfo = await Movie.findOne({_id: record.movie_id})
