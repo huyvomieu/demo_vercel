@@ -11,6 +11,7 @@ class MovieController {
         const movies = await Movie.find(find).limit(5);
         res.json(movies);
     }
+
     // [GET] /api/v1/movie/detail/:id
     async detail(req, res, err) {
         try {

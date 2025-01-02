@@ -9,59 +9,50 @@ block content
       .pl
         ul.menu
          each record in records
-          li#toggleElement.toggle-element(onclick='showTicketDetail(0)')
+          li#toggleElement.toggle-element(onclick=`showTicketDetail('${record.order_id}')`)
             .left
-              img(src=  record.MovieInfo.avatar alt='')
+              img(src= record.MovieInfo.avatar alt='')
             .middle
               p.namefilm #{record.MovieInfo.name}
               .time
-                p.date #{record.time}
-                p.hour Time : 10:00 AM
+                p.date #{record.time.split(',')[1]}
+                p.hour #{record.time.split(',')[0]}
               p.mseat #{record.seats}
             .right &gt;
-      .tk_pr
+      each record in records
+       .tk_pr(order_id = record.order_id)
           .line
             p Order ID
-            p#orderID XXXXXXXXX
+            p#orderID 
           .line
             span Seats
-            p#seats_buy XX
+            p#seats_buy #{record.seats}
           .line
             span Date
-            p#datetimeticket XX/XX/XXXX
+            p#datetimeticket #{record.time.split(',')[1]}
           .line
             span Time
-            p#time XX:XX am
+            p#time #{record.time.split(',')[0]}
           .line
             span Room
-            p#Room XXXXXXXXXX
+            p#Room PH1
           .line
             span Price
             p#price
-              | XXXXXXXXXX 
+              | #{record.price}
               span VND
           .line
             span Discount
-            p#discount XX%
+            p#discount 00%
           .line.thanh
           .line.total
             span Total Price
             p#totalPrice.totalprice
-              | XXXXXXXX 
+              | #{record.total}
               span  VND
           .line.buytick
             button#closeMessageButton.buyticket(type='button' onclick='resetDetail()')
               | Close
-    // // thông báo
-    //
-      <div id="customMessage" class="hidden">
-      <div class="list_tt">
-      <p>You want to cancel movie ticket?</p>
-      </div>
-      <div class="list_tt">
-      <button id="closeMessageButton">Close</button>
-      <button id="acceptMessageButton">Accept</button>
-      </div>
-      </div>
+
   section.detailOfticket
   script(src="/javascript/listTicketOrder.js") 
