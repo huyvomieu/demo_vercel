@@ -2,9 +2,6 @@ extends ../layouts/default.pug
 block content
     main
     // Nội dung chính của trang
-    .np_cs_btn
-        button.nowplaying_btn Now Playing
-        button.commingsoon_btn Comming Soon
     each movieArr in movies
         .box_list_movie
             each movie in movieArr

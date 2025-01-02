@@ -1,29 +1,26 @@
-
-var searchinput = document.getElementById('search-input');
-var searchResults = document.querySelector(".search-results")
+var searchinput = document.getElementById("search-input");
+var searchResults = document.querySelector(".search-results");
 // Biến để lưu timeout
 let debounceTimeout;
-
 
 function getListMovie(e) {
     let valueSearch = searchinput.value;
     if (!valueSearch) {
-        searchResults.style.display = "none"
-        return
-    }
-    else {
+        searchResults.style.display = "none";
+        return;
+    } else {
         fetch(`${window.location.origin}/api/v1/movie/index?q=${valueSearch}`)
-            .then(response => response.json())
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 let movies = [...data];
                 if (movies.length == 0) {
-                    console.log("ok")
+                    console.log("ok");
                     searchResults.innerHTML = `<div> <b> Phim hiện chưa có trong danh sách! </b> </div>`;
-                }
-                else {
+                } else {
                     searchResults.innerHTML = "";
-                    const htmls = movies.map(movie => {
-                        return `
+                    const htmls = movies
+                        .map((movie) => {
+                            return `
                         <div class='item'>
                             <a href='/movie/${movie._id}'>
                                 <div class='img'>
@@ -36,15 +33,15 @@ function getListMovie(e) {
                             </a>
                         </div>
                         `;
-                    }).join('')
-                    searchResults.innerHTML = htmls
-                    searchResults.style.display = "block"
+                        })
+                        .join("");
+                    searchResults.innerHTML = htmls;
+                    searchResults.style.display = "block";
                 }
-
             })
             .catch(() => {
-                console.log("error")
-            })
+                console.log("error");
+            });
     }
 }
 if (searchinput) {
@@ -53,7 +50,13 @@ if (searchinput) {
         clearTimeout(debounceTimeout);
         // Đặt timeout mới
         debounceTimeout = setTimeout(() => {
-                getListMovie()
-        }, 1500); // 1.5 giây
-    })
+            getListMovie();
+        }, 2000); // 2 giây
+    });
+
+    document
+        .getElementById("search_btn")
+        .addEventListener("click", function () {
+            getListMovie();
+        });
 }
