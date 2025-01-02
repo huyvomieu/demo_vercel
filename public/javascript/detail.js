@@ -27,12 +27,18 @@ document.getElementById("dateInput").addEventListener("change", (e) => {
     });
 });
 document.getElementById("timeofTicket").addEventListener("change", (e) => {
+  var seatContainer = document.querySelector('#seat-container')
   var ticket = dsTicket.filter(item => item.timestart == e.target.value)[0];
   var arraySeats = ticket.seats;
-  if (arraySeats) {
+  if (arraySeats.length > 0) {
     for (const seat of arraySeats) {
-      document.querySelector(`div[data-seat="${seat}"]`).classList.replace('seat', 'conguoidat')
+      seatContainer.querySelector(`div[data-seat="${seat}"]`).classList.replace('seat', 'conguoidat')
     }
+  }
+  else {
+    seatContainer.querySelectorAll(`.conguoidat`).forEach(seatItem => {
+      seatItem.classList.replace('conguoidat', 'seat')
+    });
   }
 });
 
@@ -173,7 +179,10 @@ function submittime() {
   const price =
     selectedTime.options[selectedTime.selectedIndex].getAttribute("price");
 
-  console.log(price);
+  if (!price) {
+    alert("Không có giờ chiếu nào với ngày bạn chọn! \nVui lòng chọn ngày khác")
+    return
+  }
   // Tạo chuỗi thời gian đã chọn
   const timedachon = `${timeofTicket}, ${dateInput}`;
 
