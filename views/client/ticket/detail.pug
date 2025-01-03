@@ -22,8 +22,8 @@ block content
       each record in records
        .tk_pr(order_id = record.order_id)
           .line
-            p Order ID
-            p#orderID 
+            p Order ID 
+            p#orderID #{record.order_id}
           .line
             span Seats
             p#seats_buy #{record.seats}
